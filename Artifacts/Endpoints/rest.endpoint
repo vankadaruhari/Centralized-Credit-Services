@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsEndpoint:HTTPEndpoint xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:nsEndpoint="http://xcp.emc.com/endpoint" urn="urn:ccs:com.emc.xcp.artifact.endpoint:Artifacts/Endpoints/rest.endpoint" categoryId="com.emc.xcp.artifact.endpoint" name="rest" label="REST" url="http://172.16.1.8:8000/Centralized_Credit_Services" username="dmadmin" password="DM_ENCR_TEXT_V2=AAAAEAqJVBNi+GALHzxFmS9Q/MmrCZxx+fOcROcX7c1OOLNGQNRoalKGTZ3Lz58fDVbetNJu0Q0//PHctX5HhquLU2C4av/lkvdPhdARuneX1vEE"/>

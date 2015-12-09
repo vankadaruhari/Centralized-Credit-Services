@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contextmenu:ContextMenu xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:contextmenu="http://www.emc.com/xcp2/2010/contextmenu" xmlns:nsDataservice="http://xcp.emc.com/Dataservice" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:ccs:com.emc.xcp.artifact.contextmenu:Artifacts/Context Menus/security_compliance.contextmenu" categoryId="com.emc.xcp.artifact.contextmenu" name="security_compliance" label="Context Menu">
+  <actions xsi:type="nsDataservice:DataAction" categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_update_security_compliance_security_compliance" label="Update Security Compliance Certificate">
+    <inputMappings name="attachment_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="document_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="document_type">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="is_attachment_exists">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="is_condition_met">
+      <expression exprStr="true"/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="security_compliance.id"/>
+    </inputMappings>
+    <inputMappings name="object_name">
+      <expression/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/security_compliance.businessobj#//@dataActionContracts[name='da_def_update_security_compliance']"/>
+  </actions>
+  <actions xsi:type="nsDataservice:DataAction" categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_update_security_compliance_1_security_compliance" label="Update Security Compliance Certificate-1">
+    <inputMappings name="attachment_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="document_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="document_type">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="is_attachment_exists">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="is_condition_met">
+      <expression exprStr="false"/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="security_compliance.id"/>
+    </inputMappings>
+    <inputMappings name="object_name">
+      <expression/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/security_compliance.businessobj#//@dataActionContracts[name='da_def_update_security_compliance']"/>
+  </actions>
+  <actionInstanceProperty actionInstance="//@actions[name='da_def_update_security_compliance_security_compliance']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='da_def_update_security_compliance_1_security_compliance']"/>
+  <primaryModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/security_compliance.businessobj#/"/>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="Yes" action="//@actions[name='da_def_update_security_compliance_security_compliance']" id="contextmenu_action">
+    <actionProperties name="isHidden" value="" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="defaultConfirmationPrompt" value="Are you sure you want to update the item?" entry="//@items.0/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="showConfirmation" value="true" type="BOOLEAN" entry="//@items.0/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="redirectStyle" value="none" entry="//@items.0/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.0/@actionProperties.2/@action/@propertyMap.3"/>
+        <properties name="showSuccessNotification" value="false" type="BOOLEAN" entry="//@items.0/@actionProperties.2/@action/@propertyMap.4"/>
+        <properties name="actionType" value="update" entry="//@items.0/@actionProperties.2/@action/@propertyMap.5"/>
+        <propertyMap key="defaultConfirmationPrompt" value="//@items.0/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="showConfirmation" value="//@items.0/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="redirectStyle" value="//@items.0/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="pageSelectionType" value="//@items.0/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="showSuccessNotification" value="//@items.0/@actionProperties.2/@action/@properties.4"/>
+        <propertyMap key="actionType" value="//@items.0/@actionProperties.2/@action/@properties.5"/>
+      </action>
+    </actionProperties>
+  </items>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="No" action="//@actions[name='da_def_update_security_compliance_1_security_compliance']" id="contextmenu_action2">
+    <actionProperties name="isHidden" value="" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="defaultConfirmationPrompt" value="Are you sure you want to update the item?" entry="//@items.1/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="showConfirmation" value="true" type="BOOLEAN" entry="//@items.1/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="redirectStyle" value="none" entry="//@items.1/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.1/@actionProperties.2/@action/@propertyMap.3"/>
+        <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@items.1/@actionProperties.2/@action/@propertyMap.4"/>
+        <properties name="actionType" value="update" entry="//@items.1/@actionProperties.2/@action/@propertyMap.5"/>
+        <propertyMap key="defaultConfirmationPrompt" value="//@items.1/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="showConfirmation" value="//@items.1/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="redirectStyle" value="//@items.1/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="pageSelectionType" value="//@items.1/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="showSuccessNotification" value="//@items.1/@actionProperties.2/@action/@properties.4"/>
+        <propertyMap key="actionType" value="//@items.1/@actionProperties.2/@action/@properties.5"/>
+      </action>
+    </actionProperties>
+  </items>
+  <items xsi:type="contextmenu:SeperatorItem"/>
+</contextmenu:ContextMenu>

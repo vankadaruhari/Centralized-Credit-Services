@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<realtime:RealTimeSearch xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:realtime="http://xcp.emc.com/search/realtime" urn="urn:ccs:com.emc.xcp.artifact.search.realtime:Artifacts/Real-time Queries/get_directors.realtime" categoryId="com.emc.xcp.artifact.search.realtime" name="get_directors" label="Get Directors">
+  <datasource categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="get_directors" label="Get Directors" implCategoryId="com.emc.xcp.artifact.search.realtime">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="input_parent_folders" label="Parent Folders">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="Result Count">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:ArrayElement" name="Results">
+      <item xsi:type="nsDataserviceContract:StructureElement" name="Items">
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object ID">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="father_name" label="Father Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="mother_name" label="Mother Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="director_address" label="Director Address">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="director_position" label="Director Position">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="string_share_holding" label="String Share Holding">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="net_worth" label="Net Worth">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_object_type" label="Object type" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+      </item>
+    </outputs>
+    <primaryElement>
+      <dataModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+    </primaryElement>
+  </datasource>
+  <inputParameters label="Parent Folders" name="parent_folders">
+    <formInputs xsi:type="realtime:RealTimeStringFormInput" operator="com.emc.xcp.model.common.StringOperator:EQUAL">
+      <contextSelection>
+        <parentRef>
+          <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+        </parentRef>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='i_folder_id']"/>
+      </contextSelection>
+    </formInputs>
+  </inputParameters>
+  <columns label="Object ID">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='r_object_id']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Name">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='object_name']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Father Name">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#//@attributes[name='father_name']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Mother Name">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#//@attributes[name='mother_name']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Director Address">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#//@attributes[name='director_address']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Director Position">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#//@attributes[name='director_position']"/>
+    </contextSelection>
+  </columns>
+  <columns label="String Share Holding">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#//@attributes[name='string_share_holding']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Net Worth">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#//@attributes[name='net_worth']"/>
+    </contextSelection>
+  </columns>
+  <defaultSort ascending="true"/>
+  <dataType xsi:type="nsDatatypes:BusinessObject" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+  <resultOrientation>
+    <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+  </resultOrientation>
+</realtime:RealTimeSearch>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/update_directors.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="update_directors" label="Update Directors" initialState="//@states[id='viewState_update_directors_st']">
+  <inputs xsi:type="actionflow:ActionFlowElement" name="director_address" label="Director Address">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="director_position" label="Director Position">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="father_name" label="Father Name">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="mother_name" label="Mother Name">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="net_worth" label="Net Worth">
+    <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="16"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="object_name" label="Name">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="32"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="string_share_holding">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#/"/>
+  </primaryElement>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_update_directors_da_def_update_directors" label="Update Directors">
+    <inputMappings name="director_address">
+      <expression exprStr="actionflow.steps.update_directors_st.widgets.address.value"/>
+    </inputMappings>
+    <inputMappings name="director_position">
+      <expression exprStr="actionflow.steps.update_directors_st.widgets.position.value"/>
+    </inputMappings>
+    <inputMappings name="father_name">
+      <expression exprStr="actionflow.steps.update_directors_st.widgets.father.value"/>
+    </inputMappings>
+    <inputMappings name="mother_name">
+      <expression exprStr="actionflow.steps.update_directors_st.widgets.mother.value"/>
+    </inputMappings>
+    <inputMappings name="net_worth">
+      <expression exprStr="actionflow.steps.update_directors_st.widgets.net_worth.value"/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="actionflow.Inputs.id"/>
+    </inputMappings>
+    <inputMappings name="object_name">
+      <expression exprStr="actionflow.steps.update_directors_st.widgets.name.value"/>
+    </inputMappings>
+    <inputMappings name="string_share_holding">
+      <expression exprStr="actionflow.steps.update_directors_st.widgets.share_holding.value"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/directors.businessobj#//@dataActionContracts[name='da_def_update_directors']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_update_directors_da_def_update_directors']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_update_directors_da_def_update_directors']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_update_directors_st">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <step href="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/update_directors_st.uistep#/"/>
+  </states>
+  <transitionLabels transition="finish" label="Finish">
+    <labelExpression/>
+  </transitionLabels>
+</actionflow:ActionFlow>

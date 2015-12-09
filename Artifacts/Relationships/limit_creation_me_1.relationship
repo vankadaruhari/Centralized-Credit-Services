@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsDatatypes:Relation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" urn="urn:ccs:com.emc.xcp.artifact.relation:Artifacts/Relationships/limit_creation_me_1.relationship" categoryId="com.emc.xcp.artifact.relation" name="limit_creation_me_1" label="Limit Creation Memo-Limit Creation Memo Facilities" targetRoleName="limit_creation_memo_facilit" targetRoleLabel="Limit Creation Memo Facilities" fromCardinality="1" subjectRoleName="limit_creation_memo" subjectRoleLabel="Limit Creation Memo" toCardinality="-1">
+  <from xsi:type="nsDatatypes:BusinessObject" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/limit_creation_memo.businessobj#/"/>
+  <to xsi:type="nsDatatypes:BusinessObject" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/limit_creation_fac.businessobj#/"/>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_relate_limit_creation_me_1_limit_creation_memo" label="Relate Limit Creation Memo-Limit Creation Memo Facilities Limit Creation Memo" implCategoryId="com.emc.xcp.artifact.relation">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="targetId">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType xsi:type="nsDataserviceContract:RelateActionType" type="Relate">
+      <target href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/limit_creation_memo.businessobj#/"/>
+    </actionType>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_update_limit_creation_me_1" label="Update Limit Creation Memo-Limit Creation Memo Facilities" implCategoryId="com.emc.xcp.artifact.relation">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Update"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_delete_limit_creation_me_1" label="Delete Limit Creation Memo-Limit Creation Memo Facilities" implCategoryId="com.emc.xcp.artifact.relation">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Delete"/>
+  </dataActionContracts>
+</nsDatatypes:Relation>

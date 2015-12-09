@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/update_allied_conce.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="update_allied_conce" label="Update Allied Concerns" initialState="//@states[id='viewState_update_allied_conce']">
+  <inputs xsi:type="actionflow:ActionFlowElement" name="business_nature" label="Business Nature">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="concern_address" label="Concern Address">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="16"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="object_name" label="Name">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="32"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="remarks">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="share_holding">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/allied_concerns.businessobj#/"/>
+  </primaryElement>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_update_allied_conce_da_def_update_allied_concerns" label="Update Allied Concerns">
+    <inputMappings name="business_nature">
+      <expression exprStr="actionflow.steps.update_allied_conce.widgets.business_nature.value"/>
+    </inputMappings>
+    <inputMappings name="concern_address">
+      <expression exprStr="actionflow.steps.update_allied_conce.widgets.address.value"/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="actionflow.Inputs.id"/>
+    </inputMappings>
+    <inputMappings name="object_name">
+      <expression exprStr="actionflow.steps.update_allied_conce.widgets.name.value"/>
+    </inputMappings>
+    <inputMappings name="remarks">
+      <expression exprStr="actionflow.steps.update_allied_conce.widgets.remarks.value"/>
+    </inputMappings>
+    <inputMappings name="share_holding">
+      <expression exprStr="actionflow.steps.update_allied_conce.widgets.share_holding.value"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/allied_concerns.businessobj#//@dataActionContracts[name='da_def_update_allied_concerns']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_update_allied_conce_da_def_update_allied_concerns']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_update_allied_conce_da_def_update_allied_concerns']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_update_allied_conce">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <step href="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/update_allied_conce.uistep#/"/>
+  </states>
+  <transitionLabels transition="finish" label="Finish">
+    <labelExpression/>
+  </transitionLabels>
+</actionflow:ActionFlow>

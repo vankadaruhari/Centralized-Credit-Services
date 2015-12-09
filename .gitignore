@@ -1,0 +1,5 @@
+gen/
+META-INF/
+configuration/
+.generatedresources
+.index

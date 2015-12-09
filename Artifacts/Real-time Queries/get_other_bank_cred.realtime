@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<realtime:RealTimeSearch xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:realtime="http://xcp.emc.com/search/realtime" urn="urn:ccs:com.emc.xcp.artifact.search.realtime:Artifacts/Real-time Queries/get_other_bank_cred.realtime" categoryId="com.emc.xcp.artifact.search.realtime" name="get_other_bank_cred" label="Get Other Bank Credit Facilties">
+  <datasource categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="get_other_bank_cred" label="Get Other Bank Credit Facilties" implCategoryId="com.emc.xcp.artifact.search.realtime">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="input_parent_folders" label="Parent Folders">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="Result Count">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:ArrayElement" name="Results">
+      <item xsi:type="nsDataserviceContract:StructureElement" name="Items">
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object ID">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="bank" label="Bank">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="branch" label="Branch">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="nature_of_facility" label="Nature of Facility">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="sanctioned_limit" label="Sanctioned Limit">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="present_outstanding" label="Present Outstanding">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="expiry" label="Expiry">
+          <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_facility_status" label="Credit Facility Status">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="serial_number" label="Serial Number">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_lock_owner" label="Locked by" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_object_type" label="Object type" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+      </item>
+    </outputs>
+    <primaryElement>
+      <dataModel href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+    </primaryElement>
+  </datasource>
+  <inputParameters label="Parent Folders" name="parent_folders">
+    <formInputs xsi:type="realtime:RealTimeStringFormInput" operator="com.emc.xcp.model.common.StringOperator:EQUAL">
+      <contextSelection>
+        <parentRef>
+          <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+        </parentRef>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='i_folder_id']"/>
+      </contextSelection>
+    </formInputs>
+  </inputParameters>
+  <columns label="Object ID">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='r_object_id']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Name">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='object_name']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Bank">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#//@attributes[name='bank']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Branch">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#//@attributes[name='branch']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Nature of Facility">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#//@attributes[name='nature_of_facility']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Sanctioned Limit">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#//@attributes[name='sanctioned_limit']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Present Outstanding">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#//@attributes[name='present_outstanding']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Expiry">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#//@attributes[name='expiry']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Credit Facility Status">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#//@attributes[name='credit_facility_status']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Serial Number">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#//@attributes[name='serial_number']"/>
+    </contextSelection>
+  </columns>
+  <defaultSort ascending="true"/>
+  <dataType xsi:type="nsDatatypes:Document" href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+  <resultOrientation>
+    <dataRef href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+  </resultOrientation>
+</realtime:RealTimeSearch>

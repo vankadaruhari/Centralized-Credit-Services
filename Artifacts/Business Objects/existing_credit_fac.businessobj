@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsDatatypes:BusinessObject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" urn="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj" categoryId="com.emc.xcp.artifact.bo" name="existing_credit_fac" label="Existing Credit Facilties">
+  <attributes name="company" label="Company">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="1500"/>
+  </attributes>
+  <attributes name="facility_type" label="Facility Type">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="1500"/>
+  </attributes>
+  <attributes name="facility_limit" label="Facility Limit">
+    <type xsi:type="nsAttributeDatatypes:FloatType"/>
+  </attributes>
+  <attributes name="outstanding" label="Outstanding">
+    <type xsi:type="nsAttributeDatatypes:FloatType"/>
+  </attributes>
+  <attributes name="validity" label="Validity">
+    <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+  </attributes>
+  <attributes name="security_collateral" label="Security / Collateral" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <accessControlPolicy inheritedFromParentFolder="true"/>
+  <defaultFolderPath/>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_existing_credit_fac" label="Create Existing Credit Facilties" implCategoryId="com.emc.xcp.artifact.bo">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="company" label="Company">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="facility_limit" label="Facility Limit">
+      <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="facility_type" label="Facility Type">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="outstanding" label="Outstanding">
+      <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="security_collateral" label="Security / Collateral" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="validity" label="Validity">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Create"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_update_existing_credit_fac" label="Update Existing Credit Facilties" implCategoryId="com.emc.xcp.artifact.bo">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="company" label="Company">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="facility_limit" label="Facility Limit">
+      <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="facility_type" label="Facility Type">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="outstanding" label="Outstanding">
+      <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="security_collateral" label="Security / Collateral" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="validity" label="Validity">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Update"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_delete_existing_credit_fac" label="Delete Existing Credit Facilties" implCategoryId="com.emc.xcp.artifact.bo">
+    <primaryElement dataModel="/"/>
+    <actionType type="Delete"/>
+  </dataActionContracts>
+  <superType xsi:type="nsDatatypes:BusinessObject" href="urn:xcp:com.emc.xcp.artifact.bo:Artifacts/Business Objects/rootbo.businessobj#/"/>
+</nsDatatypes:BusinessObject>

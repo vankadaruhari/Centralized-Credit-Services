@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsEndpoint:EmailEndpoint xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:nsEndpoint="http://xcp.emc.com/endpoint" urn="urn:ccs:com.emc.xcp.artifact.endpoint:Artifacts/Endpoints/mail.endpoint" categoryId="com.emc.xcp.artifact.endpoint" name="mail" label="mail" hostname="smtp.gmail.com" username="vankadaruhari@gmail.com" password="DM_ENCR_TEXT_V2=AAAAEEHka+34IXlyCp37hKjpoEYgkeMngvs68a5h5A6gI648UG+DXygalFpyStWEcroaJ9ib/dmT80msmqr5Apc+IvUYuZw64cK67pJDg8ToTlJI"/>

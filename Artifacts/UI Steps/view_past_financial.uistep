@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:UIStep xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/view_past_financial.uistep" categoryId="com.emc.xcp.artifact.uistep" name="view_past_financial" label="Step 1" templateType="uistep">
+  <rootContainer widgetEntry="//@widgetMap[key='root']">
+    <properties name="xcpId" value="root" entry="//@rootContainer/@propertyMap.0"/>
+    <propertyMap key="xcpId" value="//@rootContainer/@properties.0"/>
+    <children componentDefinitionId="xcp_value_display" parent="//@rootContainer" widgetEntry="//@widgetMap[key='object_name']">
+      <properties name="fieldLabel" value="Object Name" entry="//@rootContainer/@children.0/@propertyMap.0"/>
+      <properties name="valueType" value="STRING" entry="//@rootContainer/@children.0/@propertyMap.1"/>
+      <properties name="isRepeating" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.2"/>
+      <properties name="name" value="" entry="//@rootContainer/@children.0/@propertyMap.3"/>
+      <properties name="cls" value="" entry="//@rootContainer/@children.0/@propertyMap.4"/>
+      <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@propertyMap.5">
+        <formatter componentDefinitionId="xcp_repeating_attribute_formatter">
+          <properties name="xtype" value="xcp_repeating_attribute_formatter" entry="//@rootContainer/@children.0/@properties.5/@formatter/@propertyMap.0"/>
+          <properties name="separatorStyle" value="NEWLINE" entry="//@rootContainer/@children.0/@properties.5/@formatter/@propertyMap.1"/>
+          <properties name="separator" value="COMMA" entry="//@rootContainer/@children.0/@properties.5/@formatter/@propertyMap.2"/>
+          <propertyMap key="xtype" value="//@rootContainer/@children.0/@properties.5/@formatter/@properties.0"/>
+          <propertyMap key="separatorStyle" value="//@rootContainer/@children.0/@properties.5/@formatter/@properties.1"/>
+          <propertyMap key="separator" value="//@rootContainer/@children.0/@properties.5/@formatter/@properties.2"/>
+        </formatter>
+      </properties>
+      <properties name="hstretch" value="" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.6"/>
+      <properties name="store" value="" entry="//@rootContainer/@children.0/@propertyMap.7"/>
+      <properties name="hidden" value="" entry="//@rootContainer/@children.0/@propertyMap.8"/>
+      <properties xsi:type="uitemplate:DataboundProperty" name="value" value="actionflow.Inputs.object_name" entry="//@rootContainer/@children.0/@propertyMap.9"/>
+      <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@propertyMap.10">
+        <formatter/>
+      </properties>
+      <properties name="xcpId" value="object_name" entry="//@rootContainer/@children.0/@propertyMap.11"/>
+      <propertyMap key="fieldLabel" value="//@rootContainer/@children.0/@properties.0"/>
+      <propertyMap key="valueType" value="//@rootContainer/@children.0/@properties.1"/>
+      <propertyMap key="isRepeating" value="//@rootContainer/@children.0/@properties.2"/>
+      <propertyMap key="name" value="//@rootContainer/@children.0/@properties.3"/>
+      <propertyMap key="cls" value="//@rootContainer/@children.0/@properties.4"/>
+      <propertyMap key="repeatingAttributeFormat" value="//@rootContainer/@children.0/@properties.5"/>
+      <propertyMap key="hstretch" value="//@rootContainer/@children.0/@properties.6"/>
+      <propertyMap key="store" value="//@rootContainer/@children.0/@properties.7"/>
+      <propertyMap key="hidden" value="//@rootContainer/@children.0/@properties.8"/>
+      <propertyMap key="value" value="//@rootContainer/@children.0/@properties.9"/>
+      <propertyMap key="format" value="//@rootContainer/@children.0/@properties.10"/>
+      <propertyMap key="xcpId" value="//@rootContainer/@children.0/@properties.11"/>
+    </children>
+    <children componentDefinitionId="xcp_viewer" parent="//@rootContainer" widgetEntry="//@widgetMap[key='viewer']">
+      <properties name="title" value="&lt;Document_name>" entry="//@rootContainer/@children.1/@propertyMap.0"/>
+      <properties name="docName" value="true" type="BOOLEAN" entry="//@rootContainer/@children.1/@propertyMap.1"/>
+      <properties name="objectId" value="actionflow.Inputs.object_id" entry="//@rootContainer/@children.1/@propertyMap.2"/>
+      <properties name="contentType" value="actionflow.Inputs.content_format" entry="//@rootContainer/@children.1/@propertyMap.3"/>
+      <properties name="height" value="650" type="INTEGER" entry="//@rootContainer/@children.1/@propertyMap.4"/>
+      <properties name="width" value="650" type="INTEGER" entry="//@rootContainer/@children.1/@propertyMap.5"/>
+      <properties name="prn" value="true" type="BOOLEAN" entry="//@rootContainer/@children.1/@propertyMap.6"/>
+      <properties name="thm" value="false" type="BOOLEAN" entry="//@rootContainer/@children.1/@propertyMap.7"/>
+      <properties name="ann" value="false" type="BOOLEAN" entry="//@rootContainer/@children.1/@propertyMap.8"/>
+      <properties name="man" value="false" type="BOOLEAN" entry="//@rootContainer/@children.1/@propertyMap.9"/>
+      <properties name="mdc" value="false" type="BOOLEAN" entry="//@rootContainer/@children.1/@propertyMap.10"/>
+      <properties name="hstretch" value="true" type="BOOLEAN" entry="//@rootContainer/@children.1/@propertyMap.11"/>
+      <properties name="disableFocusOnLoad" value="false" type="BOOLEAN" entry="//@rootContainer/@children.1/@propertyMap.12"/>
+      <properties name="xcpId" value="viewer" entry="//@rootContainer/@children.1/@propertyMap.13"/>
+      <propertyMap key="title" value="//@rootContainer/@children.1/@properties.0"/>
+      <propertyMap key="docName" value="//@rootContainer/@children.1/@properties.1"/>
+      <propertyMap key="objectId" value="//@rootContainer/@children.1/@properties.2"/>
+      <propertyMap key="contentType" value="//@rootContainer/@children.1/@properties.3"/>
+      <propertyMap key="height" value="//@rootContainer/@children.1/@properties.4"/>
+      <propertyMap key="width" value="//@rootContainer/@children.1/@properties.5"/>
+      <propertyMap key="prn" value="//@rootContainer/@children.1/@properties.6"/>
+      <propertyMap key="thm" value="//@rootContainer/@children.1/@properties.7"/>
+      <propertyMap key="ann" value="//@rootContainer/@children.1/@properties.8"/>
+      <propertyMap key="man" value="//@rootContainer/@children.1/@properties.9"/>
+      <propertyMap key="mdc" value="//@rootContainer/@children.1/@properties.10"/>
+      <propertyMap key="hstretch" value="//@rootContainer/@children.1/@properties.11"/>
+      <propertyMap key="disableFocusOnLoad" value="//@rootContainer/@children.1/@properties.12"/>
+      <propertyMap key="xcpId" value="//@rootContainer/@children.1/@properties.13"/>
+    </children>
+  </rootContainer>
+  <widgetMap key="root" value="//@rootContainer"/>
+  <widgetMap key="object_name" value="//@rootContainer/@children.0"/>
+  <widgetMap key="viewer" value="//@rootContainer/@children.1"/>
+  <primaryModel href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/past_financial_stat.content#/"/>
+</actionflow:UIStep>

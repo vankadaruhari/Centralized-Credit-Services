@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contextmenu:ContextMenu xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:contextmenu="http://www.emc.com/xcp2/2010/contextmenu" xmlns:nsDataservice="http://xcp.emc.com/Dataservice" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:uievent="http://www.emc.com/xcp2/2010/uievent" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:ccs:com.emc.xcp.artifact.contextmenu:Artifacts/Context Menus/existing_credit_fac.contextmenu" categoryId="com.emc.xcp.artifact.contextmenu" name="existing_credit_fac" label="Context Menu">
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="update_existing_cre_existing_credit_fac" label="Update Existing Credit Facilities">
+    <inputMappings name="company">
+      <expression exprStr="existing_credit_fac.company"/>
+    </inputMappings>
+    <inputMappings name="facility_limit">
+      <expression exprStr="existing_credit_fac.facility_limit"/>
+    </inputMappings>
+    <inputMappings name="facility_type">
+      <expression exprStr="existing_credit_fac.facility_type"/>
+    </inputMappings>
+    <inputMappings name="outstanding">
+      <expression exprStr="existing_credit_fac.outstanding"/>
+    </inputMappings>
+    <inputMappings name="security_collateral">
+      <expression exprStr="existing_credit_fac.security_collateral"/>
+    </inputMappings>
+    <inputMappings name="validity">
+      <expression exprStr="existing_credit_fac.validity"/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="existing_credit_fac.id"/>
+    </inputMappings>
+    <inputMappings name="object_name">
+      <expression exprStr="existing_credit_fac.object_name"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/update_existing_cre.actionflow#/"/>
+  </actions>
+  <actions xsi:type="nsDataservice:DataAction" categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_invoke_stateless_processdelete_existing_credit_facilities_initiate_existing_credit_fac" label="Delete Existing Credit Facilities">
+    <inputMappings name="processVariables.r_object_id">
+      <expression exprStr="existing_credit_fac.id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/delete_existing_credit_facilities.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='da_def_invoke_stateless_processdelete_existing_credit_facilities_initiate']"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="view_existing_credi_existing_credit_fac" label="View Existing Credit Facilities">
+    <inputMappings name="company">
+      <expression exprStr="existing_credit_fac.company"/>
+    </inputMappings>
+    <inputMappings name="facility_type">
+      <expression exprStr="existing_credit_fac.facility_type"/>
+    </inputMappings>
+    <inputMappings name="facility_limit">
+      <expression exprStr="existing_credit_fac.facility_limit"/>
+    </inputMappings>
+    <inputMappings name="outstanding">
+      <expression exprStr="existing_credit_fac.outstanding"/>
+    </inputMappings>
+    <inputMappings name="validity">
+      <expression exprStr="existing_credit_fac.validity"/>
+    </inputMappings>
+    <inputMappings name="security_collateral">
+      <expression exprStr="existing_credit_fac.security_collateral"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/view_existing_credi.actionflow#/"/>
+  </actions>
+  <actionInstanceProperty actionInstance="//@actions[name='update_existing_cre_existing_credit_fac']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='da_def_invoke_stateless_processdelete_existing_credit_facilities_initiate_existing_credit_fac']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='view_existing_credi_existing_credit_fac']"/>
+  <primaryModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#/"/>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="Update" action="//@actions[name='update_existing_cre_existing_credit_fac']" id="update">
+    <actionProperties name="isHidden" value="" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="defaultConfirmationPrompt" value="Are you sure you want to update the item?" entry="//@items.0/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="showConfirmation" value="true" type="BOOLEAN" entry="//@items.0/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="redirectStyle" value="none" entry="//@items.0/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.0/@actionProperties.2/@action/@propertyMap.3"/>
+        <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@items.0/@actionProperties.2/@action/@propertyMap.4"/>
+        <properties name="actionType" value="update" entry="//@items.0/@actionProperties.2/@action/@propertyMap.5"/>
+        <propertyMap key="defaultConfirmationPrompt" value="//@items.0/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="showConfirmation" value="//@items.0/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="redirectStyle" value="//@items.0/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="pageSelectionType" value="//@items.0/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="showSuccessNotification" value="//@items.0/@actionProperties.2/@action/@properties.4"/>
+        <propertyMap key="actionType" value="//@items.0/@actionProperties.2/@action/@properties.5"/>
+      </action>
+    </actionProperties>
+    <actionProperties name="menu_action_name" value="action_flow"/>
+  </items>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="View" action="//@actions[name='view_existing_credi_existing_credit_fac']" id="view">
+    <actionProperties name="isHidden" value="" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="redirectStyle" value="none" entry="//@items.1/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="showSuccessNotification" value="false" type="BOOLEAN" entry="//@items.1/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@items.1/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties name="actionType" value="create" entry="//@items.1/@actionProperties.2/@action/@propertyMap.3"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.1/@actionProperties.2/@action/@propertyMap.4"/>
+        <propertyMap key="redirectStyle" value="//@items.1/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="showSuccessNotification" value="//@items.1/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="showConfirmation" value="//@items.1/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="actionType" value="//@items.1/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="pageSelectionType" value="//@items.1/@actionProperties.2/@action/@properties.4"/>
+      </action>
+    </actionProperties>
+  </items>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="Delete" action="//@actions[name='da_def_invoke_stateless_processdelete_existing_credit_facilities_initiate_existing_credit_fac']" id="contextmenu_action4">
+    <actionProperties name="isHidden" value="" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="redirectStyle" value="none" entry="//@items.2/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@items.2/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="showConfirmation" value="true" type="BOOLEAN" entry="//@items.2/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties name="actionType" value="create" entry="//@items.2/@actionProperties.2/@action/@propertyMap.3"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.2/@actionProperties.2/@action/@propertyMap.4"/>
+        <propertyMap key="redirectStyle" value="//@items.2/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="showSuccessNotification" value="//@items.2/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="showConfirmation" value="//@items.2/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="actionType" value="//@items.2/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="pageSelectionType" value="//@items.2/@actionProperties.2/@action/@properties.4"/>
+      </action>
+    </actionProperties>
+  </items>
+  <publishedEvents>
+    <targetEvent href="urn:ccs:com.emc.xcp.artifact.uievent:Artifacts/UI Events/delete_existing_cre.uievent#/"/>
+    <sourceEvents xsi:type="uievent:WidgetEvent" widgetId="dataservices.da_def_invoke_stateless_processdelete_existing_credit_facilities_initiate_existing_credit_fac" eventName="success"/>
+    <trigger exprStr=""/>
+  </publishedEvents>
+</contextmenu:ContextMenu>

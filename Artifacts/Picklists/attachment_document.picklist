@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsPicklist:Picklist xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/attachment_document.picklist" categoryId="com.emc.xcp.artifact.picklist" name="attachment_document" label="Attachment Document Type">
+  <type xsi:type="nsAttributeDatatypes:StringType"/>
+  <entries label="Passport" value="Passport"/>
+  <entries label="Driving License" value="Driving License"/>
+  <entries label="Voter Card" value="Voter Card"/>
+</nsPicklist:Picklist>

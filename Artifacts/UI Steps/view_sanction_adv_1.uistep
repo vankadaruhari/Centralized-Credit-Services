@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:UIStep xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/view_sanction_adv_1.uistep" categoryId="com.emc.xcp.artifact.uistep" name="view_sanction_adv_1" label="Step 1" templateType="uistep">
+  <dataSources categoryId="com.emc.xcp.artifact.dataservice.datasource" name="get_content_type_from_the_document_initiate_staless_ds" label="Get Content Type from the Document">
+    <inputMappings name="processPackages.loan.id">
+      <expression exprStr="actionflow.Inputs.loan.id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataSourceContract" href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/get_content_type_from_the_document.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='get_content_type_from_the_document_initiate_staless_ds']"/>
+  </dataSources>
+  <actionInstanceProperty actionInstance="//@dataSources[name='get_content_type_from_the_document_initiate_staless_ds']"/>
+  <rootContainer widgetEntry="//@widgetMap[key='root']">
+    <properties name="xcpId" value="root" entry="//@rootContainer/@propertyMap.0"/>
+    <propertyMap key="xcpId" value="//@rootContainer/@properties.0"/>
+    <children componentDefinitionId="xcp_viewer" parent="//@rootContainer" widgetEntry="//@widgetMap[key='viewer']">
+      <properties name="title" value="&lt;Document_name>" entry="//@rootContainer/@children.0/@propertyMap.0"/>
+      <properties name="docName" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.1"/>
+      <properties name="objectId" value="dataservices.get_content_type_from_the_document_initiate_staless_ds.processVariables.object_id" entry="//@rootContainer/@children.0/@propertyMap.2"/>
+      <properties name="contentType" value="dataservices.get_content_type_from_the_document_initiate_staless_ds.processVariables.content_type" entry="//@rootContainer/@children.0/@propertyMap.3"/>
+      <properties name="height" value="650" type="INTEGER" entry="//@rootContainer/@children.0/@propertyMap.4"/>
+      <properties name="width" value="650" type="INTEGER" entry="//@rootContainer/@children.0/@propertyMap.5"/>
+      <properties name="prn" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.6"/>
+      <properties name="thm" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.7"/>
+      <properties name="ann" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.8"/>
+      <properties name="man" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.9"/>
+      <properties name="mdc" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.10"/>
+      <properties name="hstretch" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.11"/>
+      <properties name="disableFocusOnLoad" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.12"/>
+      <properties name="xcpId" value="viewer" entry="//@rootContainer/@children.0/@propertyMap.13"/>
+      <propertyMap key="title" value="//@rootContainer/@children.0/@properties.0"/>
+      <propertyMap key="docName" value="//@rootContainer/@children.0/@properties.1"/>
+      <propertyMap key="objectId" value="//@rootContainer/@children.0/@properties.2"/>
+      <propertyMap key="contentType" value="//@rootContainer/@children.0/@properties.3"/>
+      <propertyMap key="height" value="//@rootContainer/@children.0/@properties.4"/>
+      <propertyMap key="width" value="//@rootContainer/@children.0/@properties.5"/>
+      <propertyMap key="prn" value="//@rootContainer/@children.0/@properties.6"/>
+      <propertyMap key="thm" value="//@rootContainer/@children.0/@properties.7"/>
+      <propertyMap key="ann" value="//@rootContainer/@children.0/@properties.8"/>
+      <propertyMap key="man" value="//@rootContainer/@children.0/@properties.9"/>
+      <propertyMap key="mdc" value="//@rootContainer/@children.0/@properties.10"/>
+      <propertyMap key="hstretch" value="//@rootContainer/@children.0/@properties.11"/>
+      <propertyMap key="disableFocusOnLoad" value="//@rootContainer/@children.0/@properties.12"/>
+      <propertyMap key="xcpId" value="//@rootContainer/@children.0/@properties.13"/>
+    </children>
+  </rootContainer>
+  <widgetMap key="root" value="//@rootContainer"/>
+  <widgetMap key="viewer" value="//@rootContainer/@children.0"/>
+</actionflow:UIStep>

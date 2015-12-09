@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsEmailTemplate:EmailTemplate xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:nsEmailTemplate="http://xcp.emc.com/emailtemplate" urn="urn:ccs:com.emc.xcp.artifact.emailtemplate:Artifacts/Email Templates/test.emailtemplate" categoryId="com.emc.xcp.artifact.emailtemplate" name="test" label="test" subject="test subject" body="Test Mail from CCS"/>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsDatatypes:Document xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsCommon="http://xcp.emc.com/common" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" urn="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/proposal_attachment.content" categoryId="com.emc.xcp.artifact.doc" name="proposal_attachment" label="Proposal Attachment" commentable="true">
+  <attributes name="user_name" label="user_name">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="role" label="role">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="division_name" label="division_name">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="sequence_number" label="sequence_number">
+    <type xsi:type="nsAttributeDatatypes:IntegerType"/>
+  </attributes>
+  <eventConfigs label="Update Sequence Number upon Creation" description="Update Sequence Number upon Creation ">
+    <triggerType/>
+    <action xsi:type="nsCommon:ServiceEventAction">
+      <serviceBinding>
+        <service runtimeModuleName="SyncInvokeService">
+          <configParams name="CHILD_PROCESS_URN" value="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/update_proposal_attachment_sequence_number.process"/>
+        </service>
+        <inputMappingRules>
+          <expression exprStr="event.proposal_attachment.r_object_id"/>
+          <targetNode dataRef="/" selectionName="proposal_attachment" selectionLabel="proposal_attachment (Proposal Attachment)" useNamePreferred="true">
+            <parentRef selectionName="Packages" selectionLabel="Packages">
+              <parentRef>
+                <dataRef href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/update_proposal_attachment_sequence_number.process#/"/>
+              </parentRef>
+            </parentRef>
+          </targetNode>
+        </inputMappingRules>
+      </serviceBinding>
+    </action>
+    <condition exprStr=""/>
+  </eventConfigs>
+  <accessControlPolicy inheritedFromParentFolder="true"/>
+  <defaultFolderPath/>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_proposal_attachment" label="Create Proposal Attachment" implCategoryId="com.emc.xcp.artifact.doc">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="division_name" label="division_name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="role" label="role">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="sequence_number" label="sequence_number">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="user_name" label="user_name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Create"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_update_proposal_attachment" label="Update Proposal Attachment" implCategoryId="com.emc.xcp.artifact.doc">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="division_name" label="division_name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="role" label="role">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="sequence_number" label="sequence_number">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="user_name" label="user_name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Update"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_delete_proposal_attachment" label="Delete Proposal Attachment" implCategoryId="com.emc.xcp.artifact.doc">
+    <primaryElement dataModel="/"/>
+    <actionType type="Delete"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_import_proposal_attachment" label="Import Proposal Attachment" implCategoryId="com.emc.xcp.artifact.doc">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="user_name" label="user_name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="role" label="role">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="division_name" label="division_name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="sequence_number" label="sequence_number">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Import"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_importnewversion_proposal_attachment" label="ImportNewVersion Proposal Attachment" implCategoryId="com.emc.xcp.artifact.doc">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="division_name" label="division_name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="role" label="role">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="sequence_number" label="sequence_number">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="user_name" label="user_name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="ImportNewVersion"/>
+  </dataActionContracts>
+  <superType xsi:type="nsDatatypes:Document" href="urn:xcp:com.emc.xcp.artifact.doc:Artifacts/Content/dm_document.content#/"/>
+</nsDatatypes:Document>

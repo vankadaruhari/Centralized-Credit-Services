@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/update_audited_fina.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="update_audited_fina" label="Update Audited Financials" displayWidth="900" displayHeight="700" initialState="//@states[id='viewState_update_audited_fina']">
+  <inputs xsi:type="actionflow:ActionFlowElement" name="id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="16"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="object_name" label="Name">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="32"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="subject" label="Subject">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="192"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="title" label="Title">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="400"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="authors" label="Authors" repeating="true">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="48"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="keywords" label="Keywords" repeating="true">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="48"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="content_type">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/audited_financials.content#/"/>
+  </primaryElement>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_update_audited_fina_da_def_update_audited_financials" label="Update Audited Financials">
+    <inputMappings name="id">
+      <expression exprStr="actionflow.Inputs.id"/>
+    </inputMappings>
+    <inputMappings name="object_name">
+      <expression exprStr="actionflow.steps.update_audited_fina.widgets.name.value"/>
+    </inputMappings>
+    <inputMappings name="subject">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="title">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="authors">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="keywords">
+      <expression/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/audited_financials.content#//@dataActionContracts[name='da_def_update_audited_financials']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_update_audited_fina_da_def_update_audited_financials']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_update_audited_fina_da_def_update_audited_financials']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_update_audited_fina">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <stepCondition>
+      <expression exprStr="false"/>
+    </stepCondition>
+    <step href="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/update_audited_fina.uistep#/"/>
+  </states>
+  <transitionLabels transition="finish" label="Finish">
+    <labelExpression/>
+  </transitionLabels>
+</actionflow:ActionFlow>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/view_allied_concern.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="view_allied_concern" label="View Allied Concerns" initialState="//@states[id='viewState_view_allied_concern']">
+  <inputs xsi:type="actionflow:ActionFlowElement" name="id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="name_of_concern">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="address">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="business_nature">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="remarks">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="share_holding">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/allied_concerns.businessobj#/"/>
+  </primaryElement>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_view_allied_concern_da_def_invoke_stateless_processno_operation_initiate" label="No Operation">
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/no_operation.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='da_def_invoke_stateless_processno_operation_initiate']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_view_allied_concern_da_def_invoke_stateless_processno_operation_initiate']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_view_allied_concern">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <step href="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/view_allied_concern.uistep#/"/>
+  </states>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_view_allied_concern_da_def_invoke_stateless_processno_operation_initiate']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <transitionLabels transition="finish" label="Finish">
+    <labelExpression/>
+  </transitionLabels>
+</actionflow:ActionFlow>

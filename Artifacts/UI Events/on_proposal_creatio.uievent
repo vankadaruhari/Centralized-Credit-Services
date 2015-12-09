@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uievent:UIEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:uievent="http://www.emc.com/xcp2/2010/uievent" urn="urn:ccs:com.emc.xcp.artifact.uievent:Artifacts/UI Events/on_proposal_creatio.uievent" categoryId="com.emc.xcp.artifact.uievent" name="on_proposal_creatio" label="On Proposal Creation">
+  <payload name="ccs_loan_id">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="ccs_proposal_id">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+</uievent:UIEvent>

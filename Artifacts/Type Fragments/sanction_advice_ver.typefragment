@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsAspect:Aspect xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAspect="http://xcp.emc.com/aspect" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" urn="urn:ccs:com.emc.xcp.artifact.aspect:Artifacts/Type Fragments/sanction_advice_ver.typefragment" categoryId="com.emc.xcp.artifact.aspect" name="sanction_advice_ver" label="Sanction Advice Version">
+  <attributes name="sanction_advice_chronice_id" label="sanction_advice_chronice_id">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="sanction_advice_id" label="sanction_advice_id">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="is_version" label="is_version">
+    <type xsi:type="nsAttributeDatatypes:BooleanType"/>
+  </attributes>
+</nsAspect:Aspect>

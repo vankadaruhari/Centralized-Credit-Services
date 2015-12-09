@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsAspect:Aspect xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAspect="http://xcp.emc.com/aspect" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" urn="urn:ccs:com.emc.xcp.artifact.aspect:Artifacts/Type Fragments/proposal_version.typefragment" categoryId="com.emc.xcp.artifact.aspect" name="proposal_version" label="Proposal Version" allowAnyTypeAtRuntime="true">
+  <attributes name="proposal_id" label="proposal_id">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="is_version" label="is_version">
+    <type xsi:type="nsAttributeDatatypes:BooleanType"/>
+  </attributes>
+  <attributes name="proposal_chronicle_id" label="proposal_chronicle_id">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+</nsAspect:Aspect>

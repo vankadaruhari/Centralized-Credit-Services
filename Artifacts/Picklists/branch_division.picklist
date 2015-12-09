@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsPicklist:Picklist xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/branch_division.picklist" categoryId="com.emc.xcp.artifact.picklist" name="branch_division" label="Branch/Division">
+  <type xsi:type="nsAttributeDatatypes:StringType"/>
+  <entries label="Branch" value="Branch"/>
+  <entries label="Credit Division" value="Credit Division"/>
+  <entries label="Credit Administration Division" value="Credit Administration Division"/>
+  <entries label="Office of the Deputy Managing Director" value="Office of the Deputy Managing Director"/>
+  <entries label="Office of the Managing Director" value="Office of the Managing Director"/>
+  <entries label="Corporate Banking Division" value="Corporate Banking Division"/>
+  <entries label="Others" value="Others"/>
+</nsPicklist:Picklist>

@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsProcess:Process xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsActivity="http://documentum.com/bpm/activity" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsCommon="http://documentum.com/common" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:nsProcess="http://documentum.com/bpm/process" urn="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/create_proposal_memo_from_credit_division.process" categoryId="com.emc.ide.artifact.process" name="create_proposal_memo_from_credit_division" label="Create Proposal Memo from Credit Division" description="" webServiceTargetNamespace="" workflowInstructions="" synchronous="true">
+  <activities name="Get Chronicle Proposal ID" activityType="BEGIN" description="" priority="Medium" taskName="" taskInstructions="" sourceFlows="//@flows[name='L1']" destFlows="//@flows[name='L2']">
+    <trigger numOfInputFlows="1" expectedEventName="" canRunMultipleTimes="true"/>
+    <transition xsi:type="nsActivity:AllFlowsTransition"/>
+    <timers/>
+    <calendar flag="Performer"/>
+    <uiinfo imageScale="100" image="activity_autoext_48x32_proc.png">
+      <topLeftPoint x="133" y="75"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </uiinfo>
+    <performerConfig xsi:type="nsActivity:SvcDefBasedOutboundPerformerConfiguration" timeout="60" serviceDefinition="&lt;?xml version=&quot;1.0&quot;?>&#xA;&lt;ServiceDefinition xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;activity.xsd&quot;>&#xA;    &lt;Name>DQL Read&lt;/Name>&#xA;    &lt;RuntimeModuleName>DQLOutboundRuntimeModule&lt;/RuntimeModuleName>&#xA;    &lt;DesignModuleName>DQLOutboundDesignModule&lt;/DesignModuleName>&#xA;    &lt;Configuration>&#xA;        &lt;Parameter>&#xA;            &lt;Name>DOCBASE_CHECK_CONFIG_PARAM&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[false]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>QUERY_CONFIG_PARAM&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[select r_object_id as chronicle_id from ccs_proposal where any i_folder_id=? and object_name ='Loan Proposal']]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>ENDPOINT_URN&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[urn:ccs:com.emc.xcp.artifact.endpoint:Artifacts/Endpoints/repository.endpoint]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>ACTIVITY_TYPE_CONFIG_PARAM&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[READ]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>ENDPOINT_LABEL&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[Repository]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>USERDATATYPES_CONFIG_PARAM&lt;/Name>&#xA;            &lt;Value xsi:nil=&quot;true&quot;>&lt;![CDATA[]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>COLUMNALIAS_CONFIG_PARAM&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[param1=2[S]]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;    &lt;/Configuration>&#xA;    &lt;InputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>25&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Packages/loan/r_object_id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/Parameters/param1&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/InputMsgCopyRules>&#xA;    &lt;OutputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>73&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Collection/Object[0]/chronicle_id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/Process Data/Variables/proposal_chronicle_id&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/OutputMsgCopyRules>&#xA;    &lt;CorrelationMsgCopyRules/>&#xA;    &lt;UserDefinedInputTreeNodes/>&#xA;    &lt;UserDefinedOutputTreeNodes/>&#xA;    &lt;InputSchemaConfigs/>&#xA;    &lt;OutputSchemaConfigs/>&#xA;&lt;/ServiceDefinition>&#xA;">
+      <performer>
+        <dataResolutionConfig xsi:type="nsCommon:PredefinedResolutionConfig"/>
+      </performer>
+      <methodFailure/>
+    </performerConfig>
+    <packageCharacteristics key="//@processData/@packages[name='loan']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <packageCharacteristics key="//@processData/@packages[name='proposal']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='proposal_chronicle_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='proposal_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <eventConfigs label="Activity Completed">
+      <triggerType type="PROCESS_ACTIVITY_COMPLETED"/>
+    </eventConfigs>
+  </activities>
+  <activities name="Initiate" activityType="INITIATE" priority="Medium" taskName="" taskInstructions="" destFlows="//@flows[name='L1']">
+    <trigger canRunMultipleTimes="true"/>
+    <transition xsi:type="nsActivity:AllFlowsTransition"/>
+    <uiinfo imageScale="100" image="palette/event_start_32_proc.png">
+      <topLeftPoint x="26" y="68"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </uiinfo>
+    <performerConfig xsi:type="nsActivity:DefaultInitiatePerformerConfiguration"/>
+    <packageCharacteristics key="//@processData/@packages[name='loan']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <packageCharacteristics key="//@processData/@packages[name='proposal']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='proposal_chronicle_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='proposal_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <taskContract categoryId="com.emc.ide.artifact.process.activity.taskcontract" name="create_proposal_memo_from_credit_division_initiate" label="Initiate">
+      <dataServiceContracts xsi:type="nsDataserviceContract:DataActionContract" categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_create_proposal_memo_from_credit_division_initiate" label="Initiate Process Create Proposal Memo from Credit Division" implCategoryId="com.emc.ide.artifact.process.activity.taskcontract">
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+          <elements xsi:type="nsDataserviceContract:AttributeElement" name="proposal_chronicle_id" label="proposal_chronicle_id">
+            <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+          </elements>
+          <elements xsi:type="nsDataserviceContract:AttributeElement" name="proposal_id" label="proposal_id">
+            <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="loan" label="loan">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="proposal" label="proposal">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_civil_work" label="Additional Civil Work">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_civil_work_locat" label="Additional Civil Work Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_civil_work_value" label="Additional Civil Work Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_plant_and_machin" label="Additional Plant And Machinery">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_plant_and_mach_l" label="Additional Plant And Mach Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_plant_and_mach_v" label="Additional Plant And Mach Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="application_reference_numbe" label="Application Reference Number">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date" label="Assessment Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date__add_plant" label="Assessment Date of Additional Plant And Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date__civil_work" label="Assessment Date of Civil Work">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date__extng_plnt" label="Assessment Date of Existing Plant And Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date_lnd_and_bdg" label="Assessment Date of Land And Building">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="authorised_capital" label="Authorised Capital">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="bangla_bank_circular" label="Bangla Bank Circular">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="business_performance_risk" label="Business Performance Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="buyers_risk" label="Buyers Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="collateral_for_securities" label="Collateral for Securities">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="comment_interpretation" label="Comment/Interpretation">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_manual" label="Credit Manual">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_rating_status" label="Credit Rating Status">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_risk_grading_result" label="Credit Risk Grading Result">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_risk_score" label="Credit Risk Score">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="crg_status" label="CRG Status">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_add_plant_mach" label="Declared Additional Plant Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_building_value" label="Declared Building Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_civil_work_value" label="Declared Civil Work Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_existing_plant_mac" label="Declared Existing Plant Mach Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_grand_total_plant" label="Declared Grand Total Plant And Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_land_value" label="Declared Land Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_sub_total_bldg_civ" label="Declared Sub total Bldg Civil Work">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_sub_total_plant_ma" label="Declared Sub Total Plant Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="documents_and_conveyants_co" label="Documents And Conveyants Compliance">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="enterprise_size" label="Enterprise Size">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="envrr_score" label="EnvRR Score">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="envrr_status" label="EnvRR  Status">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="establishment_date" label="Establishment Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_building_value" label="Existing Building Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_land_and_building" label="Existing Land And Building">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_land_value" label="Existing Land Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_location_value" label="Existing Location Value">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_operations_perform" label="Existing Operations Performance">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_plant_and_machiner" label="Existing Plant And Machinery">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_plant_and_mach_loc" label="Existing Plant And Mach Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_plant_and_mach_val" label="Existing Plant And Mach Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_rules_act" label="Existing Rules/ Act">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="financing_requirement_asses" label="Financing Requirement Assesment" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="fixed_assets" label="Fixed Assets">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="freezing_date" label="Freezing Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="general_background" label="General Background" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="grand_total_building_and_ma" label="Grand Total Building And Machinery">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="industry_profile" label="Industry Profile" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="industry_risk" label="Industry Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="insurance_coverage" label="Insurance Coverage">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="loan_collateral_ratio" label="Loan Collateral Ratio">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="long_term_rating" label="Long Term Rating">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="management" label="Management" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="management_risk" label="Management Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="mitigates" label="Mitigates">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="other_source" label="Other Source">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="outlook" label="Outlook">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="paid_up_capital" label="Paid up Capital">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="physical_capacity" label="Physical Capacity">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="primary_source" label="Primary Source">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="rated_by" label="Rated by">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="reference" label="Reference">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="reference_date" label="Reference Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="related_expiry" label="Related Expiry">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="related_on" label="Related On">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="result" label="Result">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="secondary_source" label="Secondary Source">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="sector_code" label="Sector Code">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="security_risk" label="Security Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="short_term_rating" label="Short Term Rating">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="special_conditions_special_" label="Special Conditions / Special Instructions" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="strength_or_weakness" label="Strength or Weakness">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="string_envrr_score" label="String Envrr Score">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="string_loan_collateral" label="String Loan Collateral">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="subbject" label="Subbject" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="subtotal_building_and_civil" label="Subtotal Building And Civil Work">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="subtotal_plant_and_machiner" label="Subtotal Plant And Machinery">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="suppliers_risk" label="Suppliers Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="surveyor_name" label="Surveyor Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="third_party_information" label="Third Party Information">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="through" label="Through">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="total_tc_limit_amount" label="Total Tc Limit Amount">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="workforce" label="Workforce">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <primaryElement name="create_proposal_memo_from_credit_division_initiate" dataModel="//@activities[name='Initiate']/@taskContract"/>
+        <actionType type="Create"/>
+      </dataServiceContracts>
+      <dataServiceContracts xsi:type="nsDataserviceContract:DataSourceContract" categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="create_proposal_memo_from_credit_division_initiate_staless_ds" label="Create Proposal Memo from Credit Division" implCategoryId="com.emc.xcp.artifact.process.statelessProcess">
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="loan" label="loan">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="proposal" label="proposal">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_civil_work" label="Additional Civil Work">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_civil_work_locat" label="Additional Civil Work Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_civil_work_value" label="Additional Civil Work Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_plant_and_machin" label="Additional Plant And Machinery">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_plant_and_mach_l" label="Additional Plant And Mach Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_plant_and_mach_v" label="Additional Plant And Mach Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="application_reference_numbe" label="Application Reference Number">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date" label="Assessment Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date__add_plant" label="Assessment Date of Additional Plant And Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date__civil_work" label="Assessment Date of Civil Work">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date__extng_plnt" label="Assessment Date of Existing Plant And Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date_lnd_and_bdg" label="Assessment Date of Land And Building">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="authorised_capital" label="Authorised Capital">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="bangla_bank_circular" label="Bangla Bank Circular">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="business_performance_risk" label="Business Performance Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="buyers_risk" label="Buyers Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="collateral_for_securities" label="Collateral for Securities">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="comment_interpretation" label="Comment/Interpretation">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_manual" label="Credit Manual">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_rating_status" label="Credit Rating Status">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_risk_grading_result" label="Credit Risk Grading Result">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_risk_score" label="Credit Risk Score">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="crg_status" label="CRG Status">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_add_plant_mach" label="Declared Additional Plant Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_building_value" label="Declared Building Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_civil_work_value" label="Declared Civil Work Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_existing_plant_mac" label="Declared Existing Plant Mach Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_grand_total_plant" label="Declared Grand Total Plant And Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_land_value" label="Declared Land Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_sub_total_bldg_civ" label="Declared Sub total Bldg Civil Work">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_sub_total_plant_ma" label="Declared Sub Total Plant Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="documents_and_conveyants_co" label="Documents And Conveyants Compliance">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="enterprise_size" label="Enterprise Size">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="envrr_score" label="EnvRR Score">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="envrr_status" label="EnvRR  Status">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="establishment_date" label="Establishment Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_building_value" label="Existing Building Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_land_and_building" label="Existing Land And Building">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_land_value" label="Existing Land Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_location_value" label="Existing Location Value">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_operations_perform" label="Existing Operations Performance">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_plant_and_machiner" label="Existing Plant And Machinery">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_plant_and_mach_loc" label="Existing Plant And Mach Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_plant_and_mach_val" label="Existing Plant And Mach Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_rules_act" label="Existing Rules/ Act">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="financing_requirement_asses" label="Financing Requirement Assesment" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="fixed_assets" label="Fixed Assets">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="freezing_date" label="Freezing Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="general_background" label="General Background" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="grand_total_building_and_ma" label="Grand Total Building And Machinery">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="industry_profile" label="Industry Profile" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="industry_risk" label="Industry Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="insurance_coverage" label="Insurance Coverage">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="loan_collateral_ratio" label="Loan Collateral Ratio">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="long_term_rating" label="Long Term Rating">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="management" label="Management" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="management_risk" label="Management Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="mitigates" label="Mitigates">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="other_source" label="Other Source">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="outlook" label="Outlook">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="paid_up_capital" label="Paid up Capital">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="physical_capacity" label="Physical Capacity">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="primary_source" label="Primary Source">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="rated_by" label="Rated by">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="reference" label="Reference">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="reference_date" label="Reference Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="related_expiry" label="Related Expiry">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="related_on" label="Related On">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="result" label="Result">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="secondary_source" label="Secondary Source">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="sector_code" label="Sector Code">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="security_risk" label="Security Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="short_term_rating" label="Short Term Rating">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="special_conditions_special_" label="Special Conditions / Special Instructions" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="strength_or_weakness" label="Strength or Weakness">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="string_envrr_score" label="String Envrr Score">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="string_loan_collateral" label="String Loan Collateral">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="subbject" label="Subbject" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="subtotal_building_and_civil" label="Subtotal Building And Civil Work">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="subtotal_plant_and_machiner" label="Subtotal Plant And Machinery">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="suppliers_risk" label="Suppliers Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="surveyor_name" label="Surveyor Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="third_party_information" label="Third Party Information">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="through" label="Through">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="total_tc_limit_amount" label="Total Tc Limit Amount">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="workforce" label="Workforce">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+        </inputs>
+        <outputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="proposal" label="proposal">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="enterprise_size" label="Enterprise Size">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="envrr_status" label="EnvRR  Status">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="crg_status" label="CRG Status">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_rating_status" label="Credit Rating Status">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="subbject" label="Subbject" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="authorised_capital" label="Authorised Capital">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="paid_up_capital" label="Paid up Capital">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="general_background" label="General Background" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="management" label="Management" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="fixed_assets" label="Fixed Assets">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="workforce" label="Workforce">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="industry_profile" label="Industry Profile" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="third_party_information" label="Third Party Information">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_operations_perform" label="Existing Operations Performance">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="financing_requirement_asses" label="Financing Requirement Assesment" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="reference" label="Reference">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="reference_date" label="Reference Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="sector_code" label="Sector Code">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="establishment_date" label="Establishment Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="freezing_date" label="Freezing Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="business_performance_risk" label="Business Performance Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="management_risk" label="Management Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="result" label="Result">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="long_term_rating" label="Long Term Rating">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="short_term_rating" label="Short Term Rating">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="related_on" label="Related On">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="outlook" label="Outlook">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="rated_by" label="Rated by">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="related_expiry" label="Related Expiry">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="mitigates" label="Mitigates">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="envrr_score" label="EnvRR Score">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_risk_score" label="Credit Risk Score">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_risk_grading_result" label="Credit Risk Grading Result">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="primary_source" label="Primary Source">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="secondary_source" label="Secondary Source">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="other_source" label="Other Source">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="insurance_coverage" label="Insurance Coverage">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_manual" label="Credit Manual">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="bangla_bank_circular" label="Bangla Bank Circular">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_rules_act" label="Existing Rules/ Act">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="documents_and_conveyants_co" label="Documents And Conveyants Compliance">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="through" label="Through">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_land_and_building" label="Existing Land And Building">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_land_value" label="Existing Land Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_building_value" label="Existing Building Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_location_value" label="Existing Location Value">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_civil_work" label="Additional Civil Work">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_civil_work_value" label="Additional Civil Work Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_civil_work_locat" label="Additional Civil Work Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="subtotal_building_and_civil" label="Subtotal Building And Civil Work">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_plant_and_machiner" label="Existing Plant And Machinery">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_plant_and_mach_val" label="Existing Plant And Mach Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_plant_and_mach_loc" label="Existing Plant And Mach Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_plant_and_machin" label="Additional Plant And Machinery">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_plant_and_mach_v" label="Additional Plant And Mach Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_plant_and_mach_l" label="Additional Plant And Mach Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="subtotal_plant_and_machiner" label="Subtotal Plant And Machinery">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="grand_total_building_and_ma" label="Grand Total Building And Machinery">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="surveyor_name" label="Surveyor Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date" label="Assessment Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="loan_collateral_ratio" label="Loan Collateral Ratio">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="collateral_for_securities" label="Collateral for Securities">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="special_conditions_special_" label="Special Conditions / Special Instructions" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="application_reference_numbe" label="Application Reference Number">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="total_tc_limit_amount" label="Total Tc Limit Amount">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="security_risk" label="Security Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="suppliers_risk" label="Suppliers Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="buyers_risk" label="Buyers Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="industry_risk" label="Industry Risk">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="string_loan_collateral" label="String Loan Collateral">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="string_envrr_score" label="String Envrr Score">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_land_value" label="Declared Land Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_building_value" label="Declared Building Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_civil_work_value" label="Declared Civil Work Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_sub_total_bldg_civ" label="Declared Sub total Bldg Civil Work">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_existing_plant_mac" label="Declared Existing Plant Mach Value">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_add_plant_mach" label="Declared Additional Plant Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_sub_total_plant_ma" label="Declared Sub Total Plant Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_grand_total_plant" label="Declared Grand Total Plant And Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date_lnd_and_bdg" label="Assessment Date of Land And Building">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date__civil_work" label="Assessment Date of Civil Work">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date__extng_plnt" label="Assessment Date of Existing Plant And Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date__add_plant" label="Assessment Date of Additional Plant And Mach">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="physical_capacity" label="Physical Capacity">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="comment_interpretation" label="Comment/Interpretation">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="strength_or_weakness" label="Strength or Weakness">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="i_folder_id" label="Parent Folders" repeating="true">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_creation_date" label="Created on">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_creator_name" label="Created by">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_modify_date" label="Last changed">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_modifier" label="Changed by">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_object_type" label="Object type">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+        </outputs>
+        <primaryElement dataModel="//@activities[name='Initiate']/@taskContract"/>
+      </dataServiceContracts>
+    </taskContract>
+  </activities>
+  <activities name="Set Proposal ID" description="" priority="Medium" taskName="" taskInstructions="" sourceFlows="//@flows[name='L2']" destFlows="//@flows[name='L3']">
+    <trigger expectedEventName="" canRunMultipleTimes="true"/>
+    <transition xsi:type="nsActivity:AllFlowsTransition"/>
+    <timers/>
+    <calendar flag="Performer"/>
+    <uiinfo imageScale="100" image="activity_autoint_48x32_proc.png">
+      <topLeftPoint x="228" y="68"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </uiinfo>
+    <performerConfig xsi:type="nsActivity:SvcDefBasedOutboundPerformerConfiguration" timeout="60" serviceDefinition="&lt;?xml version=&quot;1.0&quot;?>&#xA;&lt;ServiceDefinition xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;activity.xsd&quot;>&#xA;    &lt;Name>Process Data Mapping&lt;/Name>&#xA;    &lt;RuntimeModuleName>PackageCopyRuntimeModule&lt;/RuntimeModuleName>&#xA;    &lt;DesignModuleName>PackageCopyDesignModule&lt;/DesignModuleName>&#xA;    &lt;Configuration/>&#xA;    &lt;InputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>57&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Packages/proposal/r_object_id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/Process Data/Variables/proposal_id&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/InputMsgCopyRules>&#xA;    &lt;OutputMsgCopyRules/>&#xA;    &lt;CorrelationMsgCopyRules/>&#xA;    &lt;UserDefinedInputTreeNodes/>&#xA;    &lt;UserDefinedOutputTreeNodes/>&#xA;    &lt;InputSchemaConfigs/>&#xA;    &lt;OutputSchemaConfigs/>&#xA;&lt;/ServiceDefinition>&#xA;">
+      <performer>
+        <dataResolutionConfig xsi:type="nsCommon:PredefinedResolutionConfig"/>
+      </performer>
+      <methodFailure/>
+    </performerConfig>
+    <packageCharacteristics key="//@processData/@packages[name='loan']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <packageCharacteristics key="//@processData/@packages[name='proposal']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='proposal_chronicle_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='proposal_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <eventConfigs label="Activity Completed">
+      <triggerType type="PROCESS_ACTIVITY_COMPLETED"/>
+    </eventConfigs>
+  </activities>
+  <activities name="Create Proposal" description="" priority="Medium" taskName="" taskInstructions="" sourceFlows="//@flows[name='L3']" destFlows="//@flows[name='L4']">
+    <trigger expectedEventName="" canRunMultipleTimes="true"/>
+    <transition xsi:type="nsActivity:AllFlowsTransition"/>
+    <timers/>
+    <calendar flag="Performer"/>
+    <uiinfo imageScale="100" image="activity_autoint_48x32_proc.png">
+      <topLeftPoint x="313" y="68"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </uiinfo>
+    <performerConfig xsi:type="nsActivity:SvcDefBasedOutboundPerformerConfiguration" timeout="60" serviceDefinition="&lt;?xml version=&quot;1.0&quot;?>&#xA;&lt;ServiceDefinition xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;activity.xsd&quot;>&#xA;    &lt;Name>Create&lt;/Name>&#xA;    &lt;RuntimeModuleName>CreateRuntimeModule&lt;/RuntimeModuleName>&#xA;    &lt;DesignModuleName>CreateDesigntimeModule&lt;/DesignModuleName>&#xA;    &lt;Configuration>&#xA;        &lt;Parameter>&#xA;            &lt;Name>CREATE_FROM&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[CREATE_FROM_COPY]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>PROPAGATE_ACL_TO_CHILDREN&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[true]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>DESTINATION&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[DESTINATION_FOLDER_ID]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;    &lt;/Configuration>&#xA;    &lt;InputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>25&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>&quot;Proposal Memo from Credit Division&quot;&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/name&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>41&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Packages/proposal/r_object_id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/template_id&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>57&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Packages/loan/r_object_id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/dest_folder_id[0]&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/InputMsgCopyRules>&#xA;    &lt;OutputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>169&lt;/XPosition>&#xA;                &lt;YPosition>57&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/create/Id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/Process Data/Packages/loan/child_id_ccs_loan_proposal[LAST]/ccs_proposal/r_object_id&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>25&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/create/Id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/Process Data/Packages/proposal/r_object_id&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/OutputMsgCopyRules>&#xA;    &lt;CorrelationMsgCopyRules/>&#xA;    &lt;UserDefinedInputTreeNodes/>&#xA;    &lt;UserDefinedOutputTreeNodes/>&#xA;    &lt;InputSchemaConfigs/>&#xA;    &lt;OutputSchemaConfigs/>&#xA;&lt;/ServiceDefinition>&#xA;">
+      <performer>
+        <dataResolutionConfig xsi:type="nsCommon:PredefinedResolutionConfig"/>
+      </performer>
+      <methodFailure/>
+    </performerConfig>
+    <packageCharacteristics key="//@processData/@packages[name='loan']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <packageCharacteristics key="//@processData/@packages[name='proposal']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='proposal_chronicle_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='proposal_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <eventConfigs label="Activity Completed">
+      <triggerType type="PROCESS_ACTIVITY_COMPLETED"/>
+    </eventConfigs>
+  </activities>
+  <activities name="Attach Proposal Version" activityType="END" description="" priority="Medium" taskName="" taskInstructions="" sourceFlows="//@flows[name='L4']">
+    <trigger expectedEventName="" canRunMultipleTimes="true"/>
+    <transition xsi:type="nsActivity:AllFlowsTransition"/>
+    <timers/>
+    <calendar flag="Performer"/>
+    <uiinfo imageScale="100" image="activity_autoint_48x32_proc.png">
+      <topLeftPoint x="416" y="75"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </uiinfo>
+    <performerConfig xsi:type="nsActivity:SvcDefBasedOutboundPerformerConfiguration" timeout="60" serviceDefinition="&lt;?xml version=&quot;1.0&quot;?>&#xA;&lt;ServiceDefinition xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;activity.xsd&quot;>&#xA;    &lt;Name>Attach Aspect&lt;/Name>&#xA;    &lt;RuntimeModuleName>AspectRuntimeModule&lt;/RuntimeModuleName>&#xA;    &lt;DesignModuleName>AspectDesigntimeModule&lt;/DesignModuleName>&#xA;    &lt;Configuration>&#xA;        &lt;Parameter>&#xA;            &lt;Name>ASPECT_SYSTEM_NAMES&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[ccs_proposal_version]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>ASPECT_URNS&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[urn:ccs:com.emc.xcp.artifact.aspect:Artifacts/Type Fragments/proposal_version.typefragment]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>ASPECT_ATTACH_OPTION&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[OPTION_OBJECT_ID]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>ACTIVITY_TYPE_CONFIG_PARAM&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[ATTACH_ASPECT]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;    &lt;/Configuration>&#xA;    &lt;InputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>41&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Packages/proposal/r_object_id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/attach_aspects/item[LAST]&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>73&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Variables/proposal_id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/attach_aspects/ccs_proposal_version/proposal_id&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>89&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>&quot;true&quot;&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/attach_aspects/ccs_proposal_version/is_version&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>105&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Variables/proposal_chronicle_id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/attach_aspects/ccs_proposal_version/proposal_chronicle_id&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/InputMsgCopyRules>&#xA;    &lt;OutputMsgCopyRules/>&#xA;    &lt;CorrelationMsgCopyRules/>&#xA;    &lt;UserDefinedInputTreeNodes/>&#xA;    &lt;UserDefinedOutputTreeNodes/>&#xA;    &lt;InputSchemaConfigs/>&#xA;    &lt;OutputSchemaConfigs/>&#xA;&lt;/ServiceDefinition>&#xA;">
+      <performer>
+        <dataResolutionConfig xsi:type="nsCommon:PredefinedResolutionConfig"/>
+      </performer>
+      <methodFailure/>
+    </performerConfig>
+    <packageCharacteristics key="//@processData/@packages[name='loan']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <packageCharacteristics key="//@processData/@packages[name='proposal']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='proposal_chronicle_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='proposal_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <eventConfigs label="Activity Completed">
+      <triggerType type="PROCESS_ACTIVITY_COMPLETED"/>
+    </eventConfigs>
+  </activities>
+  <processData>
+    <variables xsi:type="nsProcess:SimpleVariable">
+      <attribute name="proposal_id" label="proposal_id">
+        <type xsi:type="nsAttributeDatatypes:StringType"/>
+        <defaultValue/>
+      </attribute>
+    </variables>
+    <variables xsi:type="nsProcess:SimpleVariable">
+      <attribute name="proposal_chronicle_id" label="proposal_chronicle_id">
+        <type xsi:type="nsAttributeDatatypes:StringType"/>
+        <defaultValue/>
+      </attribute>
+    </variables>
+    <packages name="loan" input="true">
+      <type xsi:type="nsDatatypes:Folder" href="urn:ccs:com.emc.xcp.artifact.folder:Artifacts/Folders/loan.folder#/"/>
+    </packages>
+    <packages name="proposal" input="true" output="true">
+      <type xsi:type="nsDatatypes:BusinessObject" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/proposal.businessobj#/"/>
+    </packages>
+    <packageCharacteristics key="//@processData/@packages[name='loan']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <packageCharacteristics key="//@processData/@packages[name='proposal']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+  </processData>
+  <flows name="L1" from="//@activities[name='Initiate']" to="//@activities[name='Get%20Chronicle%20Proposal%20ID']">
+    <uiinfo srcActivityLocIndex="4" destActivityLocIndex="1">
+      <line/>
+      <labelStyle fontName="Helvetica" fontSize="10"/>
+    </uiinfo>
+  </flows>
+  <flows name="L2" from="//@activities[name='Get%20Chronicle%20Proposal%20ID']" to="//@activities[name='Set%20Proposal%20ID']">
+    <uiinfo destActivityLocIndex="1">
+      <line/>
+      <labelStyle fontName="Helvetica" fontSize="10"/>
+    </uiinfo>
+  </flows>
+  <flows name="L3" from="//@activities[name='Set%20Proposal%20ID']" to="//@activities[name='Create%20Proposal']">
+    <uiinfo destActivityLocIndex="1">
+      <line/>
+      <labelStyle fontName="Helvetica" fontSize="10"/>
+    </uiinfo>
+  </flows>
+  <flows name="L4" from="//@activities[name='Create%20Proposal']" to="//@activities[name='Attach%20Proposal%20Version']">
+    <uiinfo destActivityLocIndex="1">
+      <line/>
+      <labelStyle fontName="Helvetica" fontSize="10"/>
+    </uiinfo>
+  </flows>
+  <defaultSettings/>
+  <processUIInfo>
+    <startActivityUIInfo imageScale="100" image="palette/event_start_32_proc.png">
+      <topLeftPoint x="26" y="68"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </startActivityUIInfo>
+    <endActivityUIInfo imageScale="100" image="palette/event_end_32_proc.png">
+      <topLeftPoint x="601" y="68"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </endActivityUIInfo>
+    <endSequenceFlowUIInfo destActivityLocIndex="4">
+      <line/>
+      <labelStyle fontName="Helvetica" fontSize="10"/>
+    </endSequenceFlowUIInfo>
+  </processUIInfo>
+  <eventConfigs label="Workflow Started">
+    <triggerType type="PROCESS_WORKFLOW_STARTED"/>
+  </eventConfigs>
+  <eventConfigs label="Workflow changed state">
+    <triggerType type="PROCESS_WORKFLOW_CHANGESTATE"/>
+  </eventConfigs>
+  <eventConfigs label="Workflow Aborted">
+    <triggerType type="PROCESS_WORKFLOW_ABORTED"/>
+  </eventConfigs>
+  <eventConfigs label="Workflow completed">
+    <triggerType type="PROCESS_WORKFLOW_COMPLETED"/>
+  </eventConfigs>
+</nsProcess:Process>

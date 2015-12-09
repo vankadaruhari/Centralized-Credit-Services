@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsDatatypes:BusinessObject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" urn="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/limit_creation_memo.businessobj" categoryId="com.emc.xcp.artifact.bo" name="limit_creation_memo" label="Limit Creation Memo">
+  <attributes name="account_name" label="Account Name">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="branch" label="Branch">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="branch_code" label="Branch Code">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="limit_creation_memo_date" label="Limit Creation Memo Date">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="allied_concern_name" label="Allied Concern Name">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="approval_authority" label="Approval Authority">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="128"/>
+  </attributes>
+  <attributes name="meeting_number" label="Meeting Number">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="256"/>
+  </attributes>
+  <attributes name="sanction_advice_number" label="Sanction Advice Number">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="checklist_checked_by" label="Checklist Checked By">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="checklist_unit_head" label="Checklist Unit Head">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="disbursement_unit_input_by" label="Disbursement Unit Input By">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="disbursement_unit_authorize" label="Disbursement Unit Authorized By">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="approval_authorized" label="Approval Authorized">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="512"/>
+  </attributes>
+  <attributes name="approved_head_of_cad" label="Approved Head Of CAD">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="meeting_date" label="Meeting Date">
+    <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+  </attributes>
+  <attributes name="account_number" label="Account Number">
+    <type xsi:type="nsAttributeDatatypes:IntegerType"/>
+  </attributes>
+  <attributes name="allied_concern_id" label="Allied Concern ID">
+    <type xsi:type="nsAttributeDatatypes:IntegerType"/>
+  </attributes>
+  <accessControlPolicy inheritedFromParentFolder="true"/>
+  <defaultFolderPath/>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_limit_creation_memo" label="Create Limit Creation Memo" implCategoryId="com.emc.xcp.artifact.bo">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="account_name" label="Account Name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="account_number" label="Account Number">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="allied_concern_id" label="Allied Concern ID">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="allied_concern_name" label="Allied Concern Name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="approval_authority" label="Approval Authority">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="approval_authorized" label="Approval Authorized">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="approved_head_of_cad" label="Approved Head Of CAD">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="branch" label="Branch">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="branch_code" label="Branch Code">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="checklist_checked_by" label="Checklist Checked By">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="checklist_unit_head" label="Checklist Unit Head">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="disbursement_unit_authorize" label="Disbursement Unit Authorized By">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="disbursement_unit_input_by" label="Disbursement Unit Input By">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="limit_creation_memo_date" label="Limit Creation Memo Date">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="meeting_date" label="Meeting Date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="meeting_number" label="Meeting Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="sanction_advice_number" label="Sanction Advice Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Create"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_update_limit_creation_memo" label="Update Limit Creation Memo" implCategoryId="com.emc.xcp.artifact.bo">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="account_name" label="Account Name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="account_number" label="Account Number">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="allied_concern_id" label="Allied Concern ID">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="allied_concern_name" label="Allied Concern Name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="approval_authority" label="Approval Authority">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="approval_authorized" label="Approval Authorized">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="approved_head_of_cad" label="Approved Head Of CAD">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="branch" label="Branch">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="branch_code" label="Branch Code">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="checklist_checked_by" label="Checklist Checked By">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="checklist_unit_head" label="Checklist Unit Head">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="disbursement_unit_authorize" label="Disbursement Unit Authorized By">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="disbursement_unit_input_by" label="Disbursement Unit Input By">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="limit_creation_memo_date" label="Limit Creation Memo Date">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="meeting_date" label="Meeting Date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="meeting_number" label="Meeting Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="sanction_advice_number" label="Sanction Advice Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Update"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_delete_limit_creation_memo" label="Delete Limit Creation Memo" implCategoryId="com.emc.xcp.artifact.bo">
+    <primaryElement dataModel="/"/>
+    <actionType type="Delete"/>
+  </dataActionContracts>
+  <superType xsi:type="nsDatatypes:BusinessObject" href="urn:xcp:com.emc.xcp.artifact.bo:Artifacts/Business Objects/rootbo.businessobj#/"/>
+</nsDatatypes:BusinessObject>

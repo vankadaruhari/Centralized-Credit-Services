@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:uievent="http://www.emc.com/xcp2/2010/uievent" urn="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/create_update_meeti.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="create_update_meeti" label="Create/Update Meeting" displayWidth="450" displayHeight="400" initialState="//@states[id='viewState_create_update_meeti']">
+  <inputs xsi:type="actionflow:ActionFlowElement" name="loan">
+    <attributeType xsi:type="uievent:ReferenceAttributeDataType">
+      <dataType xsi:type="nsDatatypes:Folder" href="urn:ccs:com.emc.xcp.artifact.folder:Artifacts/Folders/loan.folder#/"/>
+    </attributeType>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="proposal">
+    <attributeType xsi:type="uievent:ReferenceAttributeDataType">
+      <dataType xsi:type="nsDatatypes:BusinessObject" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/proposal.businessobj#/"/>
+    </attributeType>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="meeting_by">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/loan_board_meeting.businessobj#/"/>
+  </primaryElement>
+  <dataSources categoryId="com.emc.xcp.artifact.dataservice.datasource" name="create_update_meeting_initiate_staless_ds" label="Create/Update Meeting">
+    <inputMappings name="processVariables.meeting_by">
+      <expression exprStr="actionflow.steps.create_update_meeti.widgets.meeting_by.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.meeting_date">
+      <expression exprStr="actionflow.steps.create_update_meeti.widgets.meeting_date.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.id">
+      <expression exprStr="actionflow.Inputs.loan.id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.id">
+      <expression exprStr="actionflow.Inputs.proposal.id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataSourceContract" href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/create_update_meeting.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='create_update_meeting_initiate_staless_ds']"/>
+  </dataSources>
+  <actionInstanceProperty actionInstance="//@dataSources[name='create_update_meeting_initiate_staless_ds']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_create_update_meeti">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <step href="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/create_update_meeti.uistep#/"/>
+  </states>
+  <states xsi:type="actionflow:ActionFlowState" id="finish" actionInstance="//@dataSources[name='create_update_meeting_initiate_staless_ds']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <transitionLabels transition="finish" label="Finish">
+    <labelExpression/>
+  </transitionLabels>
+</actionflow:ActionFlow>

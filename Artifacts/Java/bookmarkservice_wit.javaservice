@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsJavaService:JavaService xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:nsJavaService="http://xcp.emc.com/javaservice" urn="urn:ccs:com.emc.xcp.artifact.javaservice:Artifacts/Java/bookmarkservice_wit.javaservice" categoryId="com.emc.xcp.artifact.javaservice" name="bookmarkservice_wit" label="BookmarkService With Signature" primaryClassName="com.emc.xcp.ext.services.BookmarkService" description="BookmarkService With Signature Modified else removed dfc"/>

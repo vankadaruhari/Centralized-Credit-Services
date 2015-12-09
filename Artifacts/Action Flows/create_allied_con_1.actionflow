@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/create_allied_con_1.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="create_allied_con_1" label="Create Allied Concerns" initialState="//@states[id='viewState_create_allied_con_1']">
+  <inputs xsi:type="actionflow:ActionFlowElement" name="proposal_id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="loan_id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/allied_concerns.businessobj#/"/>
+  </primaryElement>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_create_allied_con_1_da_def_invoke_stateless_processcreate_allied_concerns_initiate" label="Create Allied Concerns">
+    <inputMappings name="processVariables.address">
+      <expression exprStr="actionflow.steps.create_allied_con_1.widgets.address.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.businessnature">
+      <expression exprStr="actionflow.steps.create_allied_con_1.widgets.business.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.name">
+      <expression exprStr="actionflow.steps.create_allied_con_1.widgets.name.value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.id">
+      <expression exprStr="actionflow.Inputs.proposal_id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.id">
+      <expression exprStr="actionflow.Inputs.loan_id"/>
+    </inputMappings>
+    <inputMappings name="processVariables.remarks">
+      <expression exprStr="actionflow.steps.create_allied_con_1.widgets.remarks.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.share_holding">
+      <expression exprStr="actionflow.steps.create_allied_con_1.widgets.share_holding.value"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/create_allied_concerns.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='da_def_invoke_stateless_processcreate_allied_concerns_initiate']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_create_allied_con_1_da_def_invoke_stateless_processcreate_allied_concerns_initiate']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_create_allied_con_1">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <step href="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/create_allied_con_1.uistep#/"/>
+  </states>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_create_allied_con_1_da_def_invoke_stateless_processcreate_allied_concerns_initiate']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <transitionLabels transition="finish" label="Create">
+    <labelExpression/>
+  </transitionLabels>
+</actionflow:ActionFlow>

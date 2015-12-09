@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:UIStep xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/create_other_bank_f.uistep" categoryId="com.emc.xcp.artifact.uistep" name="create_other_bank_f" label="Step 1" templateType="uistep">
+  <rootContainer widgetEntry="//@widgetMap[key='root']">
+    <properties name="xcpId" value="root" entry="//@rootContainer/@propertyMap.0"/>
+    <propertyMap key="xcpId" value="//@rootContainer/@properties.0"/>
+    <children xsi:type="uitemplate:FragmentWidget" componentDefinitionId="xcp_fragment" parent="//@rootContainer" widgetEntry="//@widgetMap[key='fragment']">
+      <properties name="fieldLabel" value="Label:" entry="//@rootContainer/@children.0/@propertyMap.0"/>
+      <properties name="fragment" value="" entry="//@rootContainer/@children.0/@propertyMap.1"/>
+      <properties name="fragmentExpression" value="" entry="//@rootContainer/@children.0/@propertyMap.2"/>
+      <properties name="fragmentWidgetInputs" value="" entry="//@rootContainer/@children.0/@propertyMap.3"/>
+      <properties name="fragmentDataInputs" value="" entry="//@rootContainer/@children.0/@propertyMap.4"/>
+      <properties name="fragmentDataOutputs" value="" entry="//@rootContainer/@children.0/@propertyMap.5"/>
+      <properties name="hidden" value="" entry="//@rootContainer/@children.0/@propertyMap.6"/>
+      <properties name="cls" value="xcp-content-area" entry="//@rootContainer/@children.0/@propertyMap.7"/>
+      <properties name="margin" value="0 0 0 0" entry="//@rootContainer/@children.0/@propertyMap.8"/>
+      <properties name="width" value="" type="INTEGER" entry="//@rootContainer/@children.0/@propertyMap.9"/>
+      <properties name="height" value="" type="INTEGER" entry="//@rootContainer/@children.0/@propertyMap.10"/>
+      <properties name="xcpId" value="fragment" entry="//@rootContainer/@children.0/@propertyMap.11"/>
+      <properties name="fragmentId" value="other_bank_credit_f" entry="//@rootContainer/@children.0/@propertyMap.12"/>
+      <propertyMap key="fieldLabel" value="//@rootContainer/@children.0/@properties.0"/>
+      <propertyMap key="fragment" value="//@rootContainer/@children.0/@properties.1"/>
+      <propertyMap key="fragmentExpression" value="//@rootContainer/@children.0/@properties.2"/>
+      <propertyMap key="fragmentWidgetInputs" value="//@rootContainer/@children.0/@properties.3"/>
+      <propertyMap key="fragmentDataInputs" value="//@rootContainer/@children.0/@properties.4"/>
+      <propertyMap key="fragmentDataOutputs" value="//@rootContainer/@children.0/@properties.5"/>
+      <propertyMap key="hidden" value="//@rootContainer/@children.0/@properties.6"/>
+      <propertyMap key="cls" value="//@rootContainer/@children.0/@properties.7"/>
+      <propertyMap key="margin" value="//@rootContainer/@children.0/@properties.8"/>
+      <propertyMap key="width" value="//@rootContainer/@children.0/@properties.9"/>
+      <propertyMap key="height" value="//@rootContainer/@children.0/@properties.10"/>
+      <propertyMap key="xcpId" value="//@rootContainer/@children.0/@properties.11"/>
+      <propertyMap key="fragmentId" value="//@rootContainer/@children.0/@properties.12"/>
+      <fragment href="urn:ccs:com.emc.xcp.artifact.fragment:Artifacts/Fragments/other_bank_credit_f.fragment#/"/>
+      <inputs name="content_type"/>
+      <inputs name="content_format"/>
+      <inputs name="folder_path"/>
+      <inputs name="object_name"/>
+      <inputs name="loan_id">
+        <value>
+          <expression exprStr="actionflow.Inputs.loan_id"/>
+        </value>
+      </inputs>
+    </children>
+  </rootContainer>
+  <widgetMap key="root" value="//@rootContainer"/>
+  <widgetMap key="fragment" value="//@rootContainer/@children.0"/>
+  <primaryModel href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/other_bank_credit_f.content#/"/>
+</actionflow:UIStep>

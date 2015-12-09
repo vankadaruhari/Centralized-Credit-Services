@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/update_credit_ratin.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="update_credit_ratin" label="Update Credit Rating" displayWidth="900" displayHeight="700" initialState="//@states[id='viewState_update_credit_ratin']">
+  <inputs xsi:type="actionflow:ActionFlowElement" name="id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="16"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="object_name" label="Name">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="32"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="subject" label="Subject">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="192"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="title" label="Title">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="400"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="authors" label="Authors" repeating="true">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="48"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="keywords" label="Keywords" repeating="true">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="48"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="content_format">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/credit_rating.content#/"/>
+  </primaryElement>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_update_credit_ratin_da_def_update_credit_rating" label="Update Credit Rating">
+    <inputMappings name="id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="subject">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="title">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="authors">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="keywords">
+      <expression/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/credit_rating.content#//@dataActionContracts[name='da_def_update_credit_rating']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_update_credit_ratin_da_def_update_credit_rating']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_update_credit_ratin_da_def_update_credit_rating']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_update_credit_ratin">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <step href="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/update_credit_ratin.uistep#/"/>
+  </states>
+  <transitionLabels transition="finish" label="Finish">
+    <labelExpression/>
+  </transitionLabels>
+</actionflow:ActionFlow>

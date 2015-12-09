@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsAppParameter:AppParameter xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAppParameter="http://xcp2.emc.com/appconfiguration" urn="urn:ccs:com.emc.xcp.artifact.appparameter:Artifacts/Parameters/credit_committee.parameter" categoryId="com.emc.xcp.artifact.appparameter" name="credit_committee" label="Credit Committee" value="ccs_credit_committee">
+  <type xsi:type="nsAppParameter:GroupAppParameterType"/>
+</nsAppParameter:AppParameter>

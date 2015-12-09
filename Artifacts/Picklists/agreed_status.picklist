@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsPicklist:Picklist xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/agreed_status.picklist" categoryId="com.emc.xcp.artifact.picklist" name="agreed_status" label="Agreed Status">
+  <type xsi:type="nsAttributeDatatypes:StringType"/>
+  <entries label="Agreed" value="Agreed"/>
+  <entries label="Not Agreed" value="Not Agreed"/>
+  <entries label="Agreed with Condition" value="Agreed with Condition"/>
+</nsPicklist:Picklist>

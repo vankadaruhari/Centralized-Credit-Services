@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uievent:UIEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:uievent="http://www.emc.com/xcp2/2010/uievent" urn="urn:ccs:com.emc.xcp.artifact.uievent:Artifacts/UI Events/create_sanction_adv.uievent" categoryId="com.emc.xcp.artifact.uievent" name="create_sanction_adv" label="Create Sanction Advice Success">
+  <payload name="loan">
+    <type xsi:type="uievent:ReferenceAttributeDataType">
+      <dataType xsi:type="nsDatatypes:Folder" href="urn:ccs:com.emc.xcp.artifact.folder:Artifacts/Folders/loan.folder#/"/>
+    </type>
+  </payload>
+  <payload name="proposal">
+    <type xsi:type="uievent:ReferenceAttributeDataType">
+      <dataType xsi:type="nsDatatypes:BusinessObject" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/proposal.businessobj#/"/>
+    </type>
+  </payload>
+  <payload name="sanctionadvice">
+    <type xsi:type="uievent:ReferenceAttributeDataType">
+      <dataType xsi:type="nsDatatypes:BusinessObject" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/sanction_advice.businessobj#/"/>
+    </type>
+  </payload>
+</uievent:UIEvent>

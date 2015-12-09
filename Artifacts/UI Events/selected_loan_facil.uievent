@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uievent:UIEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:uievent="http://www.emc.com/xcp2/2010/uievent" urn="urn:ccs:com.emc.xcp.artifact.uievent:Artifacts/UI Events/selected_loan_facil.uievent" categoryId="com.emc.xcp.artifact.uievent" name="selected_loan_facil" label="Selected Loan Facility ID">
+  <payload name="loan_facility_id">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="name">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="description" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="amount">
+    <type xsi:type="nsAttributeDatatypes:FloatType"/>
+  </payload>
+</uievent:UIEvent>

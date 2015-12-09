@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsDatatypes:Folder xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:ccs:com.emc.xcp.artifact.folder:Artifacts/Folders/loan.folder" categoryId="com.emc.xcp.artifact.folder" name="loan" label="loan" commentable="true">
+  <attributes name="application_recieve_date" label="Application Recieve Date">
+    <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+  </attributes>
+  <attributes name="application_reference_numbe" label="Application Reference Number">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="128"/>
+  </attributes>
+  <attributes name="business_nature" label="Business Nature">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="client_name" label="Client Name">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="constitution" label="Constitution">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="facilitytype" label="FacilityType">
+    <type xsi:type="nsPicklist:PickListType">
+      <pickList href="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/facilitytype.picklist#/"/>
+    </type>
+  </attributes>
+  <attributes name="factory_address" label="Factory Address">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="registered_office_address" label="Registered Office Address">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="sanctionnature" label="SanctionNature">
+    <type xsi:type="nsPicklist:PickListType">
+      <pickList href="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/sanctionnature.picklist#/"/>
+    </type>
+  </attributes>
+  <attributes name="serial_number" label="serial_number">
+    <type xsi:type="nsAttributeDatatypes:IntegerType"/>
+  </attributes>
+  <attributes name="status" label="Status">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="256"/>
+  </attributes>
+  <attributes name="checklist_folder_template_i" label="Checklist_folder_template_id">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="branch_code" label="Branch Code">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="movement_registry_folder_id" label="Movement Registry Folder Id">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="case_number" label="Case Number">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="128"/>
+  </attributes>
+  <attributes name="department_code" label="Department Code">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="expected_completion_date" label="Expected Completion Date">
+    <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+  </attributes>
+  <attributes name="account_number" label="Account Number">
+    <type xsi:type="nsAttributeDatatypes:IntegerType"/>
+  </attributes>
+  <attributes name="customer_id" label="Customer ID">
+    <type xsi:type="nsAttributeDatatypes:IntegerType"/>
+  </attributes>
+  <attributes name="string_account_number" label="String Account Number">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="string_customer_id" label="String Customer ID">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <accessControlPolicy inheritedFromParentFolder="true"/>
+  <defaultFolderPath/>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_loan" label="Create loan" implCategoryId="com.emc.xcp.artifact.folder">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="account_number" label="Account Number">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="application_recieve_date" label="Application Recieve Date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="application_reference_numbe" label="Application Reference Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="branch_code" label="Branch Code">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="business_nature" label="Business Nature">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="case_number" label="Case Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="checklist_folder_template_i" label="Checklist_folder_template_id">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="client_name" label="Client Name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="constitution" label="Constitution">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="customer_id" label="Customer ID">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="department_code" label="Department Code">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="expected_completion_date" label="Expected Completion Date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="facilitytype" label="FacilityType">
+      <attributeType xsi:type="nsPicklist:PickListType">
+        <pickList href="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/facilitytype.picklist#/"/>
+      </attributeType>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="factory_address" label="Factory Address">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="movement_registry_folder_id" label="Movement Registry Folder Id">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="registered_office_address" label="Registered Office Address">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="sanctionnature" label="SanctionNature">
+      <attributeType xsi:type="nsPicklist:PickListType">
+        <pickList href="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/sanctionnature.picklist#/"/>
+      </attributeType>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="serial_number" label="serial_number">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="status" label="Status">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_account_number" label="String Account Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_customer_id" label="String Customer ID">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Create"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_update_loan" label="Update loan" implCategoryId="com.emc.xcp.artifact.folder">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="account_number" label="Account Number">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="application_recieve_date" label="Application Recieve Date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="application_reference_numbe" label="Application Reference Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="branch_code" label="Branch Code">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="business_nature" label="Business Nature">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="case_number" label="Case Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="checklist_folder_template_i" label="Checklist_folder_template_id">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="client_name" label="Client Name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="constitution" label="Constitution">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="customer_id" label="Customer ID">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="department_code" label="Department Code">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="expected_completion_date" label="Expected Completion Date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="facilitytype" label="FacilityType">
+      <attributeType xsi:type="nsPicklist:PickListType">
+        <pickList href="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/facilitytype.picklist#/"/>
+      </attributeType>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="factory_address" label="Factory Address">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="movement_registry_folder_id" label="Movement Registry Folder Id">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="registered_office_address" label="Registered Office Address">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="sanctionnature" label="SanctionNature">
+      <attributeType xsi:type="nsPicklist:PickListType">
+        <pickList href="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/sanctionnature.picklist#/"/>
+      </attributeType>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="serial_number" label="serial_number">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="status" label="Status">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_account_number" label="String Account Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_customer_id" label="String Customer ID">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Update"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_delete_loan" label="Delete loan" implCategoryId="com.emc.xcp.artifact.folder">
+    <primaryElement dataModel="/"/>
+    <actionType type="Delete"/>
+  </dataActionContracts>
+  <superType xsi:type="nsDatatypes:Folder" href="urn:xcp:com.emc.xcp.artifact.folder:Artifacts/Folders/dm_folder.folder#/"/>
+</nsDatatypes:Folder>

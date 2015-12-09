@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/create_valuation_of.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="create_valuation_of" label="Create Valuation of Security" initialState="//@states[id='viewState_create_valuation_of']">
+  <inputs xsi:type="actionflow:ActionFlowElement" name="assessed_value" label="Assessed Value" repeating="true">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="assessment_date" label="Assessment Date">
+    <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="assets" label="Assets">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="grand_total" label="Grand-Total">
+    <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="loan_collateral_ratio" label="loan_collateral_ratio">
+    <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="location" label="Location">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="sub_total" label="Sub -Total">
+    <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="surveyor_name" label="Surveyor Name">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="object_name" label="Name">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType" length="32"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/valuation_of_securi.businessobj#/"/>
+  </primaryElement>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_create_valuation_of_da_def_create_valuation_of_securi" label="Create Valuation of Security">
+    <inputMappings name="assessed_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="assessment_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="assets">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="grand_total">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="loan_collateral_ratio">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="location">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="sub_total">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="surveyor_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="object_name">
+      <expression/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/valuation_of_securi.businessobj#//@dataActionContracts[name='da_def_create_valuation_of_securi']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_create_valuation_of_da_def_create_valuation_of_securi']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_create_valuation_of_da_def_create_valuation_of_securi']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_create_valuation_of">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <step href="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/create_valuation_of.uistep#/"/>
+  </states>
+  <transitionLabels transition="finish" label="Finish">
+    <labelExpression/>
+  </transitionLabels>
+</actionflow:ActionFlow>

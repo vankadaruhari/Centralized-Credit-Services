@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uievent:UIEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:uievent="http://www.emc.com/xcp2/2010/uievent" urn="urn:ccs:com.emc.xcp.artifact.uievent:Artifacts/UI Events/update_ubs_data.uievent" categoryId="com.emc.xcp.artifact.uievent" name="update_ubs_data" label="Update UBS Data">
+  <payload name="acc_name" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="acc_no" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="cust_id" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="acc_open_date" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="acc_type" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="cur_balance" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:FloatType"/>
+  </payload>
+  <payload name="cust_address" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="reg_address" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="count">
+    <type xsi:type="nsAttributeDatatypes:IntegerType"/>
+  </payload>
+  <payload name="dob" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="mobile" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:IntegerType"/>
+  </payload>
+</uievent:UIEvent>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<realtime:RealTimeSearch xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:realtime="http://xcp.emc.com/search/realtime" urn="urn:ccs:com.emc.xcp.artifact.search.realtime:Artifacts/Real-time Queries/get_movement_regist.realtime" categoryId="com.emc.xcp.artifact.search.realtime" name="get_movement_regist" label="Get Movement Registry">
+  <datasource categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="get_movement_regist" label="Get Movement Registry" implCategoryId="com.emc.xcp.artifact.search.realtime">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="input_parent_folders" label="Parent Folders">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="Result Count">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:ArrayElement" name="Results">
+      <item xsi:type="nsDataserviceContract:StructureElement" name="Items">
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object ID">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="unit_department" label="Unit/Department">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="status" label="Status">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="role" label="Role">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="reference_number" label="Reference Number">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="performer" label="Performer">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="event_name" label="Event Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="event_data_and_time" label="Event Data and Time">
+          <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="division_name" label="Division Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="case_number" label="Case Number">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="branch_name" label="Branch Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="client" label="Client">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_object_type" label="Object type" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+      </item>
+    </outputs>
+    <primaryElement>
+      <dataModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+    </primaryElement>
+  </datasource>
+  <inputParameters label="Parent Folders" name="parent_folders">
+    <formInputs xsi:type="realtime:RealTimeStringFormInput" operator="com.emc.xcp.model.common.StringOperator:EQUAL">
+      <contextSelection>
+        <parentRef>
+          <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+        </parentRef>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='i_folder_id']"/>
+      </contextSelection>
+    </formInputs>
+  </inputParameters>
+  <columns label="Object ID">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='r_object_id']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Unit/Department">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#//@attributes[name='unit_department']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Status">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#//@attributes[name='status']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Role">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#//@attributes[name='role']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Reference Number">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#//@attributes[name='reference_number']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Performer">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#//@attributes[name='performer']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Event Name">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#//@attributes[name='event_name']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Event Data and Time">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#//@attributes[name='event_data_and_time']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Division Name">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#//@attributes[name='division_name']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Case Number">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#//@attributes[name='case_number']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Branch Name">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#//@attributes[name='branch_name']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Client">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#//@attributes[name='client']"/>
+    </contextSelection>
+  </columns>
+  <defaultSort ascending="true"/>
+  <dataType xsi:type="nsDatatypes:BusinessObject" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+  <resultOrientation>
+    <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/movement_registry.businessobj#/"/>
+  </resultOrientation>
+</realtime:RealTimeSearch>

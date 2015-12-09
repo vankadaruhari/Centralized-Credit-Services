@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsPicklist:Picklist xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/sanctionnature.picklist" categoryId="com.emc.xcp.artifact.picklist" name="sanctionnature" label="SanctionNature">
+  <type xsi:type="nsAttributeDatatypes:StringType"/>
+  <entries label="New" value="new"/>
+  <entries label="Renewal" value="renewal"/>
+  <entries label="Reschedule" value="reschedule"/>
+  <entries label="Restructure" value="restructure"/>
+  <entries label="Others" value="others"/>
+</nsPicklist:Picklist>

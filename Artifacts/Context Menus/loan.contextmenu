@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contextmenu:ContextMenu xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:contextmenu="http://www.emc.com/xcp2/2010/contextmenu" xmlns:nsDataservice="http://xcp.emc.com/Dataservice" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:ccs:com.emc.xcp.artifact.contextmenu:Artifacts/Context Menus/loan.contextmenu" categoryId="com.emc.xcp.artifact.contextmenu" name="loan" label="Context Menu">
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="default_create_fold_loan" label="Default Create Folder Action Flow">
+    <inputMappings name="folder_types">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="default_folder_type">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="default_folder_path">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="parent_folder_id">
+      <expression exprStr="loan.id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:xcp:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/def_create_folder.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="def_imp_af_loan" label="Default Import Action Flow">
+    <inputMappings name="content_types">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="default_content_type">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="content_formats">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="default_content_format">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="folder_id">
+      <expression exprStr="loan.id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:xcp:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/def_imp_af.actionflow#/"/>
+  </actions>
+  <actions xsi:type="nsDataservice:DataAction" categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_delete_loan_loan" label="Delete loan">
+    <inputMappings name="id">
+      <expression exprStr="loan.id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.xcp.artifact.folder:Artifacts/Folders/loan.folder#//@dataActionContracts[name='da_def_delete_loan']"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="default_create_docu_loan" label="Default Create Document Action Flow">
+    <inputMappings name="content_types">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="default_content_type">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="content_formats">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="default_content_format">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="folder_id">
+      <expression exprStr="loan.id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:xcp:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/default_create_docu.actionflow#/"/>
+  </actions>
+  <actionInstanceProperty actionInstance="//@actions[name='default_create_fold_loan']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='def_imp_af_loan']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='da_def_delete_loan_loan']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='default_create_docu_loan']"/>
+  <primaryModel href="urn:ccs:com.emc.xcp.artifact.folder:Artifacts/Folders/loan.folder#/"/>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="Initiate Loan" id="contextmenu_action1">
+    <actionProperties name="isHidden" value="loan.status!='Data Entry'" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="redirectStyle" value="specified" entry="//@items.0/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="actionType" value="xcp_gotopage" entry="//@items.0/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.0/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties xsi:type="uitemplate:DataboundProperty" name="redirectUrl" value="ccs_initiate_loan" entry="//@items.0/@actionProperties.2/@action/@propertyMap.3">
+          <data selectionName="initiate_loan" selectionLabel="Initiate Loan">
+            <dataRef href="urn:ccs:com.emc.xcp.artifact.page:Artifacts/Pages/initiate_loan.page#/"/>
+          </data>
+        </properties>
+        <properties name="redirectUrlModel" value="ccs_loan" entry="//@items.0/@actionProperties.2/@action/@propertyMap.4"/>
+        <properties name="redirectObjectId" value="loan.id" entry="//@items.0/@actionProperties.2/@action/@propertyMap.5"/>
+        <propertyMap key="redirectStyle" value="//@items.0/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="actionType" value="//@items.0/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="pageSelectionType" value="//@items.0/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="redirectUrl" value="//@items.0/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="redirectUrlModel" value="//@items.0/@actionProperties.2/@action/@properties.4"/>
+        <propertyMap key="redirectObjectId" value="//@items.0/@actionProperties.2/@action/@properties.5"/>
+      </action>
+    </actionProperties>
+    <actionProperties name="default_link" value="false" type="BOOLEAN"/>
+  </items>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="Edit Loan" id="edit">
+    <actionProperties name="isHidden" value="loan.status!='Data Entry'" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="redirectStyle" value="specified" entry="//@items.1/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="actionType" value="xcp_gotopage" entry="//@items.1/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.1/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties xsi:type="uitemplate:DataboundProperty" name="redirectUrl" value="ccs_edit_loan" entry="//@items.1/@actionProperties.2/@action/@propertyMap.3">
+          <data selectionName="edit_loan" selectionLabel="Edit Loan">
+            <dataRef href="urn:ccs:com.emc.xcp.artifact.page:Artifacts/Pages/edit_loan.page#/"/>
+          </data>
+        </properties>
+        <properties name="redirectUrlModel" value="ccs_loan" entry="//@items.1/@actionProperties.2/@action/@propertyMap.4"/>
+        <properties name="redirectObjectId" value="loan.id" entry="//@items.1/@actionProperties.2/@action/@propertyMap.5"/>
+        <propertyMap key="redirectStyle" value="//@items.1/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="actionType" value="//@items.1/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="pageSelectionType" value="//@items.1/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="redirectUrl" value="//@items.1/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="redirectUrlModel" value="//@items.1/@actionProperties.2/@action/@properties.4"/>
+        <propertyMap key="redirectObjectId" value="//@items.1/@actionProperties.2/@action/@properties.5"/>
+      </action>
+    </actionProperties>
+    <actionProperties name="default_link" value="false" type="BOOLEAN"/>
+  </items>
+  <items xsi:type="contextmenu:SeperatorItem"/>
+  <items xsi:type="contextmenu:SeperatorItem"/>
+  <items xsi:type="contextmenu:SeperatorItem"/>
+</contextmenu:ContextMenu>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uitemplate:Fragment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:ccs:com.emc.xcp.artifact.fragment:Artifacts/Fragments/checklist_folder.fragment" categoryId="com.emc.xcp.artifact.fragment" name="checklist_folder" label="CheckList Folder" templateType="application">
+  <title exprStr="CheckList Folder"/>
+  <rootContainer widgetEntry="//@widgetMap[key='root']">
+    <properties name="xcpId" value="root" entry="//@rootContainer/@propertyMap.0"/>
+    <propertyMap key="xcpId" value="//@rootContainer/@properties.0"/>
+  </rootContainer>
+  <widgetMap key="root" value="//@rootContainer"/>
+  <hidden>
+    <expression/>
+  </hidden>
+  <inputs xsi:type="uitemplate:CompositeFragmentAttribute" name="checklist_folder_id">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+    <value>
+      <expression/>
+    </value>
+  </inputs>
+</uitemplate:Fragment>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<realtime:RealTimeSearch xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:realtime="http://xcp.emc.com/search/realtime" urn="urn:ccs:com.emc.xcp.artifact.search.realtime:Artifacts/Real-time Queries/get_task_actions.realtime" categoryId="com.emc.xcp.artifact.search.realtime" name="get_task_actions" label="Get Task Actions">
+  <datasource categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="get_task_actions" label="Get Task Actions" implCategoryId="com.emc.xcp.artifact.search.realtime">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="input_parent_folders" label="Parent Folders">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="Result Count">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:ArrayElement" name="Results">
+      <item xsi:type="nsDataserviceContract:StructureElement" name="Items">
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object ID">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="agreed_status" label="Agreed Status">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="comments" label="Comments">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="performer" label="Performer">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="division_name" label="Division Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="designation" label="Designation">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="completion_time" label="Completion Time">
+          <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_object_type" label="Object type" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+      </item>
+    </outputs>
+    <primaryElement>
+      <dataModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#/"/>
+    </primaryElement>
+  </datasource>
+  <inputParameters label="Parent Folders" name="parent_folders">
+    <formInputs xsi:type="realtime:RealTimeStringFormInput" operator="com.emc.xcp.model.common.StringOperator:EQUAL">
+      <contextSelection>
+        <parentRef>
+          <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#/"/>
+        </parentRef>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='i_folder_id']"/>
+      </contextSelection>
+    </formInputs>
+  </inputParameters>
+  <columns label="Object ID">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='r_object_id']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Agreed Status">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#//@attributes[name='agreed_status']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Comments">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#//@attributes[name='comments']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Performer">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#//@attributes[name='performer']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Division Name">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#//@attributes[name='division_name']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Designation">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#//@attributes[name='designation']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Completion Time">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#//@attributes[name='completion_time']"/>
+    </contextSelection>
+  </columns>
+  <defaultSort ascending="true"/>
+  <dataType xsi:type="nsDatatypes:BusinessObject" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#/"/>
+  <resultOrientation>
+    <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/task_actions.businessobj#/"/>
+  </resultOrientation>
+</realtime:RealTimeSearch>

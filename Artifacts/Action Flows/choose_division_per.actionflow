@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/choose_division_per.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="choose_division_per" label="Choose Division Performers" displayWidth="700" displayHeight="500" initialState="//@states[id='viewState_choose_division_per']">
+  <inputs xsi:type="actionflow:ActionFlowElement" name="selected_users" repeating="true">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression exprStr=""/>
+    </defaultValue>
+  </inputs>
+  <outputs xsi:type="actionflow:ActionFlowElement" name="user_names" repeating="true">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression exprStr="sessionparameters.ccs.temp"/>
+    </defaultValue>
+  </outputs>
+  <dataSources categoryId="com.emc.xcp.artifact.dataservice.datasource" name="send_for_review_or_approval_initiate_staless_ds" label="Send For Review Or Approval">
+    <inputMappings name="processVariables.performer">
+      <expression exprStr="sessionparameters.ccs.temp"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataSourceContract" href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/send_for_review_or_approval.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='send_for_review_or_approval_initiate_staless_ds']"/>
+  </dataSources>
+  <actionInstanceProperty actionInstance="//@dataSources[name='send_for_review_or_approval_initiate_staless_ds']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_choose_division_per">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <stepCondition>
+      <expression exprStr="false"/>
+    </stepCondition>
+    <step href="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/choose_division_per.uistep#/"/>
+  </states>
+  <states xsi:type="actionflow:ActionFlowState" id="finish" actionInstance="//@dataSources[name='send_for_review_or_approval_initiate_staless_ds']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <transitionLabels transition="finish" label="Finish">
+    <labelExpression/>
+  </transitionLabels>
+</actionflow:ActionFlow>

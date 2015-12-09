@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uievent:UIEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:uievent="http://www.emc.com/xcp2/2010/uievent" urn="urn:ccs:com.emc.xcp.artifact.uievent:Artifacts/UI Events/on_selected_directo.uievent" categoryId="com.emc.xcp.artifact.uievent" name="on_selected_directo" label="On Selected Director">
+  <payload name="director_id">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="name">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="father_name">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="mother_name">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="address">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="position">
+    <type xsi:type="nsAttributeDatatypes:StringType"/>
+  </payload>
+  <payload name="share_holding">
+    <type xsi:type="nsAttributeDatatypes:FloatType"/>
+  </payload>
+  <payload name="networth">
+    <type xsi:type="nsAttributeDatatypes:FloatType"/>
+  </payload>
+</uievent:UIEvent>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsDatatypes:BusinessObject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" urn="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/terms_and_condition.businessobj" categoryId="com.emc.xcp.artifact.bo" name="terms_and_condition" label="Terms  And Conditions">
+  <attributes name="limit_amount" label="Limit Amount">
+    <type xsi:type="nsAttributeDatatypes:FloatType"/>
+  </attributes>
+  <attributes name="facility_type" label="Facility Type">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="repayment_settlement" label="Repayment Settlement">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="purpose" label="Purpose">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="drawing_power" label="Drawing Power">
+    <type xsi:type="nsAttributeDatatypes:FloatType"/>
+  </attributes>
+  <attributes name="security" label="Security">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="expiry" label="Expiry">
+    <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+  </attributes>
+  <attributes name="special_conditions" label="Special Conditions" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="special_instructions" label="Special Instructions" repeating="true">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="total_limit_amount" label="Total Limit Amount">
+    <type xsi:type="nsAttributeDatatypes:FloatType"/>
+  </attributes>
+  <attributes name="string_intrest_rate_comissi" label="String Intrest Rate /Comission">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="string_other_charges_fees" label="String Other charges/Fees">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="string_margin" label="String Margin">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="string_tenor" label="String Tenor">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <attributes name="string_drawing_power" label="String Drawing Power">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="2000"/>
+  </attributes>
+  <accessControlPolicy inheritedFromParentFolder="true"/>
+  <defaultFolderPath/>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_terms_and_condition" label="Create Terms  And Conditions" implCategoryId="com.emc.xcp.artifact.bo">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="drawing_power" label="Drawing Power">
+      <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="expiry" label="Expiry">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="facility_type" label="Facility Type">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="limit_amount" label="Limit Amount">
+      <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="purpose" label="Purpose">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="repayment_settlement" label="Repayment Settlement">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="security" label="Security">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="special_conditions" label="Special Conditions" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="special_instructions" label="Special Instructions" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_drawing_power" label="String Drawing Power">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_intrest_rate_comissi" label="String Intrest Rate /Comission">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_margin" label="String Margin">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_other_charges_fees" label="String Other charges/Fees">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_tenor" label="String Tenor">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="total_limit_amount" label="Total Limit Amount">
+      <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Create"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_update_terms_and_condition" label="Update Terms  And Conditions" implCategoryId="com.emc.xcp.artifact.bo">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="drawing_power" label="Drawing Power">
+      <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="expiry" label="Expiry">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="facility_type" label="Facility Type">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="limit_amount" label="Limit Amount">
+      <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="purpose" label="Purpose">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="repayment_settlement" label="Repayment Settlement">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="security" label="Security">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="special_conditions" label="Special Conditions" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="special_instructions" label="Special Instructions" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_drawing_power" label="String Drawing Power">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_intrest_rate_comissi" label="String Intrest Rate /Comission">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_margin" label="String Margin">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_other_charges_fees" label="String Other charges/Fees">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_tenor" label="String Tenor">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="total_limit_amount" label="Total Limit Amount">
+      <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Update"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_delete_terms_and_condition" label="Delete Terms  And Conditions" implCategoryId="com.emc.xcp.artifact.bo">
+    <primaryElement dataModel="/"/>
+    <actionType type="Delete"/>
+  </dataActionContracts>
+  <superType xsi:type="nsDatatypes:BusinessObject" href="urn:xcp:com.emc.xcp.artifact.bo:Artifacts/Business Objects/rootbo.businessobj#/"/>
+</nsDatatypes:BusinessObject>

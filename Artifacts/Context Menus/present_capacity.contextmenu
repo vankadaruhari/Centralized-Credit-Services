@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contextmenu:ContextMenu xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:contextmenu="http://www.emc.com/xcp2/2010/contextmenu" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:ccs:com.emc.xcp.artifact.contextmenu:Artifacts/Context Menus/present_capacity.contextmenu" categoryId="com.emc.xcp.artifact.contextmenu" name="present_capacity" label="Context Menu">
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="update_present_capa_present_capacity" label="Update Present Capacity">
+    <inputMappings name="proposal_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="present_capacity.id"/>
+    </inputMappings>
+    <inputMappings name="object_name">
+      <expression exprStr="present_capacity.object_name"/>
+    </inputMappings>
+    <inputMappings name="subject">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="title">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="authors">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="keywords">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="content_format">
+      <expression exprStr="present_capacity.a_content_type"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/update_present_capa.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="view_present_capaci_present_capacity" label="View Present Capacity">
+    <inputMappings name="object_name">
+      <expression exprStr="present_capacity.object_name"/>
+    </inputMappings>
+    <inputMappings name="content_format">
+      <expression exprStr="present_capacity.a_content_type"/>
+    </inputMappings>
+    <inputMappings name="object_id">
+      <expression exprStr="present_capacity.id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/view_present_capaci.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="def_inv_af_present_capacity" label="Default Import New Version Action Flow">
+    <inputMappings name="r_object_type">
+      <expression exprStr="present_capacity.r_object_type"/>
+    </inputMappings>
+    <inputMappings name="r_object_id">
+      <expression exprStr="present_capacity.id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:xcp:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/def_inv_af.actionflow#/"/>
+  </actions>
+  <actionInstanceProperty actionInstance="//@actions[name='update_present_capa_present_capacity']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='view_present_capaci_present_capacity']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='def_inv_af_present_capacity']"/>
+  <primaryModel href="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/present_capacity.content#/"/>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="Update" action="//@actions[name='update_present_capa_present_capacity']" id="contextmenu_action">
+    <actionProperties name="isHidden" value="" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="defaultConfirmationPrompt" value="Are you sure you want to update the item?" entry="//@items.0/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="showConfirmation" value="true" type="BOOLEAN" entry="//@items.0/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="redirectStyle" value="none" entry="//@items.0/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.0/@actionProperties.2/@action/@propertyMap.3"/>
+        <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@items.0/@actionProperties.2/@action/@propertyMap.4"/>
+        <properties name="actionType" value="update" entry="//@items.0/@actionProperties.2/@action/@propertyMap.5"/>
+        <propertyMap key="defaultConfirmationPrompt" value="//@items.0/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="showConfirmation" value="//@items.0/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="redirectStyle" value="//@items.0/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="pageSelectionType" value="//@items.0/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="showSuccessNotification" value="//@items.0/@actionProperties.2/@action/@properties.4"/>
+        <propertyMap key="actionType" value="//@items.0/@actionProperties.2/@action/@properties.5"/>
+      </action>
+    </actionProperties>
+    <actionProperties name="menu_action_name" value="action_flow"/>
+  </items>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="View" action="//@actions[name='view_present_capaci_present_capacity']" id="contextmenu_action1">
+    <actionProperties name="isHidden" value="" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="redirectStyle" value="none" entry="//@items.1/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="showSuccessNotification" value="false" type="BOOLEAN" entry="//@items.1/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@items.1/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties name="actionType" value="create" entry="//@items.1/@actionProperties.2/@action/@propertyMap.3"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.1/@actionProperties.2/@action/@propertyMap.4"/>
+        <propertyMap key="redirectStyle" value="//@items.1/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="showSuccessNotification" value="//@items.1/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="showConfirmation" value="//@items.1/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="actionType" value="//@items.1/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="pageSelectionType" value="//@items.1/@actionProperties.2/@action/@properties.4"/>
+      </action>
+    </actionProperties>
+    <actionProperties name="menu_action_name" value="action_flow"/>
+  </items>
+  <items xsi:type="contextmenu:SeperatorItem"/>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="Download" id="contextmenu_action2">
+    <actionProperties name="isHidden" value="" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="actionType" value="xcp_downloadfile" entry="//@items.3/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="redirectStyle" value="none" entry="//@items.3/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.3/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties name="showSuccessNotification" value="false" type="BOOLEAN" entry="//@items.3/@actionProperties.2/@action/@propertyMap.3"/>
+        <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@items.3/@actionProperties.2/@action/@propertyMap.4"/>
+        <properties name="openOnDownload" value="true" entry="//@items.3/@actionProperties.2/@action/@propertyMap.5"/>
+        <propertyMap key="actionType" value="//@items.3/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="redirectStyle" value="//@items.3/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="pageSelectionType" value="//@items.3/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="showSuccessNotification" value="//@items.3/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="showConfirmation" value="//@items.3/@actionProperties.2/@action/@properties.4"/>
+        <propertyMap key="openOnDownload" value="//@items.3/@actionProperties.2/@action/@properties.5"/>
+      </action>
+    </actionProperties>
+  </items>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="Edit Content" id="contextmenu_action3">
+    <actionProperties name="isHidden" value="" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="actionType" value="xcp_editfile" entry="//@items.4/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="redirectStyle" value="none" entry="//@items.4/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.4/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties name="showSuccessNotification" value="false" type="BOOLEAN" entry="//@items.4/@actionProperties.2/@action/@propertyMap.3"/>
+        <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@items.4/@actionProperties.2/@action/@propertyMap.4"/>
+        <properties name="openOnDownload" value="true" entry="//@items.4/@actionProperties.2/@action/@propertyMap.5"/>
+        <propertyMap key="actionType" value="//@items.4/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="redirectStyle" value="//@items.4/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="pageSelectionType" value="//@items.4/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="showSuccessNotification" value="//@items.4/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="showConfirmation" value="//@items.4/@actionProperties.2/@action/@properties.4"/>
+        <propertyMap key="openOnDownload" value="//@items.4/@actionProperties.2/@action/@properties.5"/>
+      </action>
+    </actionProperties>
+  </items>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="Cancel Editing" id="contextmenu_action4">
+    <actionProperties name="isHidden" value="" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="actionType" value="xcp_canceledit" entry="//@items.5/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="redirectStyle" value="none" entry="//@items.5/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.5/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties name="showSuccessNotification" value="false" type="BOOLEAN" entry="//@items.5/@actionProperties.2/@action/@propertyMap.3"/>
+        <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@items.5/@actionProperties.2/@action/@propertyMap.4"/>
+        <properties name="deleteLocalFile" value="false" entry="//@items.5/@actionProperties.2/@action/@propertyMap.5"/>
+        <propertyMap key="actionType" value="//@items.5/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="redirectStyle" value="//@items.5/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="pageSelectionType" value="//@items.5/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="showSuccessNotification" value="//@items.5/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="showConfirmation" value="//@items.5/@actionProperties.2/@action/@properties.4"/>
+        <propertyMap key="deleteLocalFile" value="//@items.5/@actionProperties.2/@action/@properties.5"/>
+      </action>
+    </actionProperties>
+  </items>
+  <items xsi:type="contextmenu:ContextMenuActionItem" label="Import New Version..." action="//@actions[name='def_inv_af_present_capacity']" id="contextmenu_action5">
+    <actionProperties name="isHidden" value="" type="BOOLEAN"/>
+    <actionProperties name="isDisabled" value="" type="BOOLEAN"/>
+    <actionProperties xsi:type="uitemplate:ObjectProperty" name="action">
+      <action>
+        <properties name="redirectStyle" value="none" entry="//@items.6/@actionProperties.2/@action/@propertyMap.0"/>
+        <properties name="pageSelectionType" value="page" entry="//@items.6/@actionProperties.2/@action/@propertyMap.1"/>
+        <properties name="showSuccessNotification" value="false" type="BOOLEAN" entry="//@items.6/@actionProperties.2/@action/@propertyMap.2"/>
+        <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@items.6/@actionProperties.2/@action/@propertyMap.3"/>
+        <properties name="actionType" value="importNewVersionTemplate" entry="//@items.6/@actionProperties.2/@action/@propertyMap.4"/>
+        <properties name="deleteLocalFile" value="true" entry="//@items.6/@actionProperties.2/@action/@propertyMap.5"/>
+        <propertyMap key="redirectStyle" value="//@items.6/@actionProperties.2/@action/@properties.0"/>
+        <propertyMap key="pageSelectionType" value="//@items.6/@actionProperties.2/@action/@properties.1"/>
+        <propertyMap key="showSuccessNotification" value="//@items.6/@actionProperties.2/@action/@properties.2"/>
+        <propertyMap key="showConfirmation" value="//@items.6/@actionProperties.2/@action/@properties.3"/>
+        <propertyMap key="actionType" value="//@items.6/@actionProperties.2/@action/@properties.4"/>
+        <propertyMap key="deleteLocalFile" value="//@items.6/@actionProperties.2/@action/@properties.5"/>
+      </action>
+    </actionProperties>
+    <actionProperties name="menu_action_name" value="action_flow"/>
+  </items>
+</contextmenu:ContextMenu>

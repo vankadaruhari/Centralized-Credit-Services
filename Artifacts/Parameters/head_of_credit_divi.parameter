@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsAppParameter:AppParameter xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAppParameter="http://xcp2.emc.com/appconfiguration" urn="urn:ccs:com.emc.xcp.artifact.appparameter:Artifacts/Parameters/head_of_credit_divi.parameter" categoryId="com.emc.xcp.artifact.appparameter" name="head_of_credit_divi" label="Head of Credit Division" value="ccs_head_of_credit_division">
+  <type xsi:type="nsAppParameter:GroupAppParameterType"/>
+</nsAppParameter:AppParameter>

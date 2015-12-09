@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uievent:UIEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uievent="http://www.emc.com/xcp2/2010/uievent" urn="urn:ccs:com.emc.xcp.artifact.uievent:Artifacts/UI Events/on_allied_concerns_.uievent" categoryId="com.emc.xcp.artifact.uievent" name="on_allied_concerns_" label="On Allied Concerns Tab Click" scope="FRAGMENT"/>

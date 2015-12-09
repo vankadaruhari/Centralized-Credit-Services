@@ -1,0 +1,19 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="lcLgPerformanceVo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="companyName"/>
+        <xs:element name="performanceInfoList" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="lcAmount"/>
+              <xs:element type="xs:string" name="ltrStlAmount"/>
+              <xs:element type="xs:int" name="noOfLc"/>
+              <xs:element type="xs:int" name="year"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

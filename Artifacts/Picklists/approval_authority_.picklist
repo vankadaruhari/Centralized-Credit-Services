@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsPicklist:Picklist xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/approval_authority_.picklist" categoryId="com.emc.xcp.artifact.picklist" name="approval_authority_" label="Approval Authority Picklist">
+  <type xsi:type="nsAttributeDatatypes:StringType"/>
+  <entries label="Board" value="Board"/>
+  <entries label="EC" value="EC"/>
+  <entries label="Management" value="Management"/>
+</nsPicklist:Picklist>

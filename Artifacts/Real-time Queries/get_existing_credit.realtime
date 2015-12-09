@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<realtime:RealTimeSearch xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:realtime="http://xcp.emc.com/search/realtime" urn="urn:ccs:com.emc.xcp.artifact.search.realtime:Artifacts/Real-time Queries/get_existing_credit.realtime" categoryId="com.emc.xcp.artifact.search.realtime" name="get_existing_credit" label="Get Existing Credit Facilities">
+  <datasource categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="get_existing_credit" label="Get Existing Credit Facilities" implCategoryId="com.emc.xcp.artifact.search.realtime">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="input_parent_folders" label="Parent Folders">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="Result Count">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:ArrayElement" name="Results">
+      <item xsi:type="nsDataserviceContract:StructureElement" name="Items">
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="company" label="Company">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="facility_type" label="Facility Type">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="facility_limit" label="Facility Limit">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="outstanding" label="Outstanding">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="validity" label="Validity">
+          <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="security_collateral" label="Security / Collateral" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object ID" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_object_type" label="Object type" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+      </item>
+    </outputs>
+    <primaryElement>
+      <dataModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#/"/>
+    </primaryElement>
+  </datasource>
+  <inputParameters label="Parent Folders" name="parent_folders">
+    <formInputs xsi:type="realtime:RealTimeStringFormInput" operator="com.emc.xcp.model.common.StringOperator:EQUAL">
+      <contextSelection>
+        <parentRef>
+          <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#/"/>
+        </parentRef>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='i_folder_id']"/>
+      </contextSelection>
+    </formInputs>
+  </inputParameters>
+  <columns label="Company">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#//@attributes[name='company']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Facility Type">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#//@attributes[name='facility_type']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Facility Limit">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#//@attributes[name='facility_limit']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Outstanding">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#//@attributes[name='outstanding']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Validity">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#//@attributes[name='validity']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Security / Collateral">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#//@attributes[name='security_collateral']"/>
+    </contextSelection>
+  </columns>
+  <defaultSort ascending="true"/>
+  <dataType xsi:type="nsDatatypes:BusinessObject" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#/"/>
+  <resultOrientation>
+    <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/existing_credit_fac.businessobj#/"/>
+  </resultOrientation>
+</realtime:RealTimeSearch>

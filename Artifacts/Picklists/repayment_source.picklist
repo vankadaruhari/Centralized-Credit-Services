@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsPicklist:Picklist xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/repayment_source.picklist" categoryId="com.emc.xcp.artifact.picklist" name="repayment_source" label="Repayment Source">
+  <type xsi:type="nsAttributeDatatypes:StringType"/>
+  <entries label="Primary Source" value="From business cash flow of the client"/>
+  <entries label="Secondary Source" value="From allied Concerns of the client"/>
+  <entries label="Other Source" value="From other sources of the directors"/>
+</nsPicklist:Picklist>

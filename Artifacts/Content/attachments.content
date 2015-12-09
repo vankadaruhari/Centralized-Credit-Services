@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsDatatypes:Document xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsCommon="http://xcp.emc.com/common" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:ccs:com.emc.xcp.artifact.doc:Artifacts/Content/attachments.content" categoryId="com.emc.xcp.artifact.doc" name="attachments" label="Attachments" commentable="true">
+  <attributes name="document_type" label="Document Type">
+    <type xsi:type="nsPicklist:PickListType">
+      <pickList href="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/document_type.picklist#/"/>
+    </type>
+  </attributes>
+  <attributes name="scanned_date" label="Scanned Date">
+    <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+  </attributes>
+  <attributes name="string_document_number" label="String Document Number">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="document_number" label="Document Number">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <eventConfigs label="Update Index Number" description="On Import of Attachment auto update index number">
+    <triggerType/>
+    <action xsi:type="nsCommon:ServiceEventAction">
+      <serviceBinding>
+        <service runtimeModuleName="SyncInvokeService">
+          <configParams name="CHILD_PROCESS_URN" value="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/update_autonumber.process"/>
+        </service>
+        <inputMappingRules>
+          <expression exprStr="getYear(event.attachments.r_creation_date)"/>
+          <targetNode>
+            <parentRef selectionName="Variables" selectionLabel="Variables">
+              <parentRef>
+                <dataRef href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/update_autonumber.process#/"/>
+              </parentRef>
+            </parentRef>
+            <dataRef href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/update_autonumber.process#//@processData/@variables[name='calendar_year']"/>
+          </targetNode>
+        </inputMappingRules>
+        <inputMappingRules>
+          <expression exprStr="event.attachments.r_object_id"/>
+          <targetNode>
+            <parentRef selectionName="Variables" selectionLabel="Variables">
+              <parentRef>
+                <dataRef href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/update_autonumber.process#/"/>
+              </parentRef>
+            </parentRef>
+            <dataRef href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/update_autonumber.process#//@processData/@variables[name='new_attachment_object_id']"/>
+          </targetNode>
+        </inputMappingRules>
+      </serviceBinding>
+    </action>
+    <condition exprStr=""/>
+  </eventConfigs>
+  <accessControlPolicy inheritedFromParentFolder="true"/>
+  <defaultFolderPath/>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_attachments" label="Create Attachments" implCategoryId="com.emc.xcp.artifact.doc">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="document_number" label="Document Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="document_type" label="Document Type">
+      <attributeType xsi:type="nsPicklist:PickListType">
+        <pickList href="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/document_type.picklist#/"/>
+      </attributeType>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="scanned_date" label="Scanned Date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_document_number" label="String Document Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Create"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_update_attachments" label="Update Attachments" implCategoryId="com.emc.xcp.artifact.doc">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="document_number" label="Document Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="document_type" label="Document Type">
+      <attributeType xsi:type="nsPicklist:PickListType">
+        <pickList href="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/document_type.picklist#/"/>
+      </attributeType>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="scanned_date" label="Scanned Date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_document_number" label="String Document Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Update"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_delete_attachments" label="Delete Attachments" implCategoryId="com.emc.xcp.artifact.doc">
+    <primaryElement dataModel="/"/>
+    <actionType type="Delete"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_import_attachments" label="Import Attachments" implCategoryId="com.emc.xcp.artifact.doc">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="document_type" label="Document Type">
+      <attributeType xsi:type="nsPicklist:PickListType">
+        <pickList href="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/document_type.picklist#/"/>
+      </attributeType>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="scanned_date" label="Scanned Date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_document_number" label="String Document Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="document_number" label="Document Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Import"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_importnewversion_attachments" label="ImportNewVersion Attachments" implCategoryId="com.emc.xcp.artifact.doc">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="document_number" label="Document Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="document_type" label="Document Type">
+      <attributeType xsi:type="nsPicklist:PickListType">
+        <pickList href="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/document_type.picklist#/"/>
+      </attributeType>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="scanned_date" label="Scanned Date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="string_document_number" label="String Document Number">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="ImportNewVersion"/>
+  </dataActionContracts>
+  <superType xsi:type="nsDatatypes:Document" href="urn:xcp:com.emc.xcp.artifact.doc:Artifacts/Content/dm_document.content#/"/>
+</nsDatatypes:Document>

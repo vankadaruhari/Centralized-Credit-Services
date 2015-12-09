@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsPicklist:Picklist xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:ccs:com.emc.xcp.artifact.picklist:Artifacts/Picklists/constitution.picklist" categoryId="com.emc.xcp.artifact.picklist" name="constitution" label="Constitution">
+  <type xsi:type="nsAttributeDatatypes:StringType"/>
+  <entries label="Proprietorship" value="Proprietorship"/>
+  <entries label="Partnership" value="Partnership"/>
+  <entries label="Private Limited Company" value="Private Limited Company"/>
+  <entries label="Public Limited Company" value="Public Limited Company"/>
+  <entries label="Trust" value="Trust"/>
+  <entries label="Society" value="Society"/>
+  <entries label="Club" value="Club"/>
+  <entries label="NGO" value="NGO"/>
+  <entries label="NBFI" value="NBFI"/>
+  <entries label="BFI" value="BFI"/>
+  <entries label="Others" value="Others"/>
+</nsPicklist:Picklist>

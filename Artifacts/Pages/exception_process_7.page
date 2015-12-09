@@ -1,0 +1,1926 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uitemplate:Page xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:uitemplate="http://www.emc.com/xcp2/2010/uitemplate" urn="urn:ccs:com.emc.xcp.artifact.page:Artifacts/Pages/exception_process_7.page" categoryId="com.emc.xcp.artifact.page" name="exception_process_7" label="Exception Process during Disbursement Branch Manager" templateType="process" templateScope="INSTANCE">
+  <dataSources categoryId="com.emc.xcp.artifact.dataservice.datasource" name="attachment_viewer_ds" label="Data source for Attachment">
+    <contract xsi:type="nsDataserviceContract:DataSourceContract" href="urn:xcp:com.emc.xcp.artifact.doc:Artifacts/Content/dm_document.content#//@dataSourceContracts[name='attachment_viewer_ds']"/>
+  </dataSources>
+  <dataSources categoryId="com.emc.xcp.artifact.dataservice.datasource" name="taskhistory_initiate_staless_ds" label="Task History">
+    <inputMappings name="processVariables.process_instance_id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.executionData.taskworkflow.id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataSourceContract" href="urn:xcp:com.emc.ide.artifact.process:Artifacts/Processes/taskhistory.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='taskhistory_initiate_staless_ds']"/>
+  </dataSources>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_acquire_currenttask" label="Acquire Current Task">
+    <inputMappings name="id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/currentTask.task#//@dataActionContracts.0/@value"/>
+  </dataActions>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_update_exception_process_during_disbursement_branch_manager" label="Update task Branch Manager (Exception Process during Disbursement)">
+    <inputMappings name="processVariables.send_to_head_of_cad">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processVariables.performer">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_branch_manager">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="attachments">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_disbursement_process">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/exception_process_during_disbursement.process#//@activities[name='Branch%20Manager']/@taskContract/@dataServiceContracts[name='da_def_update_exception_process_during_disbursement_branch_manager']"/>
+  </dataActions>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_unhold_currenttask" label="Unhold Current Task">
+    <inputMappings name="id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/currentTask.task#//@dataActionContracts.2/@value"/>
+  </dataActions>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_invoke_stateless_processcreate_movement_registry_initiate" label="Create Movement Registry">
+    <inputMappings name="processVariables.branch_code">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processVariables.branch_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processVariables.case_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processVariables.destination_folder_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processVariables.division_name">
+      <expression exprStr="'Branch'"/>
+    </inputMappings>
+    <inputMappings name="processVariables.event_data_and_time">
+      <expression exprStr="now()"/>
+    </inputMappings>
+    <inputMappings name="processVariables.event_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processVariables.event_status">
+      <expression exprStr="'Completed'"/>
+    </inputMappings>
+    <inputMappings name="processVariables.performer">
+      <expression exprStr="Centralized_Credit_Services.user.currentUser"/>
+    </inputMappings>
+    <inputMappings name="processVariables.reference_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processVariables.role">
+      <expression exprStr="'Manager'"/>
+    </inputMappings>
+    <inputMappings name="processVariables.status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processVariables.unit_department">
+      <expression exprStr="'General Banking'"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.loan.id"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/create_movement_registry.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='da_def_invoke_stateless_processcreate_movement_registry_initiate']"/>
+  </dataActions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="exception_proces_20_1" label="Complete task Branch Manager (Exception Process during Disbursement)-1">
+    <inputMappings name="processVariables.performer">
+      <expression exprStr="dataservices.send_for_division_r_1.performers"/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_branch_manager">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_disbursement_process">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_head_of_cad">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.account">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.amount">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.approval_terms_complied_wit">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.authorization_sought">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.authorized_by_designation">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.authorized_by_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.borrower">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.checklist_template_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.covenants_conditions_met">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.credit_administration_offic">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.credit_admin_officer_design">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.exception_approved_by">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.exceptions">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.large_loan_compliance_obt">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.recommended_by">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.recommended_by_designation">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.reference_no">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.security_documentation_in_p">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.verified_by">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.annexure.id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.account_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.application_recieve_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.application_reference_numbe">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.branch_code">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.business_nature">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.case_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.checklist_folder_template_i">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.client_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.constitution">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.customer_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.department_code">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.expected_completion_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.facilitytype">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.factory_address">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.movement_registry_folder_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.registered_office_address">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.sanctionnature">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.serial_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.loan.id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_civil_work">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_civil_work_locat">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_civil_work_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_plant_and_machin">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_plant_and_mach_l">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_plant_and_mach_v">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.application_reference_numbe">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.assessment_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.authorised_capital">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.bangla_bank_circular">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.business_performance_risk">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.collateral_for_securities">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_manual">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_rating_status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_risk_grading_result">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_risk_score">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.crg_status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.documents_and_conveyants_co">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.enterprise_size">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.envrr_score">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.envrr_status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.establishment_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_building_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_land_and_building">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_land_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_location_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_operations_perform">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_plant_and_machiner">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_plant_and_mach_loc">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_plant_and_mach_val">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_rules_act">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.financing_requirement_asses">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.fixed_assets">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.freezing_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.general_background">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.grand_total_building_and_ma">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.industry_profile">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.insurance_coverage">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.loan_collateral_ratio">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.long_term_rating">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.management">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.management_risk">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.mitigates">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.other_source">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.outlook">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.paid_up_capital">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.primary_source">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.rated_by">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.reference">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.reference_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.related_expiry">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.related_on">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.result">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.secondary_source">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.sector_code">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.short_term_rating">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.special_conditions_special_">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.subbject">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.subtotal_building_and_civil">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.subtotal_plant_and_machiner">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.surveyor_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.third_party_information">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.through">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.workforce">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.proposal.id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.head_of_corporate_banking_d">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.head_of_credit_division">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.name_of_credit_officer">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.reference_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.relationship_officer">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.sanction_advice_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.terms_and_condition_ids">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.sanction_advice.id"/>
+    </inputMappings>
+    <inputMappings name="attachments">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.exception_memo.id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.exception_memo.id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/exception_proces_20.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="exception_proces_18_1" label="Delegate task Branch Manager (Exception Process during Disbursement) -1">
+    <inputMappings name="processVariables.performer">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_branch_manager">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_disbursement_process">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_head_of_cad">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.account">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.amount">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.approval_terms_complied_wit">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.authorization_sought">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.authorized_by_designation">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.authorized_by_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.borrower">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.checklist_template_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.covenants_conditions_met">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.credit_administration_offic">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.credit_admin_officer_design">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.exception_approved_by">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.exceptions">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.large_loan_compliance_obt">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.recommended_by">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.recommended_by_designation">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.reference_no">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.security_documentation_in_p">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.verified_by">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.account_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.application_recieve_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.application_reference_numbe">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.branch_code">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.business_nature">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.case_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.checklist_folder_template_i">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.client_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.constitution">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.customer_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.department_code">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.expected_completion_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.facilitytype">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.factory_address">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.movement_registry_folder_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.registered_office_address">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.sanctionnature">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.serial_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_civil_work">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_civil_work_locat">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_civil_work_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_plant_and_machin">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_plant_and_mach_l">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_plant_and_mach_v">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.application_reference_numbe">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.assessment_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.authorised_capital">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.bangla_bank_circular">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.business_performance_risk">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.collateral_for_securities">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_manual">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_rating_status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_risk_grading_result">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_risk_score">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.crg_status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.documents_and_conveyants_co">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.enterprise_size">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.envrr_score">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.envrr_status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.establishment_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_building_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_land_and_building">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_land_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_location_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_operations_perform">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_plant_and_machiner">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_plant_and_mach_loc">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_plant_and_mach_val">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_rules_act">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.financing_requirement_asses">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.fixed_assets">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.freezing_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.general_background">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.grand_total_building_and_ma">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.industry_profile">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.insurance_coverage">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.loan_collateral_ratio">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.long_term_rating">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.management">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.management_risk">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.mitigates">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.other_source">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.outlook">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.paid_up_capital">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.primary_source">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.rated_by">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.reference">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.reference_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.related_expiry">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.related_on">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.result">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.secondary_source">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.sector_code">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.short_term_rating">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.special_conditions_special_">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.subbject">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.subtotal_building_and_civil">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.subtotal_plant_and_machiner">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.surveyor_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.third_party_information">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.through">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.workforce">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.head_of_corporate_banking_d">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.head_of_credit_division">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.name_of_credit_officer">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.reference_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.relationship_officer">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.sanction_advice_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.terms_and_condition_ids">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="attachments">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/exception_proces_18.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="exception_proces_19_1" label="Repeat task Branch Manager (Exception Process during Disbursement)-1">
+    <inputMappings name="processVariables.performer">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_branch_manager">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_disbursement_process">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_head_of_cad">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.account">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.amount">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.approval_terms_complied_wit">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.authorization_sought">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.authorized_by_designation">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.authorized_by_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.borrower">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.checklist_template_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.covenants_conditions_met">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.credit_administration_offic">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.credit_admin_officer_design">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.exception_approved_by">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.exceptions">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.large_loan_compliance_obt">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.recommended_by">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.recommended_by_designation">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.reference_no">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.security_documentation_in_p">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.verified_by">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.annexure.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.account_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.application_recieve_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.application_reference_numbe">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.branch_code">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.business_nature">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.case_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.checklist_folder_template_i">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.client_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.constitution">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.customer_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.department_code">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.expected_completion_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.facilitytype">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.factory_address">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.movement_registry_folder_id">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.registered_office_address">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.sanctionnature">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.serial_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_civil_work">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_civil_work_locat">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_civil_work_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_plant_and_machin">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_plant_and_mach_l">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_plant_and_mach_v">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.application_reference_numbe">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.assessment_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.authorised_capital">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.bangla_bank_circular">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.business_performance_risk">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.collateral_for_securities">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_manual">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_rating_status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_risk_grading_result">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_risk_score">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.crg_status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.documents_and_conveyants_co">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.enterprise_size">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.envrr_score">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.envrr_status">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.establishment_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_building_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_land_and_building">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_land_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_location_value">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_operations_perform">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_plant_and_machiner">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_plant_and_mach_loc">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_plant_and_mach_val">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_rules_act">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.financing_requirement_asses">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.fixed_assets">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.freezing_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.general_background">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.grand_total_building_and_ma">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.industry_profile">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.insurance_coverage">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.loan_collateral_ratio">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.long_term_rating">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.management">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.management_risk">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.mitigates">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.other_source">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.outlook">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.paid_up_capital">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.primary_source">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.rated_by">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.reference">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.reference_date">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.related_expiry">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.related_on">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.result">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.secondary_source">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.sector_code">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.short_term_rating">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.special_conditions_special_">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.subbject">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.subtotal_building_and_civil">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.subtotal_plant_and_machiner">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.surveyor_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.third_party_information">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.through">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.workforce">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.object_name">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.head_of_corporate_banking_d">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.head_of_credit_division">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.name_of_credit_officer">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.reference_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.relationship_officer">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.sanction_advice_number">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.terms_and_condition_ids">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.sanction_advice.id">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="attachments">
+      <expression exprStr=""/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/exception_proces_19.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="hold_task_1" label="Hold Task Actionflow-1">
+    <inputMappings name="id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.executionData.currenttask.qitem_id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:xcp:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/hold_task.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="send_for_division_r_1" label="Send For Division Review/Approval-1">
+    <inputMappings name="division_name">
+      <expression exprStr="'Credit Administration Division'"/>
+    </inputMappings>
+    <inputMappings name="department_name">
+      <expression exprStr="'Documentation Unit'"/>
+    </inputMappings>
+    <inputMappings name="role">
+      <expression/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/send_for_division_r.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="add_show_comments_1" label="Add/Show Comments-1">
+    <inputMappings name="loan_id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.loan.id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/add_show_comments.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="view_movement_reg_2_1" label="View Movement Registry-1">
+    <inputMappings name="moment_registry_folder_id">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.loan.movement_registry_folder_id"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/view_movement_reg_2.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="print_exception_m_1_1" label="Print Exception Memo-1">
+    <inputMappings name="loan">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.loan"/>
+    </inputMappings>
+    <inputMappings name="exception_memo">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.exception_memo"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/print_exception_m_1.actionflow#/"/>
+  </actions>
+  <actions categoryId="com.emc.xcp.artifact.dataservice.actioninstance" name="print_documentation_1" label="Print Documentation Process-1">
+    <inputMappings name="loan">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.loan"/>
+    </inputMappings>
+    <inputMappings name="proposal">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.proposal"/>
+    </inputMappings>
+    <inputMappings name="sanction_advice">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.sanction_advice"/>
+    </inputMappings>
+    <inputMappings name="annexure">
+      <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.annexure"/>
+    </inputMappings>
+    <contract xsi:type="actionflow:ActionFlow" href="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/print_documentation.actionflow#/"/>
+  </actions>
+  <actionInstanceProperty actionInstance="//@dataSources[name='attachment_viewer_ds']" invokeOnPageLoad="false"/>
+  <actionInstanceProperty actionInstance="//@dataSources[name='taskhistory_initiate_staless_ds']"/>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_def_acquire_currenttask']"/>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_def_update_exception_process_during_disbursement_branch_manager']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='exception_proces_20_1']">
+    <eventBasedInvocations>
+      <widgetEvent widgetId="dataservices.send_for_division_r_1" eventName="success"/>
+      <conditionTrigger/>
+    </eventBasedInvocations>
+  </actionInstanceProperty>
+  <actionInstanceProperty actionInstance="//@actions[name='exception_proces_18_1']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='exception_proces_19_1']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='hold_task_1']"/>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_def_unhold_currenttask']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='send_for_division_r_1']"/>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_def_invoke_stateless_processcreate_movement_registry_initiate']">
+    <eventBasedInvocations>
+      <widgetEvent widgetId="dataservices.send_for_division_r_1" eventName="success"/>
+      <conditionTrigger/>
+    </eventBasedInvocations>
+  </actionInstanceProperty>
+  <actionInstanceProperty actionInstance="//@actions[name='add_show_comments_1']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='view_movement_reg_2_1']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='print_exception_m_1_1']"/>
+  <actionInstanceProperty actionInstance="//@actions[name='print_documentation_1']"/>
+  <title exprStr="Exception Process during Disbursement Branch Manager"/>
+  <rootContainer widgetEntry="//@widgetMap[key='root']">
+    <properties name="xcpId" value="root" entry="//@rootContainer/@propertyMap.0"/>
+    <propertyMap key="xcpId" value="//@rootContainer/@properties.0"/>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_column_box" parent="//@rootContainer" widgetEntry="//@widgetMap[key='column_box3']">
+      <properties name="title" value="" entry="//@rootContainer/@children.0/@propertyMap.0"/>
+      <properties name="collapsible" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.1"/>
+      <properties name="collapsed" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.2"/>
+      <properties name="collapseFirst" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.3"/>
+      <properties name="border" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@propertyMap.4"/>
+      <properties name="defaultMargins" value="5" entry="//@rootContainer/@children.0/@propertyMap.5"/>
+      <properties name="margins" value="" entry="//@rootContainer/@children.0/@propertyMap.6"/>
+      <properties name="layout" value="xcp_columnbox" entry="//@rootContainer/@children.0/@propertyMap.7"/>
+      <properties name="hidden" value="" entry="//@rootContainer/@children.0/@propertyMap.8"/>
+      <properties name="cls" value="" entry="//@rootContainer/@children.0/@propertyMap.9"/>
+      <properties name="xcpId" value="column_box3" entry="//@rootContainer/@children.0/@propertyMap.10"/>
+      <propertyMap key="title" value="//@rootContainer/@children.0/@properties.0"/>
+      <propertyMap key="collapsible" value="//@rootContainer/@children.0/@properties.1"/>
+      <propertyMap key="collapsed" value="//@rootContainer/@children.0/@properties.2"/>
+      <propertyMap key="collapseFirst" value="//@rootContainer/@children.0/@properties.3"/>
+      <propertyMap key="border" value="//@rootContainer/@children.0/@properties.4"/>
+      <propertyMap key="defaultMargins" value="//@rootContainer/@children.0/@properties.5"/>
+      <propertyMap key="margins" value="//@rootContainer/@children.0/@properties.6"/>
+      <propertyMap key="layout" value="//@rootContainer/@children.0/@properties.7"/>
+      <propertyMap key="hidden" value="//@rootContainer/@children.0/@properties.8"/>
+      <propertyMap key="cls" value="//@rootContainer/@children.0/@properties.9"/>
+      <propertyMap key="xcpId" value="//@rootContainer/@children.0/@properties.10"/>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_columnhbox" parent="//@rootContainer/@children.0" widgetEntry="//@widgetMap[key='columnhbox1']">
+        <properties name="orientation" value="Horizontal" entry="//@rootContainer/@children.0/@children.0/@propertyMap.0"/>
+        <properties name="width" value="70%" entry="//@rootContainer/@children.0/@children.0/@propertyMap.1"/>
+        <properties name="minWidth" value="" type="INTEGER" entry="//@rootContainer/@children.0/@children.0/@propertyMap.2"/>
+        <properties name="overflow_x" value="hidden" entry="//@rootContainer/@children.0/@children.0/@propertyMap.3"/>
+        <properties name="split" value="" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@propertyMap.4"/>
+        <properties name="labelWidth" value="200" type="INTEGER" entry="//@rootContainer/@children.0/@children.0/@propertyMap.5"/>
+        <properties name="defaultMargins" value="5" entry="//@rootContainer/@children.0/@children.0/@propertyMap.6"/>
+        <properties name="margins" value="" entry="//@rootContainer/@children.0/@children.0/@propertyMap.7"/>
+        <properties name="labelAlign" value="left" entry="//@rootContainer/@children.0/@children.0/@propertyMap.8"/>
+        <properties name="halign" value="right" entry="//@rootContainer/@children.0/@children.0/@propertyMap.9"/>
+        <properties name="valign" value="top" entry="//@rootContainer/@children.0/@children.0/@propertyMap.10"/>
+        <properties name="xcpId" value="columnhbox1" entry="//@rootContainer/@children.0/@children.0/@propertyMap.11"/>
+        <propertyMap key="orientation" value="//@rootContainer/@children.0/@children.0/@properties.0"/>
+        <propertyMap key="width" value="//@rootContainer/@children.0/@children.0/@properties.1"/>
+        <propertyMap key="minWidth" value="//@rootContainer/@children.0/@children.0/@properties.2"/>
+        <propertyMap key="overflow_x" value="//@rootContainer/@children.0/@children.0/@properties.3"/>
+        <propertyMap key="split" value="//@rootContainer/@children.0/@children.0/@properties.4"/>
+        <propertyMap key="labelWidth" value="//@rootContainer/@children.0/@children.0/@properties.5"/>
+        <propertyMap key="defaultMargins" value="//@rootContainer/@children.0/@children.0/@properties.6"/>
+        <propertyMap key="margins" value="//@rootContainer/@children.0/@children.0/@properties.7"/>
+        <propertyMap key="labelAlign" value="//@rootContainer/@children.0/@children.0/@properties.8"/>
+        <propertyMap key="halign" value="//@rootContainer/@children.0/@children.0/@properties.9"/>
+        <propertyMap key="valign" value="//@rootContainer/@children.0/@children.0/@properties.10"/>
+        <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@properties.11"/>
+        <children componentDefinitionId="xcp_button" parent="//@rootContainer/@children.0/@children.0" widgetEntry="//@widgetMap[key='button']" dataService="//@dataActions[name='da_def_acquire_currenttask']">
+          <properties name="text" value="Acquire" entry="//@rootContainer/@children.0/@children.0/@children.0/@propertyMap.0"/>
+          <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@children.0/@children.0/@propertyMap.1">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to Acquire this task?" entry="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@propertyMap.0"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@propertyMap.1"/>
+              <properties name="redirectStyle" value="current" entry="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@propertyMap.2"/>
+              <properties name="pageSelectionType" value="page" entry="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@propertyMap.3"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@propertyMap.4"/>
+              <properties name="actionType" value="xcp_acquire_task" entry="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@propertyMap.5"/>
+              <properties name="actionModel" value="acquire_task_model" entry="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@propertyMap.6"/>
+              <propertyMap key="defaultConfirmationPrompt" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@properties.0"/>
+              <propertyMap key="showConfirmation" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@properties.1"/>
+              <propertyMap key="redirectStyle" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@properties.2"/>
+              <propertyMap key="pageSelectionType" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@properties.3"/>
+              <propertyMap key="showSuccessNotification" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@properties.4"/>
+              <propertyMap key="actionType" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@properties.5"/>
+              <propertyMap key="actionModel" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.1/@action/@properties.6"/>
+            </action>
+          </properties>
+          <properties name="actionInstanceId" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@propertyMap.2"/>
+          <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@propertyMap.3"/>
+          <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@propertyMap.4"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@propertyMap.5"/>
+          <properties name="redirectPageUrlName" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@propertyMap.6"/>
+          <properties name="redirectObjectId" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@propertyMap.7"/>
+          <properties name="xcpId" value="button" entry="//@rootContainer/@children.0/@children.0/@children.0/@propertyMap.8"/>
+          <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.0"/>
+          <propertyMap key="action" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.1"/>
+          <propertyMap key="actionInstanceId" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.2"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.3"/>
+          <propertyMap key="disabled" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.4"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.5"/>
+          <propertyMap key="redirectPageUrlName" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.6"/>
+          <propertyMap key="redirectObjectId" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.7"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.0/@properties.8"/>
+        </children>
+        <children componentDefinitionId="xcp_button" parent="//@rootContainer/@children.0/@children.0" widgetEntry="//@widgetMap[key='button1']" dataService="//@dataActions[name='da_def_update_exception_process_during_disbursement_branch_manager']">
+          <properties name="text" value="Update" entry="//@rootContainer/@children.0/@children.0/@children.1/@propertyMap.0"/>
+          <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@children.0/@children.1/@propertyMap.1">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to update this task?" entry="//@rootContainer/@children.0/@children.0/@children.1/@properties.1/@action/@propertyMap.0"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.1/@properties.1/@action/@propertyMap.1"/>
+              <properties name="redirectStyle" value="current" entry="//@rootContainer/@children.0/@children.0/@children.1/@properties.1/@action/@propertyMap.2"/>
+              <properties name="pageSelectionType" value="page" entry="//@rootContainer/@children.0/@children.0/@children.1/@properties.1/@action/@propertyMap.3"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.1/@properties.1/@action/@propertyMap.4"/>
+              <properties name="actionType" value="xcp_update_task" entry="//@rootContainer/@children.0/@children.0/@children.1/@properties.1/@action/@propertyMap.5"/>
+              <propertyMap key="defaultConfirmationPrompt" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.1/@action/@properties.0"/>
+              <propertyMap key="showConfirmation" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.1/@action/@properties.1"/>
+              <propertyMap key="redirectStyle" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.1/@action/@properties.2"/>
+              <propertyMap key="pageSelectionType" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.1/@action/@properties.3"/>
+              <propertyMap key="showSuccessNotification" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.1/@action/@properties.4"/>
+              <propertyMap key="actionType" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.1/@action/@properties.5"/>
+            </action>
+          </properties>
+          <properties name="actionInstanceId" value="" entry="//@rootContainer/@children.0/@children.0/@children.1/@propertyMap.2"/>
+          <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.1/@propertyMap.3"/>
+          <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.1/@propertyMap.4"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.1/@propertyMap.5">
+            <eventBasedExpressions>
+              <expression exprStr="true"/>
+              <conditionTrigger exprStr=""/>
+            </eventBasedExpressions>
+          </properties>
+          <properties name="redirectPageUrlName" value="" entry="//@rootContainer/@children.0/@children.0/@children.1/@propertyMap.6"/>
+          <properties name="redirectObjectId" value="" entry="//@rootContainer/@children.0/@children.0/@children.1/@propertyMap.7"/>
+          <properties name="xcpId" value="button1" entry="//@rootContainer/@children.0/@children.0/@children.1/@propertyMap.8"/>
+          <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.0"/>
+          <propertyMap key="action" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.1"/>
+          <propertyMap key="actionInstanceId" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.2"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.3"/>
+          <propertyMap key="disabled" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.4"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.5"/>
+          <propertyMap key="redirectPageUrlName" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.6"/>
+          <propertyMap key="redirectObjectId" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.7"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.1/@properties.8"/>
+        </children>
+        <children componentDefinitionId="xcp_button" parent="//@rootContainer/@children.0/@children.0" widgetEntry="//@widgetMap[key='comments']" action="//@actions[name='add_show_comments_1']">
+          <properties name="text" value="Add/View Comments" entry="//@rootContainer/@children.0/@children.0/@children.2/@propertyMap.0"/>
+          <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@children.0/@children.2/@propertyMap.1">
+            <action>
+              <properties name="redirectStyle" value="none" entry="//@rootContainer/@children.0/@children.0/@children.2/@properties.1/@action/@propertyMap.0"/>
+              <properties name="showSuccessNotification" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.2/@properties.1/@action/@propertyMap.1"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.2/@properties.1/@action/@propertyMap.2"/>
+              <properties name="actionType" value="create" entry="//@rootContainer/@children.0/@children.0/@children.2/@properties.1/@action/@propertyMap.3"/>
+              <properties name="pageSelectionType" value="page" entry="//@rootContainer/@children.0/@children.0/@children.2/@properties.1/@action/@propertyMap.4"/>
+              <propertyMap key="redirectStyle" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.1/@action/@properties.0"/>
+              <propertyMap key="showSuccessNotification" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.1/@action/@properties.1"/>
+              <propertyMap key="showConfirmation" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.1/@action/@properties.2"/>
+              <propertyMap key="actionType" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.1/@action/@properties.3"/>
+              <propertyMap key="pageSelectionType" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.1/@action/@properties.4"/>
+            </action>
+          </properties>
+          <properties name="actionInstanceId" value="" entry="//@rootContainer/@children.0/@children.0/@children.2/@propertyMap.2"/>
+          <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.2/@propertyMap.3"/>
+          <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.2/@propertyMap.4"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.2/@propertyMap.5"/>
+          <properties name="redirectPageUrlName" value="" entry="//@rootContainer/@children.0/@children.0/@children.2/@propertyMap.6"/>
+          <properties name="redirectObjectId" value="" entry="//@rootContainer/@children.0/@children.0/@children.2/@propertyMap.7"/>
+          <properties name="xcpId" value="comments" entry="//@rootContainer/@children.0/@children.0/@children.2/@propertyMap.8"/>
+          <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.0"/>
+          <propertyMap key="action" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.1"/>
+          <propertyMap key="actionInstanceId" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.2"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.3"/>
+          <propertyMap key="disabled" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.4"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.5"/>
+          <propertyMap key="redirectPageUrlName" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.6"/>
+          <propertyMap key="redirectObjectId" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.7"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.2/@properties.8"/>
+        </children>
+        <children componentDefinitionId="xcp_button" parent="//@rootContainer/@children.0/@children.0" widgetEntry="//@widgetMap[key='momentregistry']" action="//@actions[name='view_movement_reg_2_1']">
+          <properties name="text" value="View Movement Register" entry="//@rootContainer/@children.0/@children.0/@children.3/@propertyMap.0"/>
+          <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@children.0/@children.3/@propertyMap.1">
+            <action>
+              <properties name="redirectStyle" value="none" entry="//@rootContainer/@children.0/@children.0/@children.3/@properties.1/@action/@propertyMap.0"/>
+              <properties name="showSuccessNotification" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.3/@properties.1/@action/@propertyMap.1"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.3/@properties.1/@action/@propertyMap.2"/>
+              <properties name="actionType" value="create" entry="//@rootContainer/@children.0/@children.0/@children.3/@properties.1/@action/@propertyMap.3"/>
+              <properties name="pageSelectionType" value="page" entry="//@rootContainer/@children.0/@children.0/@children.3/@properties.1/@action/@propertyMap.4"/>
+              <propertyMap key="redirectStyle" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.1/@action/@properties.0"/>
+              <propertyMap key="showSuccessNotification" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.1/@action/@properties.1"/>
+              <propertyMap key="showConfirmation" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.1/@action/@properties.2"/>
+              <propertyMap key="actionType" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.1/@action/@properties.3"/>
+              <propertyMap key="pageSelectionType" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.1/@action/@properties.4"/>
+            </action>
+          </properties>
+          <properties name="actionInstanceId" value="" entry="//@rootContainer/@children.0/@children.0/@children.3/@propertyMap.2"/>
+          <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.3/@propertyMap.3"/>
+          <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.3/@propertyMap.4"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.3/@propertyMap.5"/>
+          <properties name="redirectPageUrlName" value="" entry="//@rootContainer/@children.0/@children.0/@children.3/@propertyMap.6"/>
+          <properties name="redirectObjectId" value="" entry="//@rootContainer/@children.0/@children.0/@children.3/@propertyMap.7"/>
+          <properties name="xcpId" value="momentregistry" entry="//@rootContainer/@children.0/@children.0/@children.3/@propertyMap.8"/>
+          <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.0"/>
+          <propertyMap key="action" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.1"/>
+          <propertyMap key="actionInstanceId" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.2"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.3"/>
+          <propertyMap key="disabled" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.4"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.5"/>
+          <propertyMap key="redirectPageUrlName" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.6"/>
+          <propertyMap key="redirectObjectId" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.7"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.3/@properties.8"/>
+        </children>
+        <children componentDefinitionId="xcp_button" parent="//@rootContainer/@children.0/@children.0" widgetEntry="//@widgetMap[key='button2']" action="//@actions[name='send_for_division_r_1']">
+          <properties name="text" value="Send to Officer of Documentation Unit" entry="//@rootContainer/@children.0/@children.0/@children.4/@propertyMap.0"/>
+          <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@children.0/@children.4/@propertyMap.1">
+            <action>
+              <properties xsi:type="uitemplate:DataboundProperty" name="redirectUrl" value="application/ccs_inbox" entry="//@rootContainer/@children.0/@children.0/@children.4/@properties.1/@action/@propertyMap.0">
+                <data selectionName="inbox" selectionLabel="Inbox">
+                  <dataRef href="urn:ccs:com.emc.xcp.artifact.page:Artifacts/Pages/inbox.page#/"/>
+                </data>
+              </properties>
+              <properties name="redirectStyle" value="application" entry="//@rootContainer/@children.0/@children.0/@children.4/@properties.1/@action/@propertyMap.1"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.4/@properties.1/@action/@propertyMap.2"/>
+              <propertyMap key="redirectUrl" value="//@rootContainer/@children.0/@children.0/@children.4/@properties.1/@action/@properties.0"/>
+              <propertyMap key="redirectStyle" value="//@rootContainer/@children.0/@children.0/@children.4/@properties.1/@action/@properties.1"/>
+              <propertyMap key="showSuccessNotification" value="//@rootContainer/@children.0/@children.0/@children.4/@properties.1/@action/@properties.2"/>
+            </action>
+          </properties>
+          <properties name="actionInstanceId" value="" entry="//@rootContainer/@children.0/@children.0/@children.4/@propertyMap.2"/>
+          <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.4/@propertyMap.3"/>
+          <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.4/@propertyMap.4"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.4/@propertyMap.5"/>
+          <properties name="redirectPageUrlName" value="" entry="//@rootContainer/@children.0/@children.0/@children.4/@propertyMap.6"/>
+          <properties name="redirectObjectId" value="" entry="//@rootContainer/@children.0/@children.0/@children.4/@propertyMap.7"/>
+          <properties name="xcpId" value="button2" entry="//@rootContainer/@children.0/@children.0/@children.4/@propertyMap.8"/>
+          <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.4/@properties.0"/>
+          <propertyMap key="action" value="//@rootContainer/@children.0/@children.0/@children.4/@properties.1"/>
+          <propertyMap key="actionInstanceId" value="//@rootContainer/@children.0/@children.0/@children.4/@properties.2"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.0/@children.0/@children.4/@properties.3"/>
+          <propertyMap key="disabled" value="//@rootContainer/@children.0/@children.0/@children.4/@properties.4"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.0/@children.0/@children.4/@properties.5"/>
+          <propertyMap key="redirectPageUrlName" value="//@rootContainer/@children.0/@children.0/@children.4/@properties.6"/>
+          <propertyMap key="redirectObjectId" value="//@rootContainer/@children.0/@children.0/@children.4/@properties.7"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.4/@properties.8"/>
+        </children>
+        <children componentDefinitionId="xcp_button" parent="//@rootContainer/@children.0/@children.0" widgetEntry="//@widgetMap[key='button3']" action="//@actions[name='exception_proces_18_1']">
+          <properties name="text" value="Delegate" entry="//@rootContainer/@children.0/@children.0/@children.5/@propertyMap.0"/>
+          <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@children.0/@children.5/@propertyMap.1">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to delegate this task?" entry="//@rootContainer/@children.0/@children.0/@children.5/@properties.1/@action/@propertyMap.0"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.5/@properties.1/@action/@propertyMap.1"/>
+              <properties name="redirectStyle" value="current" entry="//@rootContainer/@children.0/@children.0/@children.5/@properties.1/@action/@propertyMap.2"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.5/@properties.1/@action/@propertyMap.3"/>
+              <properties name="actionType" value="xcp_delegate_task" entry="//@rootContainer/@children.0/@children.0/@children.5/@properties.1/@action/@propertyMap.4"/>
+              <properties name="pageSelectionType" value="page" entry="//@rootContainer/@children.0/@children.0/@children.5/@properties.1/@action/@propertyMap.5"/>
+              <propertyMap key="defaultConfirmationPrompt" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.1/@action/@properties.0"/>
+              <propertyMap key="showConfirmation" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.1/@action/@properties.1"/>
+              <propertyMap key="redirectStyle" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.1/@action/@properties.2"/>
+              <propertyMap key="showSuccessNotification" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.1/@action/@properties.3"/>
+              <propertyMap key="actionType" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.1/@action/@properties.4"/>
+              <propertyMap key="pageSelectionType" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.1/@action/@properties.5"/>
+            </action>
+          </properties>
+          <properties name="actionInstanceId" value="" entry="//@rootContainer/@children.0/@children.0/@children.5/@propertyMap.2"/>
+          <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.5/@propertyMap.3"/>
+          <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.5/@propertyMap.4"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.5/@propertyMap.5">
+            <eventBasedExpressions>
+              <expression exprStr="true"/>
+              <conditionTrigger exprStr=""/>
+            </eventBasedExpressions>
+          </properties>
+          <properties name="redirectPageUrlName" value="" entry="//@rootContainer/@children.0/@children.0/@children.5/@propertyMap.6"/>
+          <properties name="redirectObjectId" value="" entry="//@rootContainer/@children.0/@children.0/@children.5/@propertyMap.7"/>
+          <properties name="xcpId" value="button3" entry="//@rootContainer/@children.0/@children.0/@children.5/@propertyMap.8"/>
+          <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.0"/>
+          <propertyMap key="action" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.1"/>
+          <propertyMap key="actionInstanceId" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.2"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.3"/>
+          <propertyMap key="disabled" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.4"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.5"/>
+          <propertyMap key="redirectPageUrlName" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.6"/>
+          <propertyMap key="redirectObjectId" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.7"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.5/@properties.8"/>
+        </children>
+        <children componentDefinitionId="xcp_button" parent="//@rootContainer/@children.0/@children.0" widgetEntry="//@widgetMap[key='button4']" action="//@actions[name='exception_proces_19_1']">
+          <properties name="text" value="Repeat" entry="//@rootContainer/@children.0/@children.0/@children.6/@propertyMap.0"/>
+          <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@children.0/@children.6/@propertyMap.1">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to repeat this task?" entry="//@rootContainer/@children.0/@children.0/@children.6/@properties.1/@action/@propertyMap.0"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.6/@properties.1/@action/@propertyMap.1"/>
+              <properties name="redirectStyle" value="current" entry="//@rootContainer/@children.0/@children.0/@children.6/@properties.1/@action/@propertyMap.2"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.6/@properties.1/@action/@propertyMap.3"/>
+              <properties name="pageSelectionType" value="page" entry="//@rootContainer/@children.0/@children.0/@children.6/@properties.1/@action/@propertyMap.4"/>
+              <properties name="actionType" value="xcp_repeat_task" entry="//@rootContainer/@children.0/@children.0/@children.6/@properties.1/@action/@propertyMap.5"/>
+              <propertyMap key="defaultConfirmationPrompt" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.1/@action/@properties.0"/>
+              <propertyMap key="showConfirmation" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.1/@action/@properties.1"/>
+              <propertyMap key="redirectStyle" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.1/@action/@properties.2"/>
+              <propertyMap key="showSuccessNotification" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.1/@action/@properties.3"/>
+              <propertyMap key="pageSelectionType" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.1/@action/@properties.4"/>
+              <propertyMap key="actionType" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.1/@action/@properties.5"/>
+            </action>
+          </properties>
+          <properties name="actionInstanceId" value="" entry="//@rootContainer/@children.0/@children.0/@children.6/@propertyMap.2"/>
+          <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.6/@propertyMap.3"/>
+          <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.6/@propertyMap.4"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.6/@propertyMap.5">
+            <eventBasedExpressions>
+              <expression exprStr="true"/>
+              <conditionTrigger exprStr=""/>
+            </eventBasedExpressions>
+          </properties>
+          <properties name="redirectPageUrlName" value="" entry="//@rootContainer/@children.0/@children.0/@children.6/@propertyMap.6"/>
+          <properties name="redirectObjectId" value="" entry="//@rootContainer/@children.0/@children.0/@children.6/@propertyMap.7"/>
+          <properties name="xcpId" value="button4" entry="//@rootContainer/@children.0/@children.0/@children.6/@propertyMap.8"/>
+          <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.0"/>
+          <propertyMap key="action" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.1"/>
+          <propertyMap key="actionInstanceId" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.2"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.3"/>
+          <propertyMap key="disabled" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.4"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.5"/>
+          <propertyMap key="redirectPageUrlName" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.6"/>
+          <propertyMap key="redirectObjectId" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.7"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.6/@properties.8"/>
+        </children>
+        <children componentDefinitionId="xcp_button" parent="//@rootContainer/@children.0/@children.0" widgetEntry="//@widgetMap[key='button5']" action="//@actions[name='hold_task_1']">
+          <properties name="text" value="Hold" entry="//@rootContainer/@children.0/@children.0/@children.7/@propertyMap.0"/>
+          <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@children.0/@children.7/@propertyMap.1">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to hold this task?" entry="//@rootContainer/@children.0/@children.0/@children.7/@properties.1/@action/@propertyMap.0"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.7/@properties.1/@action/@propertyMap.1"/>
+              <properties name="redirectStyle" value="current" entry="//@rootContainer/@children.0/@children.0/@children.7/@properties.1/@action/@propertyMap.2"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.7/@properties.1/@action/@propertyMap.3"/>
+              <properties name="actionType" value="xcp_hold_task" entry="//@rootContainer/@children.0/@children.0/@children.7/@properties.1/@action/@propertyMap.4"/>
+              <properties name="pageSelectionType" value="page" entry="//@rootContainer/@children.0/@children.0/@children.7/@properties.1/@action/@propertyMap.5"/>
+              <propertyMap key="defaultConfirmationPrompt" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.1/@action/@properties.0"/>
+              <propertyMap key="showConfirmation" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.1/@action/@properties.1"/>
+              <propertyMap key="redirectStyle" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.1/@action/@properties.2"/>
+              <propertyMap key="showSuccessNotification" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.1/@action/@properties.3"/>
+              <propertyMap key="actionType" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.1/@action/@properties.4"/>
+              <propertyMap key="pageSelectionType" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.1/@action/@properties.5"/>
+            </action>
+          </properties>
+          <properties name="actionInstanceId" value="" entry="//@rootContainer/@children.0/@children.0/@children.7/@propertyMap.2"/>
+          <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.7/@propertyMap.3"/>
+          <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.7/@propertyMap.4"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.7/@propertyMap.5">
+            <eventBasedExpressions>
+              <expression exprStr="true"/>
+              <conditionTrigger exprStr=""/>
+            </eventBasedExpressions>
+          </properties>
+          <properties name="redirectPageUrlName" value="" entry="//@rootContainer/@children.0/@children.0/@children.7/@propertyMap.6"/>
+          <properties name="redirectObjectId" value="" entry="//@rootContainer/@children.0/@children.0/@children.7/@propertyMap.7"/>
+          <properties name="xcpId" value="button5" entry="//@rootContainer/@children.0/@children.0/@children.7/@propertyMap.8"/>
+          <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.0"/>
+          <propertyMap key="action" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.1"/>
+          <propertyMap key="actionInstanceId" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.2"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.3"/>
+          <propertyMap key="disabled" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.4"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.5"/>
+          <propertyMap key="redirectPageUrlName" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.6"/>
+          <propertyMap key="redirectObjectId" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.7"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.7/@properties.8"/>
+        </children>
+        <children componentDefinitionId="xcp_button" parent="//@rootContainer/@children.0/@children.0" widgetEntry="//@widgetMap[key='button6']" dataService="//@dataActions[name='da_def_unhold_currenttask']">
+          <properties name="text" value="Unhold" entry="//@rootContainer/@children.0/@children.0/@children.8/@propertyMap.0"/>
+          <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@children.0/@children.8/@propertyMap.1">
+            <action>
+              <properties name="defaultConfirmationPrompt" value="Are you sure you want to Unhold this task?" entry="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@propertyMap.0"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@propertyMap.1"/>
+              <properties name="redirectStyle" value="current" entry="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@propertyMap.2"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@propertyMap.3"/>
+              <properties name="actionType" value="xcp_unhold_task" entry="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@propertyMap.4"/>
+              <properties name="actionModel" value="unhold_task_model" entry="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@propertyMap.5"/>
+              <properties name="pageSelectionType" value="page" entry="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@propertyMap.6"/>
+              <propertyMap key="defaultConfirmationPrompt" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@properties.0"/>
+              <propertyMap key="showConfirmation" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@properties.1"/>
+              <propertyMap key="redirectStyle" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@properties.2"/>
+              <propertyMap key="showSuccessNotification" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@properties.3"/>
+              <propertyMap key="actionType" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@properties.4"/>
+              <propertyMap key="actionModel" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@properties.5"/>
+              <propertyMap key="pageSelectionType" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.1/@action/@properties.6"/>
+            </action>
+          </properties>
+          <properties name="actionInstanceId" value="" entry="//@rootContainer/@children.0/@children.0/@children.8/@propertyMap.2"/>
+          <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.8/@propertyMap.3"/>
+          <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.8/@propertyMap.4"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.8/@propertyMap.5">
+            <eventBasedExpressions>
+              <expression exprStr="true"/>
+              <conditionTrigger exprStr=""/>
+            </eventBasedExpressions>
+          </properties>
+          <properties name="redirectPageUrlName" value="" entry="//@rootContainer/@children.0/@children.0/@children.8/@propertyMap.6"/>
+          <properties name="redirectObjectId" value="" entry="//@rootContainer/@children.0/@children.0/@children.8/@propertyMap.7"/>
+          <properties name="xcpId" value="button6" entry="//@rootContainer/@children.0/@children.0/@children.8/@propertyMap.8"/>
+          <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.0"/>
+          <propertyMap key="action" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.1"/>
+          <propertyMap key="actionInstanceId" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.2"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.3"/>
+          <propertyMap key="disabled" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.4"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.5"/>
+          <propertyMap key="redirectPageUrlName" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.6"/>
+          <propertyMap key="redirectObjectId" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.7"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.8/@properties.8"/>
+        </children>
+        <children componentDefinitionId="xcp_button" parent="//@rootContainer/@children.0/@children.0" widgetEntry="//@widgetMap[key='print_exception_memo']" action="//@actions[name='print_exception_m_1_1']">
+          <properties name="text" value="Print Exception Memo" entry="//@rootContainer/@children.0/@children.0/@children.9/@propertyMap.0"/>
+          <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@children.0/@children.9/@propertyMap.1">
+            <action>
+              <properties name="redirectStyle" value="none" entry="//@rootContainer/@children.0/@children.0/@children.9/@properties.1/@action/@propertyMap.0"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.9/@properties.1/@action/@propertyMap.1"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.9/@properties.1/@action/@propertyMap.2"/>
+              <properties name="actionType" value="create" entry="//@rootContainer/@children.0/@children.0/@children.9/@properties.1/@action/@propertyMap.3"/>
+              <properties name="pageSelectionType" value="page" entry="//@rootContainer/@children.0/@children.0/@children.9/@properties.1/@action/@propertyMap.4"/>
+              <propertyMap key="redirectStyle" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.1/@action/@properties.0"/>
+              <propertyMap key="showSuccessNotification" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.1/@action/@properties.1"/>
+              <propertyMap key="showConfirmation" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.1/@action/@properties.2"/>
+              <propertyMap key="actionType" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.1/@action/@properties.3"/>
+              <propertyMap key="pageSelectionType" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.1/@action/@properties.4"/>
+            </action>
+          </properties>
+          <properties name="actionInstanceId" value="" entry="//@rootContainer/@children.0/@children.0/@children.9/@propertyMap.2"/>
+          <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.9/@propertyMap.3"/>
+          <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.9/@propertyMap.4"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.9/@propertyMap.5"/>
+          <properties name="redirectPageUrlName" value="" entry="//@rootContainer/@children.0/@children.0/@children.9/@propertyMap.6"/>
+          <properties name="redirectObjectId" value="" entry="//@rootContainer/@children.0/@children.0/@children.9/@propertyMap.7"/>
+          <properties name="xcpId" value="print_exception_memo" entry="//@rootContainer/@children.0/@children.0/@children.9/@propertyMap.8"/>
+          <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.0"/>
+          <propertyMap key="action" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.1"/>
+          <propertyMap key="actionInstanceId" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.2"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.3"/>
+          <propertyMap key="disabled" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.4"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.5"/>
+          <propertyMap key="redirectPageUrlName" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.6"/>
+          <propertyMap key="redirectObjectId" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.7"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.9/@properties.8"/>
+        </children>
+        <children componentDefinitionId="xcp_button" parent="//@rootContainer/@children.0/@children.0" widgetEntry="//@widgetMap[key='print_docum_process']" action="//@actions[name='print_documentation_1']">
+          <properties name="text" value="Print Documentation Process" entry="//@rootContainer/@children.0/@children.0/@children.10/@propertyMap.0"/>
+          <properties xsi:type="uitemplate:ObjectProperty" entry="//@rootContainer/@children.0/@children.0/@children.10/@propertyMap.1">
+            <action>
+              <properties name="redirectStyle" value="none" entry="//@rootContainer/@children.0/@children.0/@children.10/@properties.1/@action/@propertyMap.0"/>
+              <properties name="showSuccessNotification" value="true" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.10/@properties.1/@action/@propertyMap.1"/>
+              <properties name="showConfirmation" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.10/@properties.1/@action/@propertyMap.2"/>
+              <properties name="actionType" value="create" entry="//@rootContainer/@children.0/@children.0/@children.10/@properties.1/@action/@propertyMap.3"/>
+              <properties name="pageSelectionType" value="page" entry="//@rootContainer/@children.0/@children.0/@children.10/@properties.1/@action/@propertyMap.4"/>
+              <propertyMap key="redirectStyle" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.1/@action/@properties.0"/>
+              <propertyMap key="showSuccessNotification" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.1/@action/@properties.1"/>
+              <propertyMap key="showConfirmation" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.1/@action/@properties.2"/>
+              <propertyMap key="actionType" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.1/@action/@properties.3"/>
+              <propertyMap key="pageSelectionType" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.1/@action/@properties.4"/>
+            </action>
+          </properties>
+          <properties name="actionInstanceId" value="" entry="//@rootContainer/@children.0/@children.0/@children.10/@propertyMap.2"/>
+          <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.10/@propertyMap.3"/>
+          <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.10/@propertyMap.4"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.10/@propertyMap.5"/>
+          <properties name="redirectPageUrlName" value="" entry="//@rootContainer/@children.0/@children.0/@children.10/@propertyMap.6"/>
+          <properties name="redirectObjectId" value="" entry="//@rootContainer/@children.0/@children.0/@children.10/@propertyMap.7"/>
+          <properties name="xcpId" value="print_docum_process" entry="//@rootContainer/@children.0/@children.0/@children.10/@propertyMap.8"/>
+          <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.0"/>
+          <propertyMap key="action" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.1"/>
+          <propertyMap key="actionInstanceId" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.2"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.3"/>
+          <propertyMap key="disabled" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.4"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.5"/>
+          <propertyMap key="redirectPageUrlName" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.6"/>
+          <propertyMap key="redirectObjectId" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.7"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.10/@properties.8"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_tab_group" parent="//@rootContainer" widgetEntry="//@widgetMap[key='tab_group']">
+      <properties name="title" value="" entry="//@rootContainer/@children.1/@propertyMap.0"/>
+      <properties name="tabPosition" value="top" entry="//@rootContainer/@children.1/@propertyMap.1"/>
+      <properties name="width" value="" type="INTEGER" entry="//@rootContainer/@children.1/@propertyMap.2"/>
+      <properties name="minWidth" value="450" type="INTEGER" entry="//@rootContainer/@children.1/@propertyMap.3"/>
+      <properties name="height" value="" type="INTEGER" entry="//@rootContainer/@children.1/@propertyMap.4"/>
+      <properties name="cls" value="" entry="//@rootContainer/@children.1/@propertyMap.5"/>
+      <properties name="tabWidth" value="" type="INTEGER" entry="//@rootContainer/@children.1/@propertyMap.6"/>
+      <properties name="minTabWidth" value="" type="INTEGER" entry="//@rootContainer/@children.1/@propertyMap.7"/>
+      <properties name="hidden" value="" entry="//@rootContainer/@children.1/@propertyMap.8"/>
+      <properties name="selectedTab" value="" entry="//@rootContainer/@children.1/@propertyMap.9"/>
+      <properties name="renderAllTabsOnLoad" value="false" type="BOOLEAN" entry="//@rootContainer/@children.1/@propertyMap.10"/>
+      <properties name="xcpId" value="tab_group" entry="//@rootContainer/@children.1/@propertyMap.11"/>
+      <propertyMap key="title" value="//@rootContainer/@children.1/@properties.0"/>
+      <propertyMap key="tabPosition" value="//@rootContainer/@children.1/@properties.1"/>
+      <propertyMap key="width" value="//@rootContainer/@children.1/@properties.2"/>
+      <propertyMap key="minWidth" value="//@rootContainer/@children.1/@properties.3"/>
+      <propertyMap key="height" value="//@rootContainer/@children.1/@properties.4"/>
+      <propertyMap key="cls" value="//@rootContainer/@children.1/@properties.5"/>
+      <propertyMap key="tabWidth" value="//@rootContainer/@children.1/@properties.6"/>
+      <propertyMap key="minTabWidth" value="//@rootContainer/@children.1/@properties.7"/>
+      <propertyMap key="hidden" value="//@rootContainer/@children.1/@properties.8"/>
+      <propertyMap key="selectedTab" value="//@rootContainer/@children.1/@properties.9"/>
+      <propertyMap key="renderAllTabsOnLoad" value="//@rootContainer/@children.1/@properties.10"/>
+      <propertyMap key="xcpId" value="//@rootContainer/@children.1/@properties.11"/>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_tab" parent="//@rootContainer/@children.1" widgetEntry="//@widgetMap[key='tab']">
+        <properties name="title" value="Exception Memo" entry="//@rootContainer/@children.1/@children.0/@propertyMap.0"/>
+        <properties name="tooltip" value="" entry="//@rootContainer/@children.1/@children.0/@propertyMap.1"/>
+        <properties name="tabWidth" value="" type="INTEGER" entry="//@rootContainer/@children.1/@children.0/@propertyMap.2"/>
+        <properties name="tabCls" value="" entry="//@rootContainer/@children.1/@children.0/@propertyMap.3"/>
+        <properties name="icon" value="" entry="//@rootContainer/@children.1/@children.0/@propertyMap.4"/>
+        <properties name="hidden" value="" entry="//@rootContainer/@children.1/@children.0/@propertyMap.5"/>
+        <properties name="disabled" value="" entry="//@rootContainer/@children.1/@children.0/@propertyMap.6"/>
+        <properties name="xcpId" value="tab" entry="//@rootContainer/@children.1/@children.0/@propertyMap.7"/>
+        <propertyMap key="title" value="//@rootContainer/@children.1/@children.0/@properties.0"/>
+        <propertyMap key="tooltip" value="//@rootContainer/@children.1/@children.0/@properties.1"/>
+        <propertyMap key="tabWidth" value="//@rootContainer/@children.1/@children.0/@properties.2"/>
+        <propertyMap key="tabCls" value="//@rootContainer/@children.1/@children.0/@properties.3"/>
+        <propertyMap key="icon" value="//@rootContainer/@children.1/@children.0/@properties.4"/>
+        <propertyMap key="hidden" value="//@rootContainer/@children.1/@children.0/@properties.5"/>
+        <propertyMap key="disabled" value="//@rootContainer/@children.1/@children.0/@properties.6"/>
+        <propertyMap key="xcpId" value="//@rootContainer/@children.1/@children.0/@properties.7"/>
+        <children xsi:type="uitemplate:FragmentWidget" componentDefinitionId="xcp_fragment" parent="//@rootContainer/@children.1/@children.0" widgetEntry="//@widgetMap[key='fragment1']">
+          <properties name="fieldLabel" value="Label:" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.0"/>
+          <properties name="fragment" value="" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.1"/>
+          <properties name="fragmentExpression" value="" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.2"/>
+          <properties name="fragmentWidgetInputs" value="" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.3"/>
+          <properties name="fragmentDataInputs" value="" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.4"/>
+          <properties name="fragmentDataOutputs" value="" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.5"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.6"/>
+          <properties name="cls" value="xcp-content-area" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.7"/>
+          <properties name="margin" value="0 0 0 0" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.8"/>
+          <properties name="width" value="" type="INTEGER" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.9"/>
+          <properties name="height" value="" type="INTEGER" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.10"/>
+          <properties name="xcpId" value="fragment1" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.11"/>
+          <properties name="fragmentId" value="edit_exception_memo" entry="//@rootContainer/@children.1/@children.0/@children.0/@propertyMap.12"/>
+          <propertyMap key="fieldLabel" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.0"/>
+          <propertyMap key="fragment" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.1"/>
+          <propertyMap key="fragmentExpression" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.2"/>
+          <propertyMap key="fragmentWidgetInputs" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.3"/>
+          <propertyMap key="fragmentDataInputs" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.4"/>
+          <propertyMap key="fragmentDataOutputs" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.5"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.6"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.7"/>
+          <propertyMap key="margin" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.8"/>
+          <propertyMap key="width" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.9"/>
+          <propertyMap key="height" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.10"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.11"/>
+          <propertyMap key="fragmentId" value="//@rootContainer/@children.1/@children.0/@children.0/@properties.12"/>
+          <fragment href="urn:ccs:com.emc.xcp.artifact.fragment:Artifacts/Fragments/edit_exception_memo.fragment#/"/>
+          <inputs name="id">
+            <value>
+              <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.exception_memo.id"/>
+            </value>
+          </inputs>
+          <inputs name="model"/>
+          <inputs name="loan">
+            <value>
+              <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.loan"/>
+            </value>
+          </inputs>
+          <inputs name="proposal">
+            <value>
+              <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.proposal"/>
+            </value>
+          </inputs>
+        </children>
+      </children>
+      <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_tab" parent="//@rootContainer/@children.1" widgetEntry="//@widgetMap[key='tab1']">
+        <properties name="title" value="Documentation Process" entry="//@rootContainer/@children.1/@children.1/@propertyMap.0"/>
+        <properties name="tooltip" entry="//@rootContainer/@children.1/@children.1/@propertyMap.1"/>
+        <properties name="tabWidth" value="" type="INTEGER" entry="//@rootContainer/@children.1/@children.1/@propertyMap.2"/>
+        <properties name="tabCls" value="" entry="//@rootContainer/@children.1/@children.1/@propertyMap.3"/>
+        <properties name="icon" value="" entry="//@rootContainer/@children.1/@children.1/@propertyMap.4"/>
+        <properties name="hidden" value="" entry="//@rootContainer/@children.1/@children.1/@propertyMap.5"/>
+        <properties name="disabled" value="" entry="//@rootContainer/@children.1/@children.1/@propertyMap.6"/>
+        <properties name="xcpId" value="tab1" entry="//@rootContainer/@children.1/@children.1/@propertyMap.7"/>
+        <propertyMap key="title" value="//@rootContainer/@children.1/@children.1/@properties.0"/>
+        <propertyMap key="tooltip" value="//@rootContainer/@children.1/@children.1/@properties.1"/>
+        <propertyMap key="tabWidth" value="//@rootContainer/@children.1/@children.1/@properties.2"/>
+        <propertyMap key="tabCls" value="//@rootContainer/@children.1/@children.1/@properties.3"/>
+        <propertyMap key="icon" value="//@rootContainer/@children.1/@children.1/@properties.4"/>
+        <propertyMap key="hidden" value="//@rootContainer/@children.1/@children.1/@properties.5"/>
+        <propertyMap key="disabled" value="//@rootContainer/@children.1/@children.1/@properties.6"/>
+        <propertyMap key="xcpId" value="//@rootContainer/@children.1/@children.1/@properties.7"/>
+        <children xsi:type="uitemplate:FragmentWidget" componentDefinitionId="xcp_fragment" parent="//@rootContainer/@children.1/@children.1" widgetEntry="//@widgetMap[key='fragment']">
+          <properties name="fieldLabel" value="Label:" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.0"/>
+          <properties name="fragment" value="" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.1"/>
+          <properties name="fragmentExpression" value="" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.2"/>
+          <properties name="fragmentWidgetInputs" value="" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.3"/>
+          <properties name="fragmentDataInputs" value="" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.4"/>
+          <properties name="fragmentDataOutputs" value="" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.5"/>
+          <properties name="hidden" value="" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.6"/>
+          <properties name="cls" value="xcp-content-area" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.7"/>
+          <properties name="margin" value="0 0 0 0" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.8"/>
+          <properties name="width" value="" type="INTEGER" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.9"/>
+          <properties name="height" value="" type="INTEGER" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.10"/>
+          <properties name="xcpId" value="fragment" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.11"/>
+          <properties name="fragmentId" value="edit_annexure_fragm" entry="//@rootContainer/@children.1/@children.1/@children.0/@propertyMap.12"/>
+          <propertyMap key="fieldLabel" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.0"/>
+          <propertyMap key="fragment" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.1"/>
+          <propertyMap key="fragmentExpression" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.2"/>
+          <propertyMap key="fragmentWidgetInputs" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.3"/>
+          <propertyMap key="fragmentDataInputs" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.4"/>
+          <propertyMap key="fragmentDataOutputs" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.5"/>
+          <propertyMap key="hidden" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.6"/>
+          <propertyMap key="cls" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.7"/>
+          <propertyMap key="margin" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.8"/>
+          <propertyMap key="width" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.9"/>
+          <propertyMap key="height" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.10"/>
+          <propertyMap key="xcpId" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.11"/>
+          <propertyMap key="fragmentId" value="//@rootContainer/@children.1/@children.1/@children.0/@properties.12"/>
+          <fragment href="urn:ccs:com.emc.xcp.artifact.fragment:Artifacts/Fragments/edit_annexure_fragm.fragment#/"/>
+          <inputs name="id">
+            <value>
+              <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.annexure.id"/>
+            </value>
+          </inputs>
+          <inputs name="model"/>
+          <inputs name="loan">
+            <value>
+              <expression exprStr="exception_process_during_disbursement_branch_manager.processPackages.loan"/>
+            </value>
+          </inputs>
+        </children>
+      </children>
+    </children>
+  </rootContainer>
+  <widgetMap key="root" value="//@rootContainer"/>
+  <widgetMap key="column_box3" value="//@rootContainer/@children.0"/>
+  <widgetMap key="columnhbox1" value="//@rootContainer/@children.0/@children.0"/>
+  <widgetMap key="button" value="//@rootContainer/@children.0/@children.0/@children.0"/>
+  <widgetMap key="button1" value="//@rootContainer/@children.0/@children.0/@children.1"/>
+  <widgetMap key="button2" value="//@rootContainer/@children.0/@children.0/@children.4"/>
+  <widgetMap key="button3" value="//@rootContainer/@children.0/@children.0/@children.5"/>
+  <widgetMap key="button4" value="//@rootContainer/@children.0/@children.0/@children.6"/>
+  <widgetMap key="button5" value="//@rootContainer/@children.0/@children.0/@children.7"/>
+  <widgetMap key="button6" value="//@rootContainer/@children.0/@children.0/@children.8"/>
+  <widgetMap key="fragment" value="//@rootContainer/@children.1/@children.1/@children.0"/>
+  <widgetMap key="comments" value="//@rootContainer/@children.0/@children.0/@children.2"/>
+  <widgetMap key="momentregistry" value="//@rootContainer/@children.0/@children.0/@children.3"/>
+  <widgetMap key="tab_group" value="//@rootContainer/@children.1"/>
+  <widgetMap key="tab" value="//@rootContainer/@children.1/@children.0"/>
+  <widgetMap key="tab1" value="//@rootContainer/@children.1/@children.1"/>
+  <widgetMap key="fragment1" value="//@rootContainer/@children.1/@children.0/@children.0"/>
+  <widgetMap key="print_exception_memo" value="//@rootContainer/@children.0/@children.0/@children.9"/>
+  <widgetMap key="print_docum_process" value="//@rootContainer/@children.0/@children.0/@children.10"/>
+  <primaryModel href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/exception_process_during_disbursement.process#//@activities[name='Branch%20Manager']/@taskContract"/>
+</uitemplate:Page>

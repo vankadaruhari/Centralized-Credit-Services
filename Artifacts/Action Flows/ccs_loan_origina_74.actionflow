@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/ccs_loan_origina_74.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="ccs_loan_origina_74" label="Repeat task Loan Application Review (CCS Loan Origination Process)" initialState="//@states[id='viewState_usergroup_selection_multi']">
+  <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="approval_performer" label="approval_performer">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="approve_sanction" label="approve_sanction">
+      <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="approved" label="approved">
+      <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="number_of_days_for_proposal_completion" label="number_of_days_for_proposal_completion">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="performer" label="performer" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="proposal_approval_date" label="proposal_approval_date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="proposal_id" label="proposal_id">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="send_to_branch_manager" label="send_to_branch_manager">
+      <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="send_to_credit_officer" label="send_to_credit_officer">
+      <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="send_to_deputy_branch_mgr" label="send_to_deputy_branch_mgr">
+      <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="send_to_dmd" label="send_to_dmd">
+      <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+    </elements>
+  </inputs>
+  <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+    <elements xsi:type="nsDataserviceContract:StructureElement" name="loan" label="loan">
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="account_number" label="Account Number">
+        <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="application_recieve_date" label="Application Recieve Date">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="application_reference_numbe" label="Application Reference Number">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="branch_code" label="Branch Code">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="business_nature" label="Business Nature">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="case_number" label="Case Number">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="checklist_folder_template_i" label="Checklist_folder_template_id">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="client_name" label="Client Name">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="constitution" label="Constitution">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="customer_id" label="Customer ID">
+        <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="department_code" label="Department Code">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="expected_completion_date" label="Expected Completion Date">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="facilitytype" label="FacilityType">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="factory_address" label="Factory Address">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="movement_registry_folder_id" label="Movement Registry Folder Id">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="registered_office_address" label="Registered Office Address">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="sanctionnature" label="SanctionNature">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="serial_number" label="serial_number">
+        <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="status" label="Status">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="string_account_number" label="String Account Number">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="string_customer_id" label="String Customer ID">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:StructureElement" name="proposal" label="proposal">
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_civil_work" label="Additional Civil Work">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_civil_work_locat" label="Additional Civil Work Location">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_civil_work_value" label="Additional Civil Work Value">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_plant_and_machin" label="Additional Plant And Machinery">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_plant_and_mach_l" label="Additional Plant And Mach Location">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="additional_plant_and_mach_v" label="Additional Plant And Mach Value">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="application_reference_numbe" label="Application Reference Number">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date" label="Assessment Date">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date__add_plant" label="Assessment Date of Additional Plant And Mach">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date__civil_work" label="Assessment Date of Civil Work">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date__extng_plnt" label="Assessment Date of Existing Plant And Mach">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="assessment_date_lnd_and_bdg" label="Assessment Date of Land And Building">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="authorised_capital" label="Authorised Capital">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="bangla_bank_circular" label="Bangla Bank Circular">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="business_performance_risk" label="Business Performance Risk">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="buyers_risk" label="Buyers Risk">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="collateral_for_securities" label="Collateral for Securities">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="comment_interpretation" label="Comment/Interpretation">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_manual" label="Credit Manual">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_rating_status" label="Credit Rating Status">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_risk_grading_result" label="Credit Risk Grading Result">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_risk_score" label="Credit Risk Score">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="crg_status" label="CRG Status">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_add_plant_mach" label="Declared Additional Plant Mach">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_building_value" label="Declared Building Value">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_civil_work_value" label="Declared Civil Work Value">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_existing_plant_mac" label="Declared Existing Plant Mach Value">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_grand_total_plant" label="Declared Grand Total Plant And Mach">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_land_value" label="Declared Land Value">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_sub_total_bldg_civ" label="Declared Sub total Bldg Civil Work">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="declared_sub_total_plant_ma" label="Declared Sub Total Plant Mach">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="documents_and_conveyants_co" label="Documents And Conveyants Compliance">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="enterprise_size" label="Enterprise Size">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="envrr_score" label="EnvRR Score">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="envrr_status" label="EnvRR  Status">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="establishment_date" label="Establishment Date">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_building_value" label="Existing Building Value">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_land_and_building" label="Existing Land And Building">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_land_value" label="Existing Land Value">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_location_value" label="Existing Location Value">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_operations_perform" label="Existing Operations Performance">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_plant_and_machiner" label="Existing Plant And Machinery">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_plant_and_mach_loc" label="Existing Plant And Mach Location">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_plant_and_mach_val" label="Existing Plant And Mach Value">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="existing_rules_act" label="Existing Rules/ Act">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="financing_requirement_asses" label="Financing Requirement Assesment" repeating="true">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="fixed_assets" label="Fixed Assets">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="freezing_date" label="Freezing Date">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="general_background" label="General Background" repeating="true">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="grand_total_building_and_ma" label="Grand Total Building And Machinery">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="industry_profile" label="Industry Profile" repeating="true">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="industry_risk" label="Industry Risk">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="insurance_coverage" label="Insurance Coverage">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="loan_collateral_ratio" label="Loan Collateral Ratio">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="long_term_rating" label="Long Term Rating">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="management" label="Management" repeating="true">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="management_risk" label="Management Risk">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="mitigates" label="Mitigates">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="other_source" label="Other Source">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="outlook" label="Outlook">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="paid_up_capital" label="Paid up Capital">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="physical_capacity" label="Physical Capacity">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="primary_source" label="Primary Source">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="rated_by" label="Rated by">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="reference" label="Reference">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="reference_date" label="Reference Date">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="related_expiry" label="Related Expiry">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="related_on" label="Related On">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="result" label="Result">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="secondary_source" label="Secondary Source">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="sector_code" label="Sector Code">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="security_risk" label="Security Risk">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="short_term_rating" label="Short Term Rating">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="special_conditions_special_" label="Special Conditions / Special Instructions" repeating="true">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="strength_or_weakness" label="Strength or Weakness">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="string_envrr_score" label="String Envrr Score">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="string_loan_collateral" label="String Loan Collateral">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="subbject" label="Subbject" repeating="true">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="subtotal_building_and_civil" label="Subtotal Building And Civil Work">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="subtotal_plant_and_machiner" label="Subtotal Plant And Machinery">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="suppliers_risk" label="Suppliers Risk">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="surveyor_name" label="Surveyor Name">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="third_party_information" label="Third Party Information">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="through" label="Through">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="total_tc_limit_amount" label="Total Tc Limit Amount">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="workforce" label="Workforce">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+    </elements>
+  </inputs>
+  <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+  </inputs>
+  <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id" label="id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/ccs_loan_origination_process.process#//@activities[name='Loan%20Application%20Review']/@taskContract"/>
+  </primaryElement>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_" label="da_actionflow_">
+    <inputMappings name="processVariables">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processVariables.approval_performer">
+      <expression exprStr="actionflow.Inputs.processVariables.approval_performer"/>
+    </inputMappings>
+    <inputMappings name="processVariables.approve_sanction">
+      <expression exprStr="actionflow.Inputs.processVariables.approve_sanction"/>
+    </inputMappings>
+    <inputMappings name="processVariables.approved">
+      <expression exprStr="actionflow.Inputs.processVariables.approved"/>
+    </inputMappings>
+    <inputMappings name="processVariables.number_of_days_for_proposal_completion">
+      <expression exprStr="actionflow.Inputs.processVariables.number_of_days_for_proposal_completion"/>
+    </inputMappings>
+    <inputMappings name="processVariables.performer">
+      <expression exprStr="actionflow.Inputs.processVariables.performer"/>
+    </inputMappings>
+    <inputMappings name="processVariables.proposal_approval_date">
+      <expression exprStr="actionflow.Inputs.processVariables.proposal_approval_date"/>
+    </inputMappings>
+    <inputMappings name="processVariables.proposal_id">
+      <expression exprStr="actionflow.Inputs.processVariables.proposal_id"/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_branch_manager">
+      <expression exprStr="actionflow.Inputs.processVariables.send_to_branch_manager"/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_credit_officer">
+      <expression exprStr="actionflow.Inputs.processVariables.send_to_credit_officer"/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_deputy_branch_mgr">
+      <expression exprStr="actionflow.Inputs.processVariables.send_to_deputy_branch_mgr"/>
+    </inputMappings>
+    <inputMappings name="processVariables.send_to_dmd">
+      <expression exprStr="actionflow.Inputs.processVariables.send_to_dmd"/>
+    </inputMappings>
+    <inputMappings name="processPackages">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.object_name">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.object_name"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.account_number">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.account_number"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.application_recieve_date">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.application_recieve_date"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.application_reference_numbe">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.application_reference_numbe"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.branch_code">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.branch_code"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.business_nature">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.business_nature"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.case_number">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.case_number"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.checklist_folder_template_i">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.checklist_folder_template_i"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.client_name">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.client_name"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.constitution">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.constitution"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.customer_id">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.customer_id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.department_code">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.department_code"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.expected_completion_date">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.expected_completion_date"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.facilitytype">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.facilitytype"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.factory_address">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.factory_address"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.movement_registry_folder_id">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.movement_registry_folder_id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.registered_office_address">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.registered_office_address"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.sanctionnature">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.sanctionnature"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.serial_number">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.serial_number"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.status">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.status"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.string_account_number">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.string_account_number"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.string_customer_id">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.string_customer_id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.id">
+      <expression exprStr="actionflow.Inputs.processPackages.loan.id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.object_name">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.object_name"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_civil_work">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.additional_civil_work"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_civil_work_locat">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.additional_civil_work_locat"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_civil_work_value">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.additional_civil_work_value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_plant_and_machin">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.additional_plant_and_machin"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_plant_and_mach_l">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.additional_plant_and_mach_l"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.additional_plant_and_mach_v">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.additional_plant_and_mach_v"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.application_reference_numbe">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.application_reference_numbe"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.assessment_date">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.assessment_date"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.assessment_date__add_plant">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.assessment_date__add_plant"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.assessment_date__civil_work">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.assessment_date__civil_work"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.assessment_date__extng_plnt">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.assessment_date__extng_plnt"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.assessment_date_lnd_and_bdg">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.assessment_date_lnd_and_bdg"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.authorised_capital">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.authorised_capital"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.bangla_bank_circular">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.bangla_bank_circular"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.business_performance_risk">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.business_performance_risk"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.buyers_risk">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.buyers_risk"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.collateral_for_securities">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.collateral_for_securities"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.comment_interpretation">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.comment_interpretation"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_manual">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.credit_manual"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_rating_status">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.credit_rating_status"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_risk_grading_result">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.credit_risk_grading_result"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.credit_risk_score">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.credit_risk_score"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.crg_status">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.crg_status"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.declared_add_plant_mach">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.declared_add_plant_mach"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.declared_building_value">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.declared_building_value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.declared_civil_work_value">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.declared_civil_work_value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.declared_existing_plant_mac">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.declared_existing_plant_mac"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.declared_grand_total_plant">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.declared_grand_total_plant"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.declared_land_value">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.declared_land_value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.declared_sub_total_bldg_civ">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.declared_sub_total_bldg_civ"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.declared_sub_total_plant_ma">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.declared_sub_total_plant_ma"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.documents_and_conveyants_co">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.documents_and_conveyants_co"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.enterprise_size">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.enterprise_size"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.envrr_score">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.envrr_score"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.envrr_status">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.envrr_status"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.establishment_date">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.establishment_date"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_building_value">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.existing_building_value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_land_and_building">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.existing_land_and_building"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_land_value">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.existing_land_value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_location_value">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.existing_location_value"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_operations_perform">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.existing_operations_perform"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_plant_and_machiner">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.existing_plant_and_machiner"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_plant_and_mach_loc">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.existing_plant_and_mach_loc"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_plant_and_mach_val">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.existing_plant_and_mach_val"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.existing_rules_act">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.existing_rules_act"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.financing_requirement_asses">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.financing_requirement_asses"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.fixed_assets">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.fixed_assets"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.freezing_date">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.freezing_date"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.general_background">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.general_background"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.grand_total_building_and_ma">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.grand_total_building_and_ma"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.industry_profile">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.industry_profile"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.industry_risk">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.industry_risk"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.insurance_coverage">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.insurance_coverage"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.loan_collateral_ratio">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.loan_collateral_ratio"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.long_term_rating">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.long_term_rating"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.management">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.management"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.management_risk">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.management_risk"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.mitigates">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.mitigates"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.other_source">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.other_source"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.outlook">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.outlook"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.paid_up_capital">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.paid_up_capital"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.physical_capacity">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.physical_capacity"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.primary_source">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.primary_source"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.rated_by">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.rated_by"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.reference">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.reference"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.reference_date">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.reference_date"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.related_expiry">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.related_expiry"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.related_on">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.related_on"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.result">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.result"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.secondary_source">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.secondary_source"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.sector_code">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.sector_code"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.security_risk">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.security_risk"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.short_term_rating">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.short_term_rating"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.special_conditions_special_">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.special_conditions_special_"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.strength_or_weakness">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.strength_or_weakness"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.string_envrr_score">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.string_envrr_score"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.string_loan_collateral">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.string_loan_collateral"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.subbject">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.subbject"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.subtotal_building_and_civil">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.subtotal_building_and_civil"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.subtotal_plant_and_machiner">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.subtotal_plant_and_machiner"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.suppliers_risk">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.suppliers_risk"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.surveyor_name">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.surveyor_name"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.third_party_information">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.third_party_information"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.through">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.through"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.total_tc_limit_amount">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.total_tc_limit_amount"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.workforce">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.workforce"/>
+    </inputMappings>
+    <inputMappings name="processPackages.proposal.id">
+      <expression exprStr="actionflow.Inputs.processPackages.proposal.id"/>
+    </inputMappings>
+    <inputMappings name="attachments">
+      <expression exprStr="actionflow.Inputs.attachments"/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="actionflow.Inputs.id"/>
+    </inputMappings>
+    <inputMappings name="userName">
+      <expression exprStr="actionflow.steps.usergroup_selection_multi.widgets.username_dropdown_list.value"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/ccs_loan_origination_process.process#//@activities[name='Loan%20Application%20Review']/@taskContract/@dataServiceContracts[name='da_def_repeat_ccs_loan_origination_process_loan_application__1']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_usergroup_selection_multi">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <step href="urn:xcp:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/usergroup_selection_multi.uistep#/"/>
+  </states>
+</actionflow:ActionFlow>

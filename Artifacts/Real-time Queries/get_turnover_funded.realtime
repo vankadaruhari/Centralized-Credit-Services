@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<realtime:RealTimeSearch xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:realtime="http://xcp.emc.com/search/realtime" urn="urn:ccs:com.emc.xcp.artifact.search.realtime:Artifacts/Real-time Queries/get_turnover_funded.realtime" categoryId="com.emc.xcp.artifact.search.realtime" name="get_turnover_funded" label="Get TurnOver Funded Facility Accounts">
+  <datasource categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="get_turnover_funded" label="Get TurnOver Funded Facility Accounts" implCategoryId="com.emc.xcp.artifact.search.realtime">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="input_parent_folders" label="Parent Folders">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="input_proposal_id" label="Proposal ID">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="Result Count">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:ArrayElement" name="Results">
+      <item xsi:type="nsDataserviceContract:StructureElement" name="Items">
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object ID">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="account_number" label="Account Number">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="period_from" label="From">
+          <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="period_to" label="To">
+          <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="opening_balance" label="Opening Balance (Tk.)">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="debit_summation" label="Add : Dr. Summation (Tk.)">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="credit_summation" label="Less: Cr.Summation (Tk.)">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="closing_balance" label="Closing Balance (Tk.)">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="average_balance" label="Average Balance (Tk.)">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="maximum_balance" label="Maximum Balance (Tk.)">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="minimum_balance" label="Minimum Balance (Tk.)">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="account_turnover" label="Turnover in the Account times (Tk.)">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="comments_on_performance" label="Comments On Performance">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_object_type" label="Object type" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+      </item>
+    </outputs>
+    <primaryElement>
+      <dataModel href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+    </primaryElement>
+  </datasource>
+  <inputParameters label="Parent Folders" name="parent_folders">
+    <formInputs xsi:type="realtime:RealTimeStringFormInput" operator="com.emc.xcp.model.common.StringOperator:EQUAL">
+      <contextSelection>
+        <parentRef>
+          <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+        </parentRef>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='i_folder_id']"/>
+      </contextSelection>
+    </formInputs>
+  </inputParameters>
+  <inputParameters label="Proposal ID" name="proposal_id">
+    <formInputs xsi:type="realtime:RealTimeStringFormInput" operator="com.emc.xcp.model.common.StringOperator:EQUAL">
+      <contextSelection>
+        <parentRef>
+          <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+        </parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='proposal_id']"/>
+      </contextSelection>
+    </formInputs>
+  </inputParameters>
+  <columns label="Object ID">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='r_object_id']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Account Number">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='account_number']"/>
+    </contextSelection>
+  </columns>
+  <columns label="From">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='period_from']"/>
+    </contextSelection>
+  </columns>
+  <columns label="To">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='period_to']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Opening Balance (Tk.)">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='opening_balance']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Add : Dr. Summation (Tk.)">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='debit_summation']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Less: Cr.Summation (Tk.)">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='credit_summation']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Closing Balance (Tk.)">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='closing_balance']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Average Balance (Tk.)">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='average_balance']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Maximum Balance (Tk.)">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='maximum_balance']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Minimum Balance (Tk.)">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='minimum_balance']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Turnover in the Account times (Tk.)">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='account_turnover']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Comments On Performance">
+    <contextSelection>
+      <parentRef>
+        <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#//@attributes[name='comments_on_performance']"/>
+    </contextSelection>
+  </columns>
+  <defaultSort ascending="true"/>
+  <dataType xsi:type="nsDatatypes:BusinessObject" href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+  <resultOrientation>
+    <dataRef href="urn:ccs:com.emc.xcp.artifact.bo:Artifacts/Business Objects/turnover_funded_fac.businessobj#/"/>
+  </resultOrientation>
+</realtime:RealTimeSearch>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsJavaService:JavaService xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:nsJavaService="http://xcp.emc.com/javaservice" urn="urn:ccs:com.emc.xcp.artifact.javaservice:Artifacts/Java/exception_memo_serv.javaservice" categoryId="com.emc.xcp.artifact.javaservice" name="exception_memo_serv" label="Exception Memo Service updated" primaryClassName="com.emc.xcp.ext.services.LimitCreationAuthorizationMemoMDService" description="Exception Memo Service updated"/>

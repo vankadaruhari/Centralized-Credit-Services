@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:ccs:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/import_attachment_1.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="import_attachment_1" label="Import Attachments" displayWidth="800" initialState="//@states[id='viewState_import_attachment_1']">
+  <inputs xsi:type="actionflow:ActionFlowElement" name="content_types" repeating="true">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="default_content_type">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="content_formats" repeating="true">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="default_content_format">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="folder_id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_import_attachment_1_imp" label="da_actionflow_import_attachment_1_imp">
+    <inputMappings name="content_id">
+      <expression exprStr="actionflow.steps.import_attachment_1.widgets.fileselector.selectedFileId"/>
+    </inputMappings>
+    <inputMappings name="model">
+      <expression exprStr="actionflow.steps.import_attachment_1.widgets.fragment.Outputs.model"/>
+    </inputMappings>
+    <inputMappings name="folder_id">
+      <expression exprStr="actionflow.Inputs.folder_id"/>
+    </inputMappings>
+    <inputMappings name="r_object_type">
+      <expression exprStr="actionflow.Inputs.default_content_type"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:xcp:com.emc.xcp.artifact.doc:Artifacts/Content/dm_document.content#//@dataActionContracts[name='da_def_importtemplate_dm_document']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_import_attachment_1_imp']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_import_attachment_1_imp']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+    <stepCondition>
+      <expression exprStr="((actionflow.steps.import_attachment_1.widgets.fileselector.totalNumberOfFiles > 0) AND&#xD;&#xA;(actionflow.steps.import_attachment_1.widgets.fileselector.areObjectsReady == true))"/>
+    </stepCondition>
+  </states>
+  <states xsi:type="actionflow:ViewState" id="viewState_import_attachment_1">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <stepCondition>
+      <expression exprStr="false"/>
+    </stepCondition>
+    <step href="urn:ccs:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/import_attachment_1.uistep#/"/>
+  </states>
+  <transitionLabels transition="finish" label="Finish">
+    <labelExpression/>
+  </transitionLabels>
+</actionflow:ActionFlow>
