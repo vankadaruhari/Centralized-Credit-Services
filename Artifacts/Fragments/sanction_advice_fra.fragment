@@ -262,6 +262,9 @@
     <inputMappings name="processVariables.new_object_format">
       <expression exprStr="'msw8'"/>
     </inputMappings>
+    <inputMappings name="processVariables.sanction_advice_object_id">
+      <expression exprStr="sanction_advice.id"/>
+    </inputMappings>
     <contract xsi:type="nsDataserviceContract:DataSourceContract" href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/print_sanction_advi.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='print_sanction_advi_initiate_staless_ds']"/>
   </dataSources>
   <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_def_update_sanction_advice" label="Update Sanction Advice">
@@ -387,6 +390,10 @@
     </eventBasedInvocations>
     <eventBasedInvocations>
       <widgetEvent widgetId="dataservices.da_def_update_sanction_advice_1" eventName="success"/>
+      <conditionTrigger/>
+    </eventBasedInvocations>
+    <eventBasedInvocations>
+      <uiEvent href="urn:ccs:com.emc.xcp.artifact.uievent:Artifacts/UI Events/update_terms_and_co.uievent#/"/>
       <conditionTrigger/>
     </eventBasedInvocations>
   </actionInstanceProperty>

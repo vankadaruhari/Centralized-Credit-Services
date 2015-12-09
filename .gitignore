@@ -1,5 +1,6 @@
+target/
 gen/
-META-INF/
-configuration/
 .generatedresources
 .index
+META-INF/
+configuration/

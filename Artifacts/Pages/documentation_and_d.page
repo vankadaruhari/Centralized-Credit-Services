@@ -44,37 +44,43 @@
       <expression/>
     </inputMappings>
     <inputMappings name="processVariables.case_number">
-      <expression/>
+      <expression exprStr="documentation_and_disbursement_process_branch_branch_manager.processPackages.loan.case_number"/>
     </inputMappings>
     <inputMappings name="processVariables.destination_folder_id">
-      <expression/>
+      <expression exprStr="documentation_and_disbursement_process_branch_branch_manager.processPackages.loan.movement_registry_folder_id"/>
     </inputMappings>
     <inputMappings name="processVariables.division_name">
-      <expression/>
+      <expression exprStr="'Branch'"/>
     </inputMappings>
     <inputMappings name="processVariables.event_data_and_time">
-      <expression/>
+      <expression exprStr="now()"/>
     </inputMappings>
     <inputMappings name="processVariables.event_name">
-      <expression/>
+      <expression exprStr="'Branch Manager'"/>
     </inputMappings>
     <inputMappings name="processVariables.event_status">
-      <expression/>
+      <expression exprStr="'Completed'"/>
     </inputMappings>
     <inputMappings name="processVariables.performer">
-      <expression/>
+      <expression exprStr="Centralized_Credit_Services.user.currentUser"/>
     </inputMappings>
     <inputMappings name="processVariables.reference_number">
       <expression/>
     </inputMappings>
     <inputMappings name="processVariables.role">
-      <expression/>
+      <expression exprStr="'Branch Manager'"/>
     </inputMappings>
     <inputMappings name="processVariables.status">
       <expression/>
     </inputMappings>
     <inputMappings name="processVariables.unit_department">
-      <expression/>
+      <expression exprStr="'General Banking'"/>
+    </inputMappings>
+    <inputMappings name="processPackages.loan.id">
+      <expression exprStr="documentation_and_disbursement_process_branch_branch_manager.processPackages.loan.id"/>
+    </inputMappings>
+    <inputMappings name="processVariables.branch_code">
+      <expression exprStr="documentation_and_disbursement_process_branch_branch_manager.processPackages.loan.branch_code"/>
     </inputMappings>
     <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:ccs:com.emc.ide.artifact.process:Artifacts/Processes/create_movement_registry.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='da_def_invoke_stateless_processcreate_movement_registry_initiate']"/>
   </dataActions>
@@ -213,7 +219,12 @@
   <actionInstanceProperty actionInstance="//@actions[name='hold_task_1']"/>
   <actionInstanceProperty actionInstance="//@dataActions[name='da_def_unhold_currenttask']"/>
   <actionInstanceProperty actionInstance="//@actions[name='send_for_review_app_1']"/>
-  <actionInstanceProperty actionInstance="//@dataActions[name='da_def_invoke_stateless_processcreate_movement_registry_initiate']"/>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_def_invoke_stateless_processcreate_movement_registry_initiate']">
+    <eventBasedInvocations>
+      <widgetEvent widgetId="dataservices.documentation_and_2_1" eventName="success"/>
+      <conditionTrigger/>
+    </eventBasedInvocations>
+  </actionInstanceProperty>
   <actionInstanceProperty actionInstance="//@actions[name='add_show_comments_1']"/>
   <actionInstanceProperty actionInstance="//@actions[name='view_movement_reg_2_1']"/>
   <actionInstanceProperty actionInstance="//@dataActions[name='da_def_invoke_stateless_processno_operation_initiate']"/>
